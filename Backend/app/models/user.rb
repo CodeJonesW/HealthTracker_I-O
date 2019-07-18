@@ -1,6 +1,11 @@
 class User < ApplicationRecord
     has_secure_password
 
+    # added from tutorial for validation
+    # validates :email, :password, presence: true
+    # validates :email, uniqueness: true
+    # validates :password, length: { minimum: 3 }
+
     has_many :goals
     has_many :activities
     has_many :consumptions
