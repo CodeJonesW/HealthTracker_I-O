@@ -14,36 +14,42 @@ class User < ApplicationRecord
     # activity totals
 
     def total_weekly_activities
-        weekly_activities = []
-        self.activities.each do |activity|
-            if (activity.created_at.strftime('%U') == Time.now.strftime('%U') && activity.created_at.year == Time.now.year)
-                weekly_activities << activity
-            end
+        self.activities.select do |activity|
+            activity.created_at.strftime('%U') == Time.now.strftime('%U') && activity.created_at.year == Time.now.year
         end
-        return weekly_activities.length
     end
 
 
     def total_monthly_activities
-        monthly_activities = []
-        self.activities.each do |activity|
-            if (activity.created_at.month == Time.now.month && activity.created_at.year == Time.now.year)
-                monthly_activities << activity
-            end
+        self.activities.select do |activity|
+            activity.created_at.month == Time.now.month && activity.created_at.year == Time.now.year
         end
-        return monthly_activities.length
     end
 
     def total_yearly_activities
-        yearly_activities = []
-        self.activities.each do |activity|
-            if (activity.created_at.year == Time.now.year)
-                yearly_activities << activity
-            end
+        self.activities.select do |activity|
+            activity.created_at.year == Time.now.year
         end
-        return yearly_activities.length
     end
 
+
+    # activity types
+
+    def run_activities
+        self.activities.select { |activity| activity.category == "run" }
+    end
+
+    def walk_activities
+        self.activities.select { |activity| activity.category == "walk" }
+    end
+
+    def swim_activities
+        self.activities.select { |activity| activity.category == "swim" }
+    end
+
+    def bike_activities
+        self.activities.select { |activity| activity.category == "bike" }
+    end
 
     # calories burned
 
@@ -102,7 +108,7 @@ class User < ApplicationRecord
     end
 
 
-    def WeeklyCaloriesIntaken
+    def weekly_calorie_intake
         weekly_calories_intaken = 0
           self.consumption.each do |activity|
             if (consumption.created_at.strftime('%U') == Time.now.strftime('%U') && consumption.created_at.year == Time.now.year)
@@ -135,24 +141,14 @@ class User < ApplicationRecord
     # goal statistics
 
     def successful_goals
-        successfully_completed_goals = []
-        self.goals.each do |goal|
-            if (goal.completed == true)
-                successfully_completed_goals << goal
-            end
-        end
-        return successfully_completed_goals
+        self.goals.select {|goal| goal.completed == true }
     end
 
     def goals_to_complete
-        pending_goals = []
-        self.goals.each do |goal|
-            if (goal.completed == false)
-                pending_goals << goal
-            end
-        end
-        return pending_goals
+        self.goals.select { |goal| goal.completed == false }
     end
+
+
 
 
 

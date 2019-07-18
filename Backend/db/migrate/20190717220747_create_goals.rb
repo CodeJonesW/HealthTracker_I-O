@@ -5,6 +5,7 @@ class CreateGoals < ActiveRecord::Migration[5.2]
       t.boolean :completed
       t.integer :calories_to_burn
       t.string :distance
+      t.string :category
 
       t.timestamps
     end
