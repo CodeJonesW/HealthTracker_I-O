@@ -13,7 +13,7 @@ User.create(:username => "SeeRoseCode", password: '123', :name => "RoseLake", :a
 User.create(:username => "dekadekadeka", password: '123', :name => "Deka", :age => 31, :weight => 135, :height => "5'5", :email => "dekadekadeka@blah.com")
 # User.create(:username => "evansallgucci", :name => "Evan Kim", :age => 24, :weight => 150, :height => "5'4", :email => "evankim@blah.com")
 # User.create(:username => "Jaedaboss", :name => "Jae Park", :age => 27, :weight => 160, :height => "5'8", :email => "jaepark@blah.com")
-# User.create(:username => "DharaTheCodeWizard", :name => "dhara", :age => 27, :weight => 120, :height => "5'4", :email => "dhara@blah.com")
+# User.create(:username => "DharaTheSilentCodeAssassin", :name => "dhara", :age => 27, :weight => 120, :height => "5'4", :email => "dhara@blah.com")
 # User.create(:username => "RomBombDotCom", :name => "Romy Magsoudhi", :age => 21, :weight => 180, :height => "5'10", :email => "rombomb@blah.com")
 # User.create(:username => "CodeJonesW", :name => "Will Jones", :age => 27, :weight => 180, :height => "6'4", :email => "willjones@blah.com")
 # User.create(:username => "MasterHan", :name => "Han Xu", :age => 31, :weight => 150, :height => "5'7", :email => "masterxu@blah.com")

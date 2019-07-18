@@ -19,7 +19,7 @@ Bundler.require(*Rails.groups)
 
 
 
-# config.middleware.use ActionDispatch::Cookies
+
 
 module HealthTracker
   class Application < Rails::Application
