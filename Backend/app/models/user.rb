@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_secure_password
+
     has_many :goals
     has_many :activities
     has_many :consumptions
