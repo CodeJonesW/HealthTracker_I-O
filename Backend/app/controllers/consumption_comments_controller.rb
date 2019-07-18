@@ -1,0 +1,2 @@
+class ConsumptionCommentsController < ApplicationController
+end
