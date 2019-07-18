@@ -141,6 +141,7 @@ class User < ApplicationRecord
                 successfully_completed_goals << goal
             end
         end
+        return successfully_completed_goals
     end
 
     def goals_to_complete
@@ -150,7 +151,10 @@ class User < ApplicationRecord
                 pending_goals << goal
             end
         end
+        return pending_goals
     end
 
-    
+
+
+
 end
