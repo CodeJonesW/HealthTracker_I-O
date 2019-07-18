@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   resources :goals
   resources :consumptions
   resources :activities
-  resources :users
+  resources :users, only: [:create]
 
-  post '/login' => 'sessions#create'
+  post '/login' => 'auth#create'
+  get '/profile', to: 'users#show'
 
-  get '/signup' => 'users#new'
-  post '/users' => 'users#create'
 
 end

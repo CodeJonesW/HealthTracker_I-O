@@ -1,10 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
 
-    # added from tutorial for validation
-    # validates :email, :password, presence: true
-    # validates :email, uniqueness: true
-    # validates :password, length: { minimum: 3 }
+
+    validates :email, :password, presence: true
+    validates :email, uniqueness: true
+    validates :password, length: { minimum: 3 }
 
     has_many :goals
     has_many :activities
@@ -158,19 +158,19 @@ class User < ApplicationRecord
     # net calorie counting
 
     def net_daily_calories
-        return self.daily_calories_intaken - self.daily_calories_burned
+        return self.daily_calories_consumed - self.daily_calories_burned
     end
 
     def net_weekly_calories
-        return self.weekly_calorie_intake - self.weekly_calories_burned
+        return self.weekly_calorie_consumed - self.weekly_calories_burned
     end
 
     def net_monthly_calories
-        return self.monthly_calories_intaken - self.monthly_calories_burned
+        return self.monthly_calories_consumed - self.monthly_calories_burned
     end
 
     def net_yearly_calories
-        return self.yearly_calories_intaken - self.yearly_calories_burned
+        return self.yearly_calories_consumed - self.yearly_calories_burned
     end
 
 

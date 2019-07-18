@@ -5,24 +5,15 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-# Rails.application.config.middleware.insert_before 0, Rack::Cors do
-#   allow do
-#     origins 'example.com'
-#
-#     resource '*',
-#       headers: :any,
-#       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-#   end
-# end
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins '*'
+#   when deploying to heroku make sure to change ^ * this to your web address to limit get requests. Check JWT auth lab for futher information
 
-# tutorial
-# Rails.application.config.middleware.insert_before 0, Rack::Cors do
-#     allow do
-#       origins 'http://localhost:4000' # your client's domain
-  
-#       resource '*',
-#       headers: :any,
-#       methods: [:get, :post, :put, :patch, :delete, :options, :head]
-#     end
-#   end
-  
+    resource '*',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+  end
+end
+
+
