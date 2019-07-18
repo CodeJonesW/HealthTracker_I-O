@@ -132,5 +132,25 @@ class User < ApplicationRecord
         return yearly_calories_intaken
     end
 
+    # goal statistics
 
+    def successful_goals
+        successfully_completed_goals = []
+        self.goals.each do |goal|
+            if (goal.completed == true)
+                successfully_completed_goals << goal
+            end
+        end
+    end
+
+    def goals_to_complete
+        pending_goals = []
+        self.goals.each do |goal|
+            if (goal.completed == false)
+                pending_goals << goal
+            end
+        end
+    end
+
+    
 end
