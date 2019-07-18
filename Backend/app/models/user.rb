@@ -95,9 +95,9 @@ class User < ApplicationRecord
         return yearly_calories_burned
     end
 
-    # calories intaken
+    # calories consumed
 
-    def daily_calories_intaken
+    def daily_calories_consumed
         daily_total_calories_intaken = 0
           self.consumptions.each do |consumption|
             if (consumption.created_at.today?)
@@ -108,7 +108,7 @@ class User < ApplicationRecord
     end
 
 
-    def weekly_calorie_intake
+    def weekly_calorie_consumed
         weekly_calories_intaken = 0
           self.consumption.each do |activity|
             if (consumption.created_at.strftime('%U') == Time.now.strftime('%U') && consumption.created_at.year == Time.now.year)
@@ -118,7 +118,7 @@ class User < ApplicationRecord
         return weekly_calories_intaken
     end
 
-    def monthly_calories_intaken
+    def monthly_calories_consumed
         monthly_calories_intaken = 0
           self.consumptions.each do |consumption|
             if (consumption.created_at.month === Time.now.month && consumption.created_at.year == Time.now.year)
@@ -128,7 +128,7 @@ class User < ApplicationRecord
         return monthly_calories_intaken
     end
 
-    def yearly_calories_intaken
+    def yearly_calories_consumed
         yearly_calories_intaken = 0
           self.consumptions.each do |consumption|
             if (consumption.created_at.year === Time.now.year)
