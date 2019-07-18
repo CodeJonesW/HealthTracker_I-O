@@ -148,6 +148,14 @@ class User < ApplicationRecord
         self.goals.select { |goal| goal.completed == false }
     end
 
+    # net calorie counting
+
+    def net_daily_calories
+        return self.daily_calories_intaken - self.daily_calories_burned
+    end
+
+    
+
 
 
 
