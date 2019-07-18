@@ -173,7 +173,14 @@ class User < ApplicationRecord
         return self.yearly_calories_consumed - self.yearly_calories_burned
     end
 
+    #base metabolic rate
+    # Harris–Benedict equation
+    #66 + (6.2 x weight) + (12.7 x height) - (6.76 x age) = BMR for men
+    #655.1 + (4.35 x weight) + (4.7 x height) - (4.7 x age) = BMR for women
 
+    def basal_metabolic_rate
+        return self.gender == "male" ? 66 + ( 6.2 * self.weight ) + ( 12.7 * (self.height).to_f ) - ( 6.76 * self.age) : 655.1 + ( 6.2 * self.weight ) + ( 12.7 * (self.height).to_f ) - ( 6.76 * self.age)
+    end
 
 
 

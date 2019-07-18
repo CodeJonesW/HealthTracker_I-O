@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :goals
   resources :consumptions
   resources :activities
-  resources :users, only: [:create]
+  resources :users, only: [:create, :index, :show]
 
   post '/login' => 'auth#create'
   get '/profile', to: 'users#show'
