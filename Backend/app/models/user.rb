@@ -154,7 +154,17 @@ class User < ApplicationRecord
         return self.daily_calories_intaken - self.daily_calories_burned
     end
 
-    
+    def net_weekly_calories
+        return self.weekly_calorie_intake - self.weekly_calories_burned
+    end
+
+    def net_monthly_calories
+        return self.monthly_calories_intaken - self.monthly_calories_burned
+    end
+
+    def net_yearly_calories
+        return self.yearly_calories_intaken - self.yearly_calories_burned
+    end
 
 
 
