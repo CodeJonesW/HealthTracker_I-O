@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
       render json: @user
+    else
+      render json: {status: "error", code: 404, message: "User does not exist"}
     end
 
     def create
@@ -20,6 +22,12 @@ class UsersController < ApplicationController
         else
           render json: { error: 'failed to create user' }, status: :not_acceptable
         end
+    end
+
+    def destroy
+      @user = User.destroy(params[:id])
+    else
+        render json: {status: "error", code: 404, message: "follow does not exist"}
     end
 
     def profile
