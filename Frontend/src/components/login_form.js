@@ -1,4 +1,5 @@
 import React from "react";
+// import { Redirect } from 'react-router-dom'
 import { Form, FormInput, FormGroup } from "shards-react";
 
 export default class FormExample extends React.Component {
@@ -24,13 +25,13 @@ export default class FormExample extends React.Component {
 		  		localStorage.setItem('jwt_token', res.jwt)
 		  		localStorage.setItem('healthTracker_Id', res.user.id)
 		  		// this.setState({ redirect: <Redirect to='/' /> })
-                  // this.props.logUser(true)
+                //   this.props.logUser(true)
                   console.log(localStorage)
 		  	}
 		//   	else if(res.errors)
 		//   		this.setState({ errors: res.errors })
 		  })
-		// 	e.target.password.value = ''
+		// 	e.target.reset
         }
         
 
