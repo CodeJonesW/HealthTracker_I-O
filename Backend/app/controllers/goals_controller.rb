@@ -13,7 +13,7 @@ class GoalsController < ApplicationController
         begin @goal = Goal.find(params[:id])
             render json: @goal
         rescue
-            render json: {status: "error", code: 404, message: "goal does not exist"}
+            render json: {status: "error", code: 404, message: "Goal does not exist"}
         end
     end
 

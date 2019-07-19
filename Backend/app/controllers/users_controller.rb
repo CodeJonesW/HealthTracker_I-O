@@ -8,10 +8,11 @@ class UsersController < ApplicationController
     end
 
     def show
-      @user = User.find(params[:id])
-      render json: @user
-    else
-      render json: {status: "error", code: 404, message: "User does not exist"}
+      begin @user = User.find(params[:id])
+        render json: @user
+      rescue
+        render json: {status: "error", code: 404, message: "User does not exist"}
+      end
     end
 
     def create
