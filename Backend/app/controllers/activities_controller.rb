@@ -12,17 +12,19 @@ class ActivitiesController < ApplicationController
     
     def show
         @activity = Activity.find(params[:id])
-        render json: @activity
-    else
-        render json: {status: "error", code: 404, message: "Activity does not exist"}
+            render json: @activity
+        # else
+        #     render json: {status: "error", code: 404, message: "Activity does not exist"}
     end
+end
 
 
     def destroy
         @activity = Activity.destroy(params[:id])
-    else
-        render json: {status: "error", code: 404, message: "Activity does not exist"}
+    # else
+    #     render json: {status: "error", code: 404, message: "Activity does not exist"}
     end
+end
 
 
     private

@@ -12,14 +12,14 @@ class GoalsController < ApplicationController
     def show
         @goal = Goal.find(params[:id])
         render json: @goal
-    else
-        render json: {status: "error", code: 404, message: "goal does not exist"}
+    # else
+    #     render json: {status: "error", code: 404, message: "goal does not exist"}
     end
 
     def destroy
         @goal = Goal.destroy(params[:id])
-    else
-        render json: {status: "error", code: 404, message: "goal does not exist"}
+    # else
+    #     render json: {status: "error", code: 404, message: "goal does not exist"}
     end
 
 

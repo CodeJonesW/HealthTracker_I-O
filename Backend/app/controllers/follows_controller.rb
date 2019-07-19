@@ -12,14 +12,14 @@ class FollowsController < ApplicationController
     def show
         @follow = Follow.find(params[:id])
         render json: @follow
-    else
-        render json: {status: "error", code: 404, message: "follow does not exist"}
+    # else
+    #     render json: {status: "error", code: 404, message: "follow does not exist"}
     end
 
     def destroy
         @follow = Follow.destroy(params[:id])
-    else
-        render json: {status: "error", code: 404, message: "follow does not exist"}
+    # else
+    #     render json: {status: "error", code: 404, message: "follow does not exist"}
     end
 
 
