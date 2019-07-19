@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
     def index
         @goals = Goal.all
-        render json: @follows
+        render json: @goals
     end
 
     def create
