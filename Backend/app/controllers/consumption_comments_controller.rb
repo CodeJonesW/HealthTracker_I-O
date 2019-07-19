@@ -18,8 +18,6 @@ class ConsumptionCommentsController < ApplicationController
         @activity_comment = ActivityComment.destroy(params[:id])
     end
 
-
-
     private
 
 	def cc_params
