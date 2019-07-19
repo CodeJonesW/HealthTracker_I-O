@@ -11,16 +11,15 @@ class ActivityCommentsController < ApplicationController
     end
 
     def show
-        @activity_comment = ActivityComment.find(params[:id])
-        render json: @activity_comment
-    # else
-    #     render json: {status: "error", code: 404, message: "Activity Comment does not exist"}
+        begin @activity_comment = ActivityComment.find(params[:id])
+            render json: @activity_comment
+        rescue
+            render json: {status: "error", code: 404, message: "Activity Comment does not exist"}
+        end
     end
 
     def destroy
         @activity_comment = ActivityComment.destroy(params[:id])
-    # else
-    #     render json: {status: "error", code: 404, message: "Activity Comment does not exist"}
     end
 
 

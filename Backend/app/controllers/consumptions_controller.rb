@@ -11,16 +11,15 @@ class ConsumptionsController < ApplicationController
     end
 
     def show
-        @consumption = Consumption.find(params[:id])
-        render json: @consumption
-    # else
-    #     render json: {status: "error", code: 404, message: "consumption does not exist"}
+        begin @consumption = Consumption.find(params[:id])
+            render json: @consumption
+        rescue
+            render json: {status: "error", code: 404, message: "Consumption does not exist"}
+        end
     end
 
     def destroy
         @consumption = Consumption.destroy(params[:id])
-    # else
-    #     render json: {status: "error", code: 404, message: "consumption does not exist"}
     end
 
 
