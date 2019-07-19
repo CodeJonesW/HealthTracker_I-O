@@ -16,7 +16,6 @@ class ActivitiesController < ApplicationController
         # else
         #     render json: {status: "error", code: 404, message: "Activity does not exist"}
     end
-end
 
 
     def destroy
@@ -24,7 +23,6 @@ end
     # else
     #     render json: {status: "error", code: 404, message: "Activity does not exist"}
     end
-end
 
 
     private

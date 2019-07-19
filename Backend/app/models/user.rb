@@ -174,6 +174,7 @@ class User < ApplicationRecord
     end
 
     #base metabolic rate
+    # what user needs to have for basic function
     # Harris–Benedict equation
     #66 + (6.2 x weight) + (12.7 x height) - (6.76 x age) = BMR for men
     #655.1 + (4.35 x weight) + (4.7 x height) - (4.7 x age) = BMR for women
