@@ -13,7 +13,7 @@ User.create(:username => "SeeRoseCode", :name => "RoseLake", :age => 31, :weight
 User.create(:username => "dekadekadeka", :name => "Deka", :age => 31, :weight => 135, :height => "5'5", :email => "dekadekadeka@blah.com", password: '123', :gender => 'female')
 User.create(:username => "evansallgucci", :name => "Evan Kim", :age => 24, :weight => 150, :height => "5'4", :email => "evankim@blah.com", password: '123', :gender => 'male')
 User.create(:username => "Jaedaboss", :name => "Jae Park", :age => 30, :weight => 187, :height => "5'8", :email => "jaepark@blah.com", password: '123', :gender => 'male')
-User.create(:username => "DharaTheSilentCodeAssassin", :name => "dhara", :age => 27, :weight => 120, :height => "5'4", :email => "dhara@blah.com", password: '123', :gender => 'female')
+User.create(:username => "Dhara!", :name => "dhara", :age => 27, :weight => 120, :height => "5'4", :email => "dhara@blah.com", password: '123', :gender => 'female')
 User.create(:username => "RomBombDotCom", :name => "Romy Magsoudhi", :age => 21, :weight => 180, :height => "5'10", :email => "rombomb@blah.com", password: '123', :gender => 'male')
 User.create(:username => "CodeJonesW", :name => "Will Jones", :age => 27, :weight => 180, :height => "6'4", :email => "willjones@blah.com", password: '123', :gender => 'male')
 User.create(:username => "MasterHan", :name => "Han Xu", :age => 31, :weight => 150, :height => "5'7", :email => "masterxu@blah.com", password: '123', :gender => 'male')
