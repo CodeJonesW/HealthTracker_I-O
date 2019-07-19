@@ -1,12 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import './components/navbar'
+import Navbar from './components/navbar'
+import Login from './components/login'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "shards-ui/dist/css/shards.min.css"
+
 
 function App() {
   return (
     <div className="App">
-      <navbar />
+      <Navbar />
+      <Login/>
     </div>
   );
 }
