@@ -8,8 +8,8 @@ class ActivityContainer extends React.Component {
         return ( 
             <div className="activityContainer">
             <h4>Activities</h4>
-            {this.props.userActivities ? this.props.userActivities.map(activity => 
-                <p>Type: {activity.category}, Calories Burned:{activity.calories_burned}, Distance: {activity.distance}</p>
+                {this.props.userActivities ? this.props.userActivities.map(activity => 
+                    <p>Type: {activity.category}, Calories Burned:{activity.calories_burned}, Distance: {activity.distance}</p>
                 ): null}
             </div>
          );
