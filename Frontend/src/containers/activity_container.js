@@ -4,9 +4,14 @@ import { connect } from 'react-redux'
 class ActivityContainer extends React.Component {
 
     render() { 
-        console.log(this.props.activities)
+        console.log(this.props.userActivities)
         return ( 
-            <h1>{this.props.activities}</h1>
+            <div className="activityContainer">
+            <h4>Activities</h4>
+            {this.props.userActivities ? this.props.userActivities.map(activity => 
+                <p>Type: {activity.category}, Calories Burned:{activity.calories_burned}, Distance: {activity.distance}</p>
+                ): null}
+            </div>
          );
     }
 }
@@ -14,10 +19,7 @@ class ActivityContainer extends React.Component {
 
 
 let mapStateToProps = (state) => {
-    return { activities: state.activity.activities}
+    return { userActivities: state.user.userInfo.activities}
 }
-
-// let connectorFunction = connect(mapStateToProps)
-// let connectedActivityContainer = connectorFunction(ActivityContainer)
 
 export default connect(mapStateToProps)(ActivityContainer)
