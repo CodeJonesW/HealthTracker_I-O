@@ -1,8 +1,9 @@
 import React from "react";
 // import { Redirect } from 'react-router-dom'
 import { Form, FormInput, FormGroup } from "shards-react";
+import { connect } from 'react-redux'
 
-export default class FormExample extends React.Component {
+class LoginForm extends React.Component {
 
     handleSignIn = (e) => {
         e.preventDefault()
@@ -22,11 +23,12 @@ export default class FormExample extends React.Component {
           .then(res => res.json())
 		  .then(res => {
 		  	if (res.jwt) {
-		  		localStorage.setItem('jwt_token', res.jwt)
-		  		localStorage.setItem('healthTracker_Id', res.user.id)
+                  localStorage.setItem('jwt_token', res.jwt)
+                  this.props.dispatch({type: "UPDATE_USER", user: res.user})
+		  		// localStorage.setItem('healthTracker_Id', res.user.id)
 		  		// this.setState({ redirect: <Redirect to='/' /> })
                 //   this.props.logUser(true)
-                  console.log(localStorage)
+                //   console.log(localStorage)
 		  	}
 		//   	else if(res.errors)
 		//   		this.setState({ errors: res.errors })
@@ -53,3 +55,9 @@ render() {
         );
     }
 }
+
+// let mapStateToProps = (state) => {
+//     return { user: state.activity.activities}
+// }
+
+export default connect()(LoginForm)

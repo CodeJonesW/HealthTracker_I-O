@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     def show
       begin @user = User.find(params[:id])
-        render json: @user
+        render json: UserSerializer.new(@user)
       rescue
         render json: {status: "error", code: 404, message: "User does not exist"}
       end

@@ -5,7 +5,7 @@ import activityReducer from './activity'
 import activityCommentReducer from './activity_comment'
 import consumptionCommentReducer from './consumption_comment'
 import followReducer from './follow'
-
+import UserReducer from './user'
 import { combineReducers } from 'redux';
 
 export default combineReducers({
@@ -15,5 +15,6 @@ export default combineReducers({
     activity_comment: activityCommentReducer,
     consumption_comment: consumptionCommentReducer,
     follow: followReducer,
+    user: UserReducer
 
 })

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :index, :show]
 
   post '/login' => 'auth#create'
-  get '/profile', to: 'users#show'
-
-
+  get '/profile' => 'users#show'
+  get '/current_user' => 'auth#show'
 end
