@@ -53,7 +53,7 @@ export default class NavExample extends React.Component {
   render() {
     return (
       <Navbar type="dark" theme="primary" expand="md">
-        <NavbarBrand href="#">Shards React</NavbarBrand>
+        <NavbarBrand href="#">Health Tracker I/O</NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar} />
 
         <Collapse open={this.state.collapseOpen} navbar>
