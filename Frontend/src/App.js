@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { Route, Switch, Redirect } from "react-router-dom";
 import Profile from './components/profile'
 import ActivitiesPage from './components/activities_page'
+import GoalsPage from './components/goals_page'
 
 
 class App extends React.Component{
@@ -38,6 +39,7 @@ class App extends React.Component{
           <Route exact path="/profile" render={()=> localStorage.jwt_token ? <Profile/> : <Redirect to='/' /> }/>
           <Route exact path="/" render={()=> localStorage.jwt_token ? <Redirect to='/profile' /> : <AccountContainer/> } />
           <Route exact path='/activities' render={()=> <ActivitiesPage/> }/>
+          <Route exact path='/goals' render={()=> <GoalsPage/> }/>
         </Switch>
       </div>
     );

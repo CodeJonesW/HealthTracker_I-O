@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import { Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux'
 
-class ActivityTypeChart extends Component {
+class GoalsChart extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             data: {
-                labels: ['run','swim','bike','walk'],
+                labels: [1,2,3,4,5,6],
                 datasets: [
                     {
-                        label: "Activity Type",
+                        label: "Calories to Burn",
                         backgroundColor: "rgba(255, 0, 0, 0.8)",
                         // data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.calories_burned): null
-                        data: ['3', '4', '1', '9']
+                        data: [200, 300, 50, 200, 110, 170]
                     },
-                    // {
-                    //     label: "Activity Distance",
-                    //     backgroundColor: "rgba(0,128,0, 0.8)",
-                    //     data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.distance): null
-                    //     data: [12, 30, 5, 7, 9, 15]
-                    // }
+                    {
+                        label: "Goal Distance",
+                        backgroundColor: "rgba(0,128,0, 0.8)",
+                        // data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.distance): null
+                        data: [12, 30, 5, 7, 9, 15]
+                    }
                 ]
             }
         }
@@ -40,7 +40,7 @@ class ActivityTypeChart extends Component {
         if (data.datasets) {
             let colors = ["rgba (255, 0, 255, 0.75)", "rgba (0, 255, 0, 0.75)" ]
             data.datasets.forEach((set, i) => {
-                set.backgroundColor = 'blue';
+                set.backgroundColor = this.setGradientColor(canvas, colors[i]);
                 set.borderColor = "white";
                 set.borderWidtth = 2;
             })
@@ -50,26 +50,21 @@ class ActivityTypeChart extends Component {
     }
 
     render() { 
-
-        
         return ( 
             <div style={{position: "relative", width: 600, height: 550}}>
-                <h4>Activity Types</h4>
-                <Doughnut
+                <h4>Your Goals</h4>
+                <Bar
                     options={{
-                            responsive: true,
-                            rotation: -0.5,
-                            animateRotate: true,
-                            cutoutPercentage: 50
+                            responsive: true
                         }}
-                    data={this.getChartData}
+                    data={this.state.data}
                 />
             </div>
         );
     }
 }
 let mapStateToProps = (state) => {
-    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo}
+    return { userGoals: state.user.userInfo.goals, user: state.user.userInfo}
 }
 
-export default connect(mapStateToProps)(ActivityTypeChart)
+export default connect(mapStateToProps)(GoalsChart)

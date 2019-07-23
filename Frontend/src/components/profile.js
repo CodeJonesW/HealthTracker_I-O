@@ -22,7 +22,7 @@ class Profile extends React.Component {
                 
                 <ButtonGroup vertical>
                     <NavLink className="btn btn-primary" to='/activities'> Activities</NavLink>
-                    <Button>Goals</Button>
+                    <NavLink className="btn btn-primary" to='/goals'> Goals</NavLink>
                     <Button>Consumptions</Button>
                 </ButtonGroup>
             </div>

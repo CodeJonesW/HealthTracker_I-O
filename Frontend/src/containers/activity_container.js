@@ -6,8 +6,8 @@ class ActivityContainer extends React.Component {
 
 
     render() { 
-        console.log(this.props.userActivities)
-        return ( 
+        // console.log(this.props.userActivities)
+        return (
             <div className="activityContainer">
             <h4>{this.props.user.name}'s Activities</h4>
                 {/* {this.props.userActivities ? this.props.userActivities.map(activity => 

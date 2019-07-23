@@ -53,7 +53,7 @@ export default class NavExample extends React.Component {
   render() {
     return (
       <Navbar type="dark" theme="primary" expand="md">
-        <NavbarBrand href="#">Health Tracker I/O</NavbarBrand>
+        <NavbarBrand href="/profile">Health Tracker I/O</NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar} />
 
         <Collapse open={this.state.collapseOpen} navbar>
@@ -68,7 +68,12 @@ export default class NavExample extends React.Component {
                 Activities
               </NavLink>
             </NavItem>
-            <Dropdown
+            <NavItem>
+              <NavLink href="/goals">
+                Goals
+              </NavLink>
+            </NavItem>
+            {/* <Dropdown
               open={this.state.dropdownOpen}
               toggle={this.toggleDropdown}
             >
@@ -80,7 +85,7 @@ export default class NavExample extends React.Component {
                 <DropdownItem>Another action</DropdownItem>
                 <DropdownItem>Something else here</DropdownItem>
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
           </Nav>
 
           <Nav navbar className="ml-auto">
