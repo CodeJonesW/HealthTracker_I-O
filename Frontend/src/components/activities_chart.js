@@ -8,32 +8,32 @@ class ActivitiesChart extends Component {
 
         this.state = {
             data: {
-                labels: [1,2],
+                labels: [1,2,3,4,5,6],
                 datasets: [
                     {
                         label: "Calories Burned",
                         backgroundColor: "rgba (255, 0, 255, 0.75)",
                         // data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.calories_burned): null
-                        data: [200, 300]
+                        data: [1200, 3000, 500, 600, 1100, 1700]
                     },
                     {
                         label: "Activity Distance",
-                        backgroundColor: "rgba (255, 0, 255, 0.75)",
+                        backgroundColor: "rgba (0, 0, 255, 0.75)",
                         // data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.distance): null
-                        data: [2, 3]
+                        data: [12, 30, 5, 7, 9, 15]
                     }
                 ]
             }
         }
     }
 
-    setGradientColor = (canvas, color) => {
-        const ctx = canvas.getContext('2d')
-        const gradient = ctx.createLinearGradient(0, 0, 600, 550);
-        // gradient.addColorStop(0, color);
-        // gradient.addColorStop(0.95, "rgba (133, 122, 144, 0.5)");
-        return gradient
-    }
+    // setGradientColor = (canvas, color) => {
+    //     const ctx = canvas.getContext('2d')
+    //     const gradient = ctx.createLinearGradient(0, 0, 600, 550);
+    //     gradient.addColorStop(0, color);
+    //     gradient.addColorStop(0.95, "rgba (133, 122, 144, 0.5)");
+    //     return gradient
+    // }
     
     getChartData = canvas => {
         const data = this.state.data
@@ -57,7 +57,7 @@ class ActivitiesChart extends Component {
                     options={{
                             responsive: true
                         }}
-                    data={this.getChartData}
+                    data={this.state.data}
                 />
             </div>
         );
