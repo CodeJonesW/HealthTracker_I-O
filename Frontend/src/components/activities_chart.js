@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux'
 
 class ActivitiesChart extends Component {
@@ -12,13 +12,13 @@ class ActivitiesChart extends Component {
                 datasets: [
                     {
                         label: "Calories Burned",
-                        backgroundColor: "rgba (255, 0, 255, 0.75)",
+                        backgroundColor: "rgba(255, 0, 0, 0.8)",
                         // data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.calories_burned): null
-                        data: [1200, 3000, 500, 600, 1100, 1700]
+                        data: [200, 300, 50, 200, 110, 170]
                     },
                     {
                         label: "Activity Distance",
-                        backgroundColor: "rgba (0, 0, 255, 0.75)",
+                        backgroundColor: "rgba(0,128,0, 0.8)",
                         // data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.distance): null
                         data: [12, 30, 5, 7, 9, 15]
                     }
@@ -53,7 +53,7 @@ class ActivitiesChart extends Component {
         return ( 
             <div style={{position: "relative", width: 600, height: 550}}>
                 <h4>Activites</h4>
-                <Line
+                <Bar
                     options={{
                             responsive: true
                         }}
