@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
-
+import ActivitiesChart from '../components/activities_chart'
 class ActivityContainer extends React.Component {
+
 
     render() { 
         console.log(this.props.userActivities)
@@ -11,6 +12,7 @@ class ActivityContainer extends React.Component {
                 {this.props.userActivities ? this.props.userActivities.map(activity => 
                     <p>Type: {activity.category}, Calories Burned:{activity.calories_burned}, Distance: {activity.distance}</p>
                 ): null}
+                <ActivitiesChart/>
             </div>
          );
     }

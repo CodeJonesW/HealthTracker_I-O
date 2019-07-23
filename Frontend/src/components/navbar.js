@@ -59,13 +59,13 @@ export default class NavExample extends React.Component {
         <Collapse open={this.state.collapseOpen} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink active href="#">
-                Active
+              <NavLink active href="/profile">
+                Profile
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#" disabled>
-                Disabled
+              <NavLink href="/activities">
+                Activities
               </NavLink>
             </NavItem>
             <Dropdown
