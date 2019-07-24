@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import ConsumptionsChart from '../components/consumptions_chart'
-import { Fade, Button, ButtonGroup } from "shards-react";
+import { Button, ButtonGroup } from "shards-react";
 import { NavLink } from "react-router-dom"
 
 
@@ -18,9 +18,6 @@ class ConsumptionsContainer extends React.Component {
                             <NavLink className="btn btn-primary" to='/createconsumption'> Edit Consumption</NavLink>
                             <Button className="mb-2">Delete Consumption</Button>
                     </ButtonGroup>              
-                {/* {this.props.userConsumptions ? this.props.userConsumptions.map(consumption => 
-                    <p> {consumption.category} </p>
-                ): null} */}
                 <ConsumptionsChart/>
             </div>
          );

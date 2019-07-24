@@ -9,9 +9,6 @@ class GoalContainer extends React.Component {
         return ( 
             <div className="activityContainer">
             <h4>Your Goals</h4>
-                {this.props.userGoals ? this.props.userGoals.map(goal => 
-                    <p>{goal.id}: Status: {goal.completed ? 'Complete!': 'Incomplete!'}</p>
-                ): null}
                 <GoalsChart/>
             </div>
          );

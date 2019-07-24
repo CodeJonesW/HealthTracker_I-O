@@ -50,7 +50,7 @@ class ConsumptionsChart extends Component {
                             responsive: true
                         }}
                     data={{
-                        labels: [1,2,3,4,5,6],
+                        labels: this.props.userConsumptions.map(consumption => consumption.category),
                         datasets: barDataSets
                     }}
                 />}

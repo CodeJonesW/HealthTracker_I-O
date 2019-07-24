@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 import { connect } from 'react-redux'
-import { ButtonGroup } from "shards-react";
-import { NavLink } from "react-router-dom"
+import { ButtonGroup, Button } from "shards-react";
 
 class NetCaloriesChart extends Component {
     state = {
@@ -44,7 +43,8 @@ class NetCaloriesChart extends Component {
 
         return ( 
             <div>  
-                <div style={{position: "absolute", width: 500, height: 550, top: '100px', left: '300px'}}>
+                <div style={{position: "absolute", top: '90px', left: '500px', width: 500, height: 550}}>
+                    
                     { this.props.userNetCalories &&
                     <Line
                         options={{
@@ -57,10 +57,10 @@ class NetCaloriesChart extends Component {
                     />}
                 </div>
                 
-                <ButtonGroup vertical style={{position: "absolute", top: '150px', left: '820px'}} className="profileButtonGroup">
-                    <NavLink className="btn btn-primary" > Net Daily</NavLink>
-                    <NavLink className="btn btn-primary" > Net Monthly</NavLink>
-                    <NavLink className="btn btn-primary" > Net Yearly</NavLink>                
+                <ButtonGroup vertical style={{position: "absolute", top:'40px', left: '1100px', margin: '3em'}} className="profileButtonGroup">
+                    <Button onClick={console.log(this.props.userNetCalories)} className="btn btn-primary" > Net Daily</Button>
+                    <Button className="btn btn-primary" > Net Monthly</Button>
+                    <Button className="btn btn-primary" > Net Yearly</Button>                
                 </ButtonGroup>
             </div>
         );

@@ -28,10 +28,11 @@ class ActivityContainer extends React.Component {
             
                     <ButtonGroup vertical  className="activitiesButtonGroup" style={{position: 'relative'}}>
                             <NavLink className="btn btn-primary" to='/createactivity'> New Activity</NavLink>
-                            <NavLink className="btn btn-primary" to=''> Edit Activity</NavLink>
+                            <NavLink className="btn btn-primary" to='/createactivity'> Edit Activity</NavLink>
                             <Button className="mb-2">Delete Activity</Button>
                     </ButtonGroup>
             <ActivitiesChart/>
+            <ActivityTypeChart/>
                 
             </div>
          );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormInput, FormGroup } from "shards-react";
-import { Fade, Button, ButtonGroup } from "shards-react";
+import { Button } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
 class ActivityForm extends Component {

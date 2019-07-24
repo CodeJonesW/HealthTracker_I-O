@@ -45,6 +45,7 @@ class App extends React.Component{
           <Route exact path='/consumptions' render={()=> <ConsumptionsPage/> }/>
           <Route exact path='/createactivity' render={()=> <ActivityForm/> }/>
           <Route exact path='/createconsumption' render={()=> <ConsumptionForm/> }/>
+
         </Switch>
       </div>
     );

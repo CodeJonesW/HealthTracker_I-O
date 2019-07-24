@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { ButtonGroup } from "shards-react";
-import { NavLink } from "react-router-dom"
+// import { ButtonGroup } from "shards-react";
+// import { NavLink } from "react-router-dom"
 import { Fade, Button } from "shards-react";
 import { Card, ListGroup} from 'react-bootstrap'
 import NetCaloriesChart from './net_calories_chart';
@@ -27,7 +27,7 @@ class Profile extends React.Component {
     render() { 
         return ( 
             <div>
-                <Card style={{ width: '18rem' }}>
+                <Card id="profileCard" style={{left:'100px'}}>
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                     <Card.Body>
                         <Card.Title>{this.props.userInfo.name}'s Profile</Card.Title>
@@ -53,14 +53,9 @@ class Profile extends React.Component {
                     </Card.Body>
                 </Card>
 
-                <NetCaloriesChart/>
-                <ActivityTypeChart/>
+                <NetCaloriesChart />
+                <ActivityTypeChart />
                 
-                {/* <ButtonGroup vertical style={{position: "absolute", top: '200px', left: '1000px'}} className="profileButtonGroup">
-                    <NavLink className="btn btn-primary" to='/activities'> Activities</NavLink>
-                    <NavLink className="btn btn-primary" to='/goals'> Goals</NavLink>
-                    <NavLink className="btn btn-primary" to='/consumptions'> Consumptions</NavLink>                
-                </ButtonGroup> */}
             </div>
             );
 
