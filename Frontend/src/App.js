@@ -11,7 +11,7 @@ import ActivitiesPage from './components/activities_page'
 import GoalsPage from './components/goals_page'
 import ConsumptionsPage from './components/consumptions_page'
 import ActivityForm from './components/activity_form'
-
+import ConsumptionForm from './components/consumption_form'
 
 class App extends React.Component{
 

@@ -39,6 +39,7 @@ class LoginForm extends React.Component {
 		  })
           .then(res => res.json())
 		  .then(res => {
+            //   console.log(res)
 		  	if (res.jwt) {
                   localStorage.setItem('jwt_token', res.jwt)
                   this.props.dispatch({type: "UPDATE_USER", user: res.user})

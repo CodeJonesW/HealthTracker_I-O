@@ -18,14 +18,14 @@ class ConsumptionForm extends Component {
             headers: { Accept: 'application/json', 'Content-Type':'application/json', 'Authorization': `Bearer ${localStorage.jwt_token}` },
             body: JSON.stringify({
                 consumption: {
-                    category: e.target.category.value.toLowerCase(),
-                    calories_burned: e.target.calories_burned.value,
-                    distance: e.target.distance.value,
                     user_id: this.props.user.userInfo.id,
+                    category: e.target.category.value,
+                    calories_intaken: e.target.calories_intaken.value,
                 }
             })
         })
         .then(res => res.json())
+        .then(console.log)
         this.setState({ redirect: <Redirect to='/consumptions' /> })
         // }
         //   	else if(res.errors)
@@ -43,19 +43,15 @@ class ConsumptionForm extends Component {
 
             <h3>New Consumption</h3>
             <FormGroup >
-                <label htmlFor="#category">Category</label>
-                <FormInput name="category" id="#category" placeholder="Category" />
+                <label htmlFor="#category">Type</label>
+                <FormInput name="category" id="#category" placeholder="Food/Beverage" />
             </FormGroup>
             <FormGroup>
-                <label htmlFor="#calories_burned">Calories Burned</label>
-                <FormInput name="calories_burned" id="#calories_burned" placeholder="Calories Burned" />
-            </FormGroup>
-            <FormGroup>
-                <label htmlFor="#distance">Distance</label>
-                <FormInput name="distance"  id="#distance" placeholder="Distance" />
+                <label htmlFor="#calories_intaken">Calories Consumed</label>
+                <FormInput name="calories_intaken" id="#calories_intaken" placeholder="Calories Consumed" />
             </FormGroup>
                 <Button className="mb-2" type="submit">Submit</Button>
-            </Form> );
+        </Form> );
     }
 }
  

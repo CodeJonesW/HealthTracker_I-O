@@ -115,11 +115,11 @@ class User < ApplicationRecord
     end
 
 
-    def weekly_calorie_consumed
+    def weekly_calories_consumed
         weekly_calories_intaken = 0
-          self.consumption.each do |activity|
+          self.consumptions.each do |consumption|
             if (consumption.created_at.strftime('%U') == Time.now.strftime('%U') && consumption.created_at.year == Time.now.year)
-                weekly_total_calories_intaken += consumption.calories_intaken 
+                weekly_calories_intaken += consumption.calories_intaken 
             end
         end
         return weekly_calories_intaken
@@ -162,7 +162,7 @@ class User < ApplicationRecord
     end
 
     def net_weekly_calories
-        return self.weekly_calorie_consumed - self.weekly_calories_burned
+        return self.weekly_calories_consumed - self.weekly_calories_burned
     end
 
     def net_monthly_calories
