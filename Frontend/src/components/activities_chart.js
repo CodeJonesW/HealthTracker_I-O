@@ -50,7 +50,7 @@ class ActivitiesChart extends Component {
                             responsive: true
                         }}
                     data={{
-                        labels: [1,2,3,4,5,6],
+                        labels: this.props.userActivities.map(activity => activity.category),
                         datasets: barDataSets
                     }}
                 />}

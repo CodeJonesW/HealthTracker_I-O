@@ -25,10 +25,14 @@ class Profile extends React.Component {
 
 
     render() { 
+        let dailyNetCalories = this.props.userInfo.net_calories ? this.props.userInfo.net_calories.daily : null
+        let weeklyNetCalories = this.props.userInfo.net_calories ? this.props.userInfo.net_calories.weekly : null
+        let monthlyNetCalories = this.props.userInfo.net_calories ? this.props.userInfo.net_calories.monthly : null
+        let yearlyNetCalories = this.props.userInfo.net_calories ? this.props.userInfo.net_calories.yearly : null
+
         return ( 
             <div>
                 <Card id="profileCard" style={{left:'100px'}}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                     <Card.Body>
                         <Card.Title>{this.props.userInfo.name}'s Profile</Card.Title>
                         <Card.Text>
@@ -40,9 +44,9 @@ class Profile extends React.Component {
                             Weight: {this.props.userInfo.weight}<br/>
                         </Card.Text>
                         <div>
-                        <Button onClick={this.toggle} className="mb-2">
-                            Show Friends
-                        </Button>
+                            <Button onClick={this.toggle} className="mb-2">
+                                Show Friends
+                            </Button>
                         <Fade in={this.state.visible}>
                             <ListGroup>
                                 <ListGroup.Item>Following Example</ListGroup.Item>
@@ -50,6 +54,19 @@ class Profile extends React.Component {
                             </ListGroup>
                         </Fade>
                         </div>
+                    </Card.Body>
+                </Card>
+
+                <Card id="userCalorieInfo" style={{left:'100px', top: '400px', width: '300px'}}>
+                    <Card.Body>
+                        <Card.Title>Your Net Calories</Card.Title>
+                            <Card.Text>
+                                Daily Net Calories: {dailyNetCalories}<br/>
+                                Weekly Net Calories: {weeklyNetCalories}<br/>
+                                Monthly Net Calories: {monthlyNetCalories}<br/>
+                                Yearly Net Calories: {yearlyNetCalories}<br/>
+
+                            </Card.Text>
                     </Card.Body>
                 </Card>
 

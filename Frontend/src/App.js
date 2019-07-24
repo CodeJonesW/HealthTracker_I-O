@@ -12,6 +12,7 @@ import GoalsPage from './components/goals_page'
 import ConsumptionsPage from './components/consumptions_page'
 import ActivityForm from './components/activity_form'
 import ConsumptionForm from './components/consumption_form'
+import {fetchUser} from './actions/user_actions';
 
 class App extends React.Component{
 
@@ -20,11 +21,7 @@ class App extends React.Component{
     let token = localStorage.getItem('jwt_token')
     if (token) {
       // findUser(token)
-      fetch('http://localhost:3000/current_user', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('jwt_token')}` }
-      })
-      .then(res => res.json())
-      .then(res => {
+      fetchUser().then(res => {
         // console.log("this is it", res)
         if (res.user)
           this.props.dispatch({ type: 'UPDATE_USER', user: res.user })

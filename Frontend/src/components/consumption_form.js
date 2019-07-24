@@ -3,7 +3,8 @@ import { Form, FormInput, FormGroup } from "shards-react";
 import { Button } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
-
+import { fetchUser } from '../actions/user_actions';
+import { createConsumption } from '../actions/consumption_actions'
 class ConsumptionForm extends Component {
     
     state = {
@@ -26,13 +27,7 @@ class ConsumptionForm extends Component {
         })
         .then(res => res.json())
         
-        fetch('http://localhost:3000/current_user', {
-            headers: { Authorization: `Bearer ${localStorage.getItem('jwt_token')}` }
-          })
-          .then(res => res.json())
-          .then(res => {
-            // console.log("this is it", res)
-            if (res.user)
+        fetchUser().then(res => {
               this.props.dispatch({ type: 'UPDATE_USER', user: res.user })
           })
 

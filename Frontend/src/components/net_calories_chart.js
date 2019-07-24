@@ -35,12 +35,12 @@ class NetCaloriesChart extends Component {
         let lineDataSets =
         [
             {
-                label: "Consumptions",
+                label: "Calorie Consumption",
                 backgroundColor: "'rgba(144, 0, 255, 0.1)'",
                 data: consumption_calories
             },
             {
-                label: "Weekly Net Calories",
+                label: "Calories Burned",
                 backgroundColor: "rgba(0,128,0, 0.2)",
                 data: calories_burned
             }
@@ -62,12 +62,6 @@ class NetCaloriesChart extends Component {
                         }}
                     />}
                 </div>
-                
-                <ButtonGroup vertical style={{position: "absolute", top:'40px', left: '1100px', margin: '3em'}} className="profileButtonGroup">
-                    <Button onClick={console.log(this.props.consumptions)} className="btn btn-primary" > Net Daily</Button>
-                    <Button className="btn btn-primary" > Net Monthly</Button>
-                    <Button className="btn btn-primary" > Net Yearly</Button>                
-                </ButtonGroup>
             </div>
         );
     }
