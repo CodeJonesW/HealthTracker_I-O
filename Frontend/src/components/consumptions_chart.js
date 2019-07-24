@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux'
 
-class ActivitiesChart extends Component {
+class ConsumptionsChart extends Component {
 
 
     // setGradientColor = (canvas, color) => {
@@ -28,23 +28,23 @@ class ActivitiesChart extends Component {
     // }
 
     render() { 
-        let barDataSets = this.props.userActivities && 
+        let barDataSets = this.props.userConsumptions && 
         [
             {
-                label: "Calories Burned",
+                label: "Calories Intaken",
                 backgroundColor: "rgba(255, 0, 0, 0.8)",
-                data: this.props.userActivities.map(activity =>  activity.calories_burned)
+                data: this.props.userConsumptions.map(consumption =>  consumption.calories_intaken)
             },
-            {
-                label: "Activity Distance in Miles",
-                backgroundColor: "rgba(0,128,0, 0.8)",
-                data: this.props.userActivities.map(activity =>  parseFloat(activity.distance.split(' ')[0]))
-            }
+            // {
+            //     label: "Activity Distance",
+            //     backgroundColor: "rgba(0,128,0, 0.8)",
+            //     data: this.props.userActivities.map(activity =>  parseFloat(activity.distance.split(' ')[0]))
+            // }
         ]
 
         return ( 
             <div style={{position: "relative", width: 600, height: 550}}>
-                { this.props.userActivities &&
+                { this.props.userConsumptions &&
                 <Bar
                     options={{
                             responsive: true
@@ -59,7 +59,7 @@ class ActivitiesChart extends Component {
     }
 }
 let mapStateToProps = (state) => {
-    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo}
+    return { userConsumptions: state.user.userInfo.consumptions, user: state.user.userInfo}
 }
 
-export default connect(mapStateToProps)(ActivitiesChart)
+export default connect(mapStateToProps)(ConsumptionsChart)

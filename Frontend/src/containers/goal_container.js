@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import GoalsChart from '../components/goals_ chart'
+import GoalsChart from '../components/goals_chart'
 
 class GoalContainer extends React.Component {
 
@@ -10,7 +10,7 @@ class GoalContainer extends React.Component {
             <div className="activityContainer">
             <h4>Your Goals</h4>
                 {this.props.userGoals ? this.props.userGoals.map(goal => 
-                    <p>Completed: {goal.completed ? 'Complete!': 'Not yet!'}, Calories to Burn:{goal.calories_to_burn}, Distance: {goal.distance} Category: {goal.category}</p>
+                    <p>{goal.id}: Status: {goal.completed ? 'Complete!': 'Incomplete!'}</p>
                 ): null}
                 <GoalsChart/>
             </div>

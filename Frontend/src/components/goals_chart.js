@@ -50,21 +50,40 @@ class GoalsChart extends Component {
     }
 
     render() { 
+
+        let barDataSets = this.props.userGoals && 
+        [
+            {
+                label: "Calories To Burn",
+                backgroundColor: "rgba(255, 0, 0, 0.8)",
+                data: this.props.userGoals.map(goal =>  goal.calories_to_burn)
+            },
+            {
+                label: "Goal Distance",
+                backgroundColor: "rgba(0,128,0, 0.8)",
+                data: this.props.userGoals.map(goal =>  parseFloat(goal.distance.split(' ')[0]))
+            }
+        ]
+
         return ( 
             <div style={{position: "relative", width: 600, height: 550}}>
                 <h4>Your Goals</h4>
+                {/* <h4>{console.log(this.props.userInfo.goal_stats)}</h4> */}
                 <Bar
                     options={{
                             responsive: true
                         }}
-                    data={this.state.data}
+                    data={{
+                        labels: [1,2,3,4,5,6],
+                        datasets: barDataSets
+                    }}
                 />
             </div>
         );
     }
 }
 let mapStateToProps = (state) => {
-    return { userGoals: state.user.userInfo.goals, user: state.user.userInfo}
+    return { userGoals: state.user.userInfo.goals, user: state.user.userInfo, completed_goals: state.user.userInfo.goal_stats}
 }
 
 export default connect(mapStateToProps)(GoalsChart)

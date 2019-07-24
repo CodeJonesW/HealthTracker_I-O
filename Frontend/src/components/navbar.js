@@ -73,6 +73,11 @@ export default class NavExample extends React.Component {
                 Goals
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/consumptions">
+                Consumptions
+              </NavLink>
+            </NavItem>
             {/* <Dropdown
               open={this.state.dropdownOpen}
               toggle={this.toggleDropdown}

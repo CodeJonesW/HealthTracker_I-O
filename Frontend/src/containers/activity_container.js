@@ -5,14 +5,10 @@ import ActivityTypeChart from '../components/activities_type_chart'
 class ActivityContainer extends React.Component {
 
 
-    render() { 
-        // console.log(this.props.userActivities)
+    render() {
         return (
             <div className="activityContainer">
-            <h4>{this.props.user.name}'s Activities</h4>
-                {/* {this.props.userActivities ? this.props.userActivities.map(activity => 
-                    <p>Type: {activity.category}, Calories Burned:{activity.calories_burned}, Distance: {activity.distance}</p>
-                ): null} */}
+            <h4>Your Activities</h4>
                 <ActivitiesChart/>
                 <ActivityTypeChart/>
             </div>

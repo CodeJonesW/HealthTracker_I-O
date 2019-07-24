@@ -9,6 +9,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Profile from './components/profile'
 import ActivitiesPage from './components/activities_page'
 import GoalsPage from './components/goals_page'
+import ConsumptionsPage from './components/consumptions_page'
 
 
 class App extends React.Component{
@@ -40,6 +41,8 @@ class App extends React.Component{
           <Route exact path="/" render={()=> localStorage.jwt_token ? <Redirect to='/profile' /> : <AccountContainer/> } />
           <Route exact path='/activities' render={()=> <ActivitiesPage/> }/>
           <Route exact path='/goals' render={()=> <GoalsPage/> }/>
+          <Route exact path='/consumptions' render={()=> <ConsumptionsPage/> }/>
+
         </Switch>
       </div>
     );

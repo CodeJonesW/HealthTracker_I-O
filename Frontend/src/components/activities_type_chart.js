@@ -15,13 +15,7 @@ class ActivityTypeChart extends Component {
                         backgroundColor: "rgba(255, 0, 0, 0.8)",
                         // data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.calories_burned): null
                         data: ['3', '4', '1', '9']
-                    },
-                    // {
-                    //     label: "Activity Distance",
-                    //     backgroundColor: "rgba(0,128,0, 0.8)",
-                    //     data: this.props.userActivities ? this.props.userActivities.map(activity =>  activity.distance): null
-                    //     data: [12, 30, 5, 7, 9, 15]
-                    // }
+                    }
                 ]
             }
         }
@@ -49,9 +43,10 @@ class ActivityTypeChart extends Component {
         return data
     }
 
-    render() { 
 
-        
+
+    render() { 
+        let activity_amounts = this.props.activity_types && [this.props.activity_types.runs.length, this.props.activity_types.walks.length, this.props.activity_types.swims.length, this.props.activity_types.bikes.length ]
         return ( 
             <div style={{position: "relative", width: 600, height: 550}}>
                 <h4>Activity Types</h4>
@@ -59,17 +54,26 @@ class ActivityTypeChart extends Component {
                     options={{
                             responsive: true,
                             rotation: -0.5,
-                            animateRotate: true,
-                            cutoutPercentage: 50
+                            animateRotate: true
                         }}
-                    data={this.getChartData}
+                    data={{
+                        labels: ['run','walk','swim','bike'],
+                        datasets: [
+                            {
+                                label: "Activity Type",
+                                backgroundColor: ["blue","purple", "red", "green"],
+                                data: activity_amounts,
+                                drawBorder: true
+                            }
+                        ]
+                    }}
                 />
             </div>
         );
     }
 }
 let mapStateToProps = (state) => {
-    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo}
+    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo, activity_types: state.user.userInfo.activity_types}
 }
 
 export default connect(mapStateToProps)(ActivityTypeChart)
