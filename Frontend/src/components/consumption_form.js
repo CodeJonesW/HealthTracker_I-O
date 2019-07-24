@@ -25,7 +25,17 @@ class ConsumptionForm extends Component {
             })
         })
         .then(res => res.json())
-        .then(console.log)
+        
+        fetch('http://localhost:3000/current_user', {
+            headers: { Authorization: `Bearer ${localStorage.getItem('jwt_token')}` }
+          })
+          .then(res => res.json())
+          .then(res => {
+            // console.log("this is it", res)
+            if (res.user)
+              this.props.dispatch({ type: 'UPDATE_USER', user: res.user })
+          })
+
         this.setState({ redirect: <Redirect to='/consumptions' /> })
         // }
         //   	else if(res.errors)

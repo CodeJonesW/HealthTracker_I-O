@@ -4,9 +4,6 @@ import { connect } from 'react-redux'
 import { ButtonGroup, Button } from "shards-react";
 
 class NetCaloriesChart extends Component {
-    state = {
-        net_calorie_show: 'monthly'
-    }
 
 
     // setGradientColor = (canvas, color) => {
@@ -32,20 +29,29 @@ class NetCaloriesChart extends Component {
     // }
 
     render() { 
-        let lineDataSets = this.props.userNetCalories && 
+        let consumption_calories = this.props.consumptions && this.props.consumptions.map(consumption => consumption.calories_intaken)
+        let calories_burned = this.props.activities && this.props.activities.map(activity => activity.calories_burned)
+
+        let lineDataSets =
         [
             {
-                label: "Monthly Net Calories",
-                backgroundColor: "rgba(0,128,0, 0.8)",
-                data: this.props.userNetCalories.monthly
+                label: "Consumptions",
+                backgroundColor: "'rgba(144, 0, 255, 0.1)'",
+                data: consumption_calories
+            },
+            {
+                label: "Weekly Net Calories",
+                backgroundColor: "rgba(0,128,0, 0.2)",
+                data: calories_burned
             }
         ]
+
 
         return ( 
             <div>  
                 <div style={{position: "absolute", top: '90px', left: '500px', width: 500, height: 550}}>
                     
-                    { this.props.userNetCalories &&
+                    { this.props.consumptions &&
                     <Line
                         options={{
                                 responsive: true
@@ -58,7 +64,7 @@ class NetCaloriesChart extends Component {
                 </div>
                 
                 <ButtonGroup vertical style={{position: "absolute", top:'40px', left: '1100px', margin: '3em'}} className="profileButtonGroup">
-                    <Button onClick={console.log(this.props.userNetCalories)} className="btn btn-primary" > Net Daily</Button>
+                    <Button onClick={console.log(this.props.consumptions)} className="btn btn-primary" > Net Daily</Button>
                     <Button className="btn btn-primary" > Net Monthly</Button>
                     <Button className="btn btn-primary" > Net Yearly</Button>                
                 </ButtonGroup>
@@ -67,7 +73,7 @@ class NetCaloriesChart extends Component {
     }
 }
 let mapStateToProps = (state) => {
-    return { userNetCalories: state.user.userInfo.net_calories, user: state.user.userInfo}
+    return { consumptions: state.user.userInfo.consumptions, activities: state.user.userInfo.activities}
 }
 
 export default connect(mapStateToProps)(NetCaloriesChart)
