@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom"
 import { Fade, Button } from "shards-react";
 import { Card, ListGroup} from 'react-bootstrap'
 import NetCaloriesChart from './net_calories_chart';
+import ActivityTypeChart from './activities_type_chart'
 
 class Profile extends React.Component {
     constructor(props) {
@@ -53,6 +54,7 @@ class Profile extends React.Component {
                 </Card>
 
                 <NetCaloriesChart/>
+                <ActivityTypeChart/>
                 
                 {/* <ButtonGroup vertical style={{position: "absolute", top: '200px', left: '1000px'}} className="profileButtonGroup">
                     <NavLink className="btn btn-primary" to='/activities'> Activities</NavLink>

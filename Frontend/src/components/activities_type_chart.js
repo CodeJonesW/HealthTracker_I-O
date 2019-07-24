@@ -48,7 +48,7 @@ class ActivityTypeChart extends Component {
     render() { 
         let activity_amounts = this.props.activity_types && [this.props.activity_types.runs.length, this.props.activity_types.walks.length, this.props.activity_types.swims.length, this.props.activity_types.bikes.length ]
         return ( 
-            <div style={{position: "relative", width: 600, height: 550}}>
+            <div style={{position: "absolute", top: '310px', left: '300px', width: 600, height: 550, margin: '2em'}}>
                 <h4>Activity Types</h4>
                 <Doughnut
                     options={{

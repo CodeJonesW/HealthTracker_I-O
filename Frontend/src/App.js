@@ -10,6 +10,7 @@ import Profile from './components/profile'
 import ActivitiesPage from './components/activities_page'
 import GoalsPage from './components/goals_page'
 import ConsumptionsPage from './components/consumptions_page'
+import ActivityForm from './components/activity_form'
 
 
 class App extends React.Component{
@@ -42,7 +43,8 @@ class App extends React.Component{
           <Route exact path='/activities' render={()=> <ActivitiesPage/> }/>
           <Route exact path='/goals' render={()=> <GoalsPage/> }/>
           <Route exact path='/consumptions' render={()=> <ConsumptionsPage/> }/>
-
+          <Route exact path='/createactivity' render={()=> <ActivityForm/> }/>
+          <Route exact path='/createconsumption' render={()=> <ConsumptionForm/> }/>
         </Switch>
       </div>
     );

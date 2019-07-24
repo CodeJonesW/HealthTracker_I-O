@@ -9,17 +9,21 @@ class ConsumptionsContainer extends React.Component {
         return ( 
             <div className="consumptionContainer">
             <h4>Consumptions</h4>
-            
-                {this.props.userConsumptions ? this.props.userConsumptions.map(consumption => 
+                    <ButtonGroup vertical  className="activitiesButtonGroup" style={{position: 'relative'}}>
+                            <NavLink className="btn btn-primary" to='/createconsumption'> New Activity</NavLink>
+                            <NavLink className="btn btn-primary" to='/createconsumption'> Edit Activity</NavLink>
+                            <Button className="mb-2">Delete Activity</Button>
+                    </ButtonGroup>              
+                {/* {this.props.userConsumptions ? this.props.userConsumptions.map(consumption => 
                     <p> {consumption.category} </p>
-                ): null}
+                ): null} */}
                 <ConsumptionsChart/>
             </div>
          );
     }
 }
 
-
+createconsumption
 
 let mapStateToProps = (state) => {
     return { userConsumptions: state.user.userInfo.consumptions, user: state.user.userInfo}

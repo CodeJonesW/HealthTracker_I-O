@@ -50,6 +50,10 @@ export default class NavExample extends React.Component {
     });
   }
 
+  clearLocal = () => {
+    localStorage.clear()
+  }
+
   render() {
     return (
       <Navbar type="dark" theme="primary" expand="md">
@@ -76,6 +80,11 @@ export default class NavExample extends React.Component {
             <NavItem>
               <NavLink href="/consumptions">
                 Consumptions
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/" onClick={this.clearLocal}>
+                Signout
               </NavLink>
             </NavItem>
             {/* <Dropdown

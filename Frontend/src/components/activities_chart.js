@@ -32,12 +32,12 @@ class ActivitiesChart extends Component {
         [
             {
                 label: "Calories Burned",
-                backgroundColor: "rgba(255, 0, 0, 0.8)",
+                backgroundColor: "green",
                 data: this.props.userActivities.map(activity =>  activity.calories_burned)
             },
             {
                 label: "Activity Distance in Miles",
-                backgroundColor: "rgba(0,128,0, 0.8)",
+                backgroundColor: "purple",
                 data: this.props.userActivities.map(activity =>  parseFloat(activity.distance.split(' ')[0]))
             }
         ]
