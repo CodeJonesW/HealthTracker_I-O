@@ -36,8 +36,8 @@ class NetCaloriesChart extends Component {
     // }
 
     render() { 
-        let consumption_calories = this.props.consumptions && this.props.consumptions.map(consumption => consumption.calories_intaken)
-        let calories_burned = this.props.activities && this.props.activities.map(activity => activity.calories_burned)
+        // let consumption_calories = this.props.consumptions && this.props.consumptions.map(consumption => consumption.calories_intaken)
+        // let calories_burned = this.props.activities && this.props.activities.map(activity => activity.calories_burned)
         let burned_labels = this.props.activities && this.props.activities.map(activity => activity.category)
         let consumption_types = this.props.consumptions && this.props.consumptions.map(consumption => consumption.category)
 
@@ -45,13 +45,13 @@ class NetCaloriesChart extends Component {
         [
             {
                 label: "Calorie Consumption",
-                backgroundColor: "'rgba(0, 120, 255, 0.4)'",
-                data: consumption_calories
+                backgroundColor: 'rgba(77, 19, 209, 0.6)',
+                data: this.props.userInfo.special.calories_consumed
             },
             {
                 label: "Calories Burned",
-                backgroundColor: "rgba(0,128,0, 0.2)",
-                data: calories_burned
+                backgroundColor: "rgba(207, 0, 15, 0.6)",
+                data: this.props.userInfo.special.calories_burned
             }
         ]
 
@@ -60,7 +60,6 @@ class NetCaloriesChart extends Component {
             <div>  
                 
                 <div style={{position: "absolute", top: '90px', left: '500px', width: 500, height: 550}}>
-                    
                     { this.props.consumptions &&
                     <Line
                         options={{
@@ -78,7 +77,7 @@ class NetCaloriesChart extends Component {
     }
 }
 let mapStateToProps = (state) => {
-    return { consumptions: state.user.userInfo.consumptions, activities: state.user.userInfo.activities}
+    return { consumptions: state.user.userInfo.consumptions, activities: state.user.userInfo.activities, userInfo: state.user.userInfo}
 }
 
 export default connect(mapStateToProps)(NetCaloriesChart)

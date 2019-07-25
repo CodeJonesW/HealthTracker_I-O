@@ -59,7 +59,7 @@ class Profile extends React.Component {
 
                 <Card id="userCalorieInfo" style={{left:'100px', top: '400px', width: '300px'}}>
                     <Card.Body>
-                        <Card.Title>Your Net Calories</Card.Title>
+                        <Card.Title>Your BMR: {this.props.userInfo.special.basal_metabolic_rate ? this.props.userInfo.special.basal_metabolic_rate :"Enter your age, weight, and height to calculate your BMR!"}</Card.Title>
                             <Card.Text>
                                 Daily Net Calories: {dailyNetCalories}<br/>
                                 Weekly Net Calories: {weeklyNetCalories}<br/>

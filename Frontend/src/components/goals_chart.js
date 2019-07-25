@@ -67,7 +67,7 @@ class GoalsChart extends Component {
 
         return ( 
             <div style={{position: "relative", width: 600, height: 550}}>
-                <h4>Your Goals</h4>
+                <h4>Completed Goals</h4>
                 {/* <h4>{console.log(this.props.userInfo.goal_stats)}</h4> */}
                 <Bar
                     options={{

@@ -43,7 +43,7 @@ class ActivityTypeChart extends Component {
                         datasets: [
                             {
                                 label: "Activity Type",
-                                backgroundColor: ["blue","purple", "red", "green"],
+                                backgroundColor: ["rgba(248, 148, 6, 1)","green", "rgba(207, 0, 15, 1)", "blue"],
                                 data: activity_amounts,
                                 drawBorder: true
                             }

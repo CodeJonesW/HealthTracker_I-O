@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :name, :email, :height, :gender, :age, :weight, :activities, :activity_types, :goals, :follows, :consumptions, :calories_burned, :calories_consumed, :goal_stats, :net_calories
+  attributes :id, :username, :name, :email, :height, :gender, :age, :weight, :activities, :activity_types, :goals, :follows, :consumptions, :calories_burned, :calories_consumed, :goal_stats, :net_calories, :special
 
 
   def activity_types
@@ -42,6 +42,14 @@ class UserSerializer < ActiveModel::Serializer
       weekly: self.object.net_weekly_calories,
       monthly: self.object.net_monthly_calories,
       yearly: self.object.net_yearly_calories
+    }
+   end
+
+   def special
+    {
+      basal_metabolic_rate: self.object.basal_metabolic_rate,
+      calories_consumed: self.object.calories_consumed_per_day_within_last_week,
+      calories_burned: self.object.calories_burned_per_day_within_last_week
     }
    end
 end
