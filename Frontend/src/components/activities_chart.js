@@ -43,7 +43,7 @@ class ActivitiesChart extends Component {
         ]
 
         return ( 
-            <div style={{position: "relative", width: 600, height: 550}}>
+            <div style={{position: "relative", width: 600, height: 550, margin: '20px'}}>
                 { this.props.userActivities &&
                 <Bar
                     options={{

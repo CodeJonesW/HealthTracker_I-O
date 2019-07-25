@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import ActivitiesChart from '../components/activities_chart'
 import ActivityTypeChart from '../components/activities_type_chart'
 import { Button, ButtonGroup } from "shards-react";
+import { Card } from 'react-bootstrap'
 
 import { NavLink } from "react-router-dom"
 
@@ -22,6 +23,11 @@ class ActivityContainer extends React.Component {
       }
 
     render() {
+      let dailyNetCaloriesBurned = this.props.calories_burned ? this.props.calories_burned.daily : null
+      let weeklyNetCaloriesBurned = this.props.calories_burned ? this.props.calories_burned.weekly : null
+      let monthlyNetCaloriesBurned = this.props.calories_burned ? this.props.calories_burned.monthly : null
+      let yearlyNetCaloriesBurned = this.props.calories_burned ? this.props.calories_burned.yearly : null
+
         return (
             <div className="activityContainer">
             <h4>Your Activities</h4>
@@ -33,7 +39,18 @@ class ActivityContainer extends React.Component {
                     </ButtonGroup>
             <ActivitiesChart/>
             <ActivityTypeChart/>
-                
+            <Card id="activityCaloriesBurnedCard" style={{position: 'absolute', left:'850px', top: '100px', width: '300px'}}>
+                    <Card.Body>
+                        <Card.Title>Calories Burned</Card.Title>
+                            <Card.Text>
+                                Daily: {dailyNetCaloriesBurned}<br/>
+                                Weekly: {weeklyNetCaloriesBurned}<br/>
+                                Monthly: {monthlyNetCaloriesBurned}<br/>
+                                Yearly: {yearlyNetCaloriesBurned}<br/>
+
+                            </Card.Text>
+                    </Card.Body>
+                </Card> 
             </div>
          );
     }
@@ -42,7 +59,7 @@ class ActivityContainer extends React.Component {
 
 
 let mapStateToProps = (state) => {
-    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo}
+    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo, calories_burned: state.user.userInfo.calories_burned}
 }
 
 export default connect(mapStateToProps)(ActivityContainer)

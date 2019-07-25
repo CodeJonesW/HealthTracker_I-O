@@ -4,6 +4,13 @@ import { connect } from 'react-redux'
 import { ButtonGroup, Button } from "shards-react";
 
 class NetCaloriesChart extends Component {
+    state = {
+        switchLabels: true
+    }
+
+    switch = () => {
+        this.setState({switchLabels: !this.state.switchLabels})
+    }
 
 
     // setGradientColor = (canvas, color) => {
@@ -31,12 +38,14 @@ class NetCaloriesChart extends Component {
     render() { 
         let consumption_calories = this.props.consumptions && this.props.consumptions.map(consumption => consumption.calories_intaken)
         let calories_burned = this.props.activities && this.props.activities.map(activity => activity.calories_burned)
+        let burned_labels = this.props.activities && this.props.activities.map(activity => activity.category)
+        let consumption_types = this.props.consumptions && this.props.consumptions.map(consumption => consumption.category)
 
         let lineDataSets =
         [
             {
                 label: "Calorie Consumption",
-                backgroundColor: "'rgba(144, 0, 255, 0.1)'",
+                backgroundColor: "'rgba(0, 120, 255, 0.4)'",
                 data: consumption_calories
             },
             {
@@ -47,8 +56,9 @@ class NetCaloriesChart extends Component {
         ]
 
 
-        return ( 
+        return (
             <div>  
+                
                 <div style={{position: "absolute", top: '90px', left: '500px', width: 500, height: 550}}>
                     
                     { this.props.consumptions &&
@@ -57,11 +67,12 @@ class NetCaloriesChart extends Component {
                                 responsive: true
                             }}
                         data={{
-                            labels: [1],
+                            labels: this.state.switchLabels ? burned_labels : consumption_types,
                             datasets: lineDataSets
                         }}
                     />}
                 </div>
+                    <Button style={{position: 'absolute', top: '120px', left: '1040px'}}onClick={this.switch}>Label Type</Button>
             </div>
         );
     }
