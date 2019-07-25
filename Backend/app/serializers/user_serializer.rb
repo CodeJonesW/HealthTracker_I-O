@@ -49,7 +49,8 @@ class UserSerializer < ActiveModel::Serializer
     {
       basal_metabolic_rate: self.object.basal_metabolic_rate,
       calories_consumed: self.object.calories_consumed_per_day_within_last_week,
-      calories_burned: self.object.calories_burned_per_day_within_last_week
+      calories_burned: self.object.calories_burned_per_day_within_last_week,
+      last_weeks_days: self.object.show_last_weeks_days
     }
    end
 end

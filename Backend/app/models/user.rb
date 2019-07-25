@@ -206,6 +206,19 @@ class User < ApplicationRecord
         return daily_calories_consumed
     end
 
+    def show_last_weeks_days
+        days = []
+        calories_burned = []
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+        return days
+    end
+
     def calories_burned_per_day_within_last_week
         days = []
         calories_burned = []
