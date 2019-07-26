@@ -36,7 +36,7 @@ class ConsumptionsContainer extends React.Component {
                     <Card.Body>
                         <Card.Title>Recent Consumptions</Card.Title>
                             <Card.Text>
-                                {this.props.userInfo.special.consumptions_within_last_week.map(day => day.slice(0,3).map(consumption => <p>{consumption.category}</p>))}
+                                {this.props.userInfo.special.consumptions_within_last_week.map(day => day.map(consumption => <p>{consumption.category}</p>))}
                             </Card.Text>
                     </Card.Body>
                 </Card> 

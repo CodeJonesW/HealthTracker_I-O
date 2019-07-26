@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 
 class GoalsChart extends Component {
 
-    render() { 
-
+    render() {
         let barDataSets = this.props.userGoals && 
         [
             {

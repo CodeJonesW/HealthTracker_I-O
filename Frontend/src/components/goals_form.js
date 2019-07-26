@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, FormInput, FormGroup, FormCheckbox } from "shards-react";
+import { Form, FormInput, FormGroup, FormSelect } from "shards-react";
 import { Button } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
@@ -48,12 +48,12 @@ class GoalForm extends Component {
 
             <h3>New Goal</h3>
             <FormGroup >
-                <select name="category">
+                <FormSelect name="category">
                     <option value="run">Run</option>
                     <option value="walk">Walk</option>
                     <option value="bike">Bike</option>
                     <option value="swim">Swim</option>
-                </select>
+                </FormSelect>
 
             </FormGroup>
             <FormGroup>
@@ -65,10 +65,10 @@ class GoalForm extends Component {
                 <FormInput name="distance" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
             <FormGroup>
-                <select name="completed">
+                <FormSelect name="completed">
                     <option value="false">Pending</option>
                     <option value="true">Complete</option>
-                </select>
+                </FormSelect>
             </FormGroup>
                 <Button className="mb-2" type="submit">Submit</Button>
             </Form> );

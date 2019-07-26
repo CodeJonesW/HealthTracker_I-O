@@ -1,6 +1,6 @@
 import React from "react";
-// import { faSearch } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from "../images/runner_2.png"
+import fruit from "../images/fruits_2.png"
 import { connect } from 'react-redux'
 import {
   Navbar,
@@ -59,6 +59,8 @@ class MyNavBar extends React.Component {
   render() {
     return (
       <Navbar type="dark" theme="primary" expand="md">
+        <NavbarBrand ><img src={logo} alt="logo"/></NavbarBrand>
+        
         <NavbarBrand href="/">Health Tracker I/O</NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar} />
         
@@ -103,12 +105,11 @@ class MyNavBar extends React.Component {
               </DropdownMenu>
             </Dropdown> */}
           </Nav>
-
+          
           <Nav navbar className="ml-auto">
             <InputGroup size="sm" seamless>
               <InputGroupAddon type="prepend">
                 <InputGroupText>
-                  {/* <FontAwesomeIcon icon={faSearch} /> */}
                 </InputGroupText>
               </InputGroupAddon>
               <FormInput className="border-0" placeholder="Search..." />

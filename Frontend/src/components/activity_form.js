@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, FormInput, FormGroup, FormCheckbox } from "shards-react";
+import { Form, FormInput, FormGroup, FormSelect } from "shards-react";
 import { Button } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
@@ -48,12 +48,12 @@ class ActivityForm extends Component {
             <FormGroup >
                 {/* <label htmlFor="#category">Category</label> */}
                 {/* <FormInput type="select" name="category" id="#category" placeholder="Category" /> */}
-                <select name="category">
+                <FormSelect name="category">
                     <option value="run">Run</option>
                     <option value="walk">Walk</option>
                     <option value="bike">Bike</option>
                     <option value="swim">Swim</option>
-                </select>
+                </FormSelect>
                 
 
 
