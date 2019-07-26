@@ -56,12 +56,15 @@ class GoalsChart extends Component {
             {
                 label: "Calories To Burn",
                 backgroundColor: "rgba(255, 0, 0, 0.8)",
-                data: this.props.userGoals.map(goal =>  goal.calories_to_burn)
+                // data: this.props.userGoals.map(goal =>  goal.calories_to_burn)
+                data: this.props.user.goal_stats.successful_goals.map(goal => goal.calories_to_burn)
+
             },
             {
                 label: "Goal Distance",
                 backgroundColor: "rgba(0,128,0, 0.8)",
-                data: this.props.userGoals.map(goal =>  parseFloat(goal.distance.split(' ')[0]))
+                // data: this.props.userGoals.map(goal =>  parseFloat(goal.distance.split(' ')[0]))
+                data: this.props.user.goal_stats.successful_goals.map(goal => parseFloat(goal.distance.split(' ')[0]))
             }
         ]
 
@@ -74,7 +77,7 @@ class GoalsChart extends Component {
                             responsive: true
                         }}
                     data={{
-                        labels: [1,2,3,4,5,6],
+                        labels: this.props.user.goal_stats.successful_goals.map(goal => goal.category),
                         datasets: barDataSets
                     }}
                 />
