@@ -1,8 +1,4 @@
 let initialState = {
-    runs: [],
-    walks: [],
-    swims: [],
-    bikes: []
 }
 
 export default (state = initialState, action) => {

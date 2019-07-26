@@ -2,32 +2,21 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#profileCard {
+  margin: '2em'; 
+  width: 18rem;
+  position: absolute;
+  left: '200px'
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* #netCaloriesChart {
+  position: "relative"; 
+  width: 500;
+  height: 550;
+} */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* #netCaloriesChartdiv{
+  position: "relative"; 
+  width: 500;
+  height: 550;
+} */

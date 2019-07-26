@@ -115,11 +115,11 @@ class User < ApplicationRecord
     end
 
 
-    def weekly_calorie_consumed
+    def weekly_calories_consumed
         weekly_calories_intaken = 0
-          self.consumption.each do |activity|
+          self.consumptions.each do |consumption|
             if (consumption.created_at.strftime('%U') == Time.now.strftime('%U') && consumption.created_at.year == Time.now.year)
-                weekly_total_calories_intaken += consumption.calories_intaken 
+                weekly_calories_intaken += consumption.calories_intaken 
             end
         end
         return weekly_calories_intaken
@@ -162,7 +162,7 @@ class User < ApplicationRecord
     end
 
     def net_weekly_calories
-        return self.weekly_calorie_consumed - self.weekly_calories_burned
+        return self.weekly_calories_consumed - self.weekly_calories_burned
     end
 
     def net_monthly_calories
@@ -182,6 +182,78 @@ class User < ApplicationRecord
     def basal_metabolic_rate
         return self.gender == "male" ? 66 + ( 6.2 * self.weight ) + ( 12.7 * (self.height).to_f ) - ( 6.76 * self.age) : 655.1 + ( 6.2 * self.weight ) + ( 12.7 * (self.height).to_f ) - ( 6.76 * self.age)
     end
+
+
+    def day_of_choice_calories_burned(day)
+        daily_calories_burned = 0
+        self.activities.each do |activity|
+            if (activity.created_at.strftime('%F') == day.strftime('%F'))
+                daily_calories_burned += activity.calories_burned
+                 
+            end
+        end
+        return daily_calories_burned
+    end
+
+    def day_of_choice_calories_consumed(day)
+        daily_calories_consumed = 0
+        self.consumptions.each do |consumption|
+            if (consumption.created_at.strftime('%F') == day.strftime('%F'))
+                daily_calories_consumed += consumption.calories_intaken
+                 
+            end
+        end
+        return daily_calories_consumed
+    end
+
+    def show_last_weeks_days
+        days = []
+        calories_burned = []
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+        return days
+    end
+
+    def calories_burned_per_day_within_last_week
+        days = []
+        calories_burned = []
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+
+        days.each do |day|
+            calories_burned << day_of_choice_calories_burned(day)
+        end
+        return calories_burned
+    end
+
+    def calories_consumed_per_day_within_last_week
+        days = []
+        calories_consumed = []
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+
+        days.each do |day|
+            calories_consumed << day_of_choice_calories_consumed(day)
+        end
+        return calories_consumed
+    end
+
+
 
 
 

@@ -1,6 +1,7 @@
 import React from "react";
 // import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { connect } from 'react-redux'
 import {
   Navbar,
   NavbarToggler,
@@ -19,7 +20,7 @@ import {
   Collapse
 } from "shards-react";
 
-export default class NavExample extends React.Component {
+class MyNavBar extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,25 +51,45 @@ export default class NavExample extends React.Component {
     });
   }
 
+  clearLocal = () => {
+    localStorage.clear()
+  }
+
+
   render() {
     return (
       <Navbar type="dark" theme="primary" expand="md">
-        <NavbarBrand href="#">Health Tracker I/O</NavbarBrand>
+        <NavbarBrand href="/">Health Tracker I/O</NavbarBrand>
         <NavbarToggler onClick={this.toggleNavbar} />
-
+        
         <Collapse open={this.state.collapseOpen} navbar>
-          <Nav navbar>
+          <Nav className="mr-auto"navbar>
             <NavItem>
-              <NavLink active href="#">
-                Active
+              <NavLink active href="/profile">
+                Profile
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="#" disabled>
-                Disabled
+              <NavLink href="/activities">
+                Activities
               </NavLink>
             </NavItem>
-            <Dropdown
+            <NavItem>
+              <NavLink href="/goals">
+                Goals
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/consumptions">
+                Consumptions
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/" onClick={this.clearLocal}>
+                Signout
+              </NavLink>
+            </NavItem>
+            {/* <Dropdown
               open={this.state.dropdownOpen}
               toggle={this.toggleDropdown}
             >
@@ -80,7 +101,7 @@ export default class NavExample extends React.Component {
                 <DropdownItem>Another action</DropdownItem>
                 <DropdownItem>Something else here</DropdownItem>
               </DropdownMenu>
-            </Dropdown>
+            </Dropdown> */}
           </Nav>
 
           <Nav navbar className="ml-auto">
@@ -98,3 +119,8 @@ export default class NavExample extends React.Component {
     );
   }
 }
+let mapStateToProps = (state) => {
+  return { user: state.user.userInfo}
+}
+
+export default connect(mapStateToProps)(MyNavBar)

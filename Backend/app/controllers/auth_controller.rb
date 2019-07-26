@@ -4,6 +4,7 @@ class AuthController < ApplicationController
     def create
       @user = User.find_by(email: user_login_params[:email])
       #User#authenticate comes from BCrypt
+
       if @user && @user.authenticate(user_login_params[:password])
         # encode token comes from ApplicationController
         token = encode_token({ user_id: @user.id })
