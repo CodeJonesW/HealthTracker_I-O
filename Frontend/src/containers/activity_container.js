@@ -6,6 +6,7 @@ import { Button, ButtonGroup } from "shards-react";
 import { Card } from 'react-bootstrap'
 import { NavLink } from "react-router-dom"
 
+
 class ActivityContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -30,7 +31,6 @@ class ActivityContainer extends React.Component {
         return (
             <div className="activityContainer">
             <h4>Your Activities</h4>
-            
                     <ButtonGroup vertical  className="activitiesButtonGroup" style={{position: 'relative'}}>
                             <NavLink className="btn btn-primary" to='/createactivity'> New Activity</NavLink>
                             <NavLink className="btn btn-primary" to='/createactivity'> Edit Activity</NavLink>
@@ -46,7 +46,6 @@ class ActivityContainer extends React.Component {
                                 This Week: {weeklyNetCaloriesBurned}<br/>
                                 This Month: {monthlyNetCaloriesBurned}<br/>
                                 This Year: {yearlyNetCaloriesBurned}<br/>
-
                             </Card.Text>
                     </Card.Body>
                 </Card> 

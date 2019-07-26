@@ -54,22 +54,25 @@ class GoalForm extends Component {
                     <option value="bike">Bike</option>
                     <option value="swim">Swim</option>
                 </FormSelect>
-
             </FormGroup>
+
             <FormGroup>
                 <label htmlFor="#calories_burned">Calories To Burned</label>
                 <FormInput type="number" name="calories_to_burn" id="#calories_to_burn" placeholder="# Calories to Burn" />
             </FormGroup>
+
             <FormGroup>
                 <label htmlFor="#distance">Distance</label>
                 <FormInput name="distance" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
+
             <FormGroup>
                 <FormSelect name="completed">
                     <option value="false">Pending</option>
                     <option value="true">Complete</option>
                 </FormSelect>
             </FormGroup>
+            
                 <Button className="mb-2" type="submit">Submit</Button>
             </Form> );
     }

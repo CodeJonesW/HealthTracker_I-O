@@ -4,7 +4,7 @@ import ConsumptionsChart from '../components/consumptions_chart'
 import { Button, ButtonGroup } from "shards-react";
 import { NavLink } from "react-router-dom"
 import { Card } from 'react-bootstrap'
-
+import NutritionixForm from "../components/nutritionix_foods_form"
 
 
 class ConsumptionsContainer extends React.Component {
@@ -18,8 +18,11 @@ class ConsumptionsContainer extends React.Component {
                             <NavLink className="btn btn-primary" to='/createconsumption'> New Consumption</NavLink>
                             <NavLink className="btn btn-primary" to='/createconsumption'> Edit Consumption</NavLink>
                             <Button className="mb-2">Delete Consumption</Button>
-                    </ButtonGroup>              
+                    </ButtonGroup>    
+                              
                 <ConsumptionsChart/>
+                <NutritionixForm/>
+
                 <Card id="consumptionsCard" style={{position: 'absolute', left:'850px', top: '100px', width: '300px'}}>
                     <Card.Body>
                         <Card.Title>Calories Consumed</Card.Title>
@@ -31,7 +34,7 @@ class ConsumptionsContainer extends React.Component {
                             </Card.Text>
                     </Card.Body>
                 </Card> 
-
+                
                 <Card id="recentConsumptionsCard" style={{position: 'absolute', left:'850px', top: '300px', width: '300px'}}>
                     <Card.Body>
                         <Card.Title>Recent Consumptions</Card.Title>
