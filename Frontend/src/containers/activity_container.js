@@ -4,7 +4,6 @@ import ActivitiesChart from '../components/activities_chart'
 import ActivityTypeChart from '../components/activities_type_chart'
 import { Button, ButtonGroup } from "shards-react";
 import { Card } from 'react-bootstrap'
-
 import { NavLink } from "react-router-dom"
 
 class ActivityContainer extends React.Component {
@@ -43,10 +42,10 @@ class ActivityContainer extends React.Component {
                     <Card.Body>
                         <Card.Title>Calories Burned</Card.Title>
                             <Card.Text>
-                                Daily: {dailyNetCaloriesBurned}<br/>
-                                Weekly: {weeklyNetCaloriesBurned}<br/>
-                                Monthly: {monthlyNetCaloriesBurned}<br/>
-                                Yearly: {yearlyNetCaloriesBurned}<br/>
+                                Today: {dailyNetCaloriesBurned}<br/>
+                                This Week: {weeklyNetCaloriesBurned}<br/>
+                                This Month: {monthlyNetCaloriesBurned}<br/>
+                                This Year: {yearlyNetCaloriesBurned}<br/>
 
                             </Card.Text>
                     </Card.Body>

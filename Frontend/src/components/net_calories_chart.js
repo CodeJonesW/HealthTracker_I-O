@@ -13,7 +13,7 @@ class NetCaloriesChart extends Component {
         [
             {
                 label: "Calorie Consumption",
-                backgroundColor: 'rgba(77, 19, 209, 0.6)',
+                backgroundColor: 'rgba(77, 19, 209, 0.4)',
                 data: this.props.userInfo.special.calories_consumed
             },
             {

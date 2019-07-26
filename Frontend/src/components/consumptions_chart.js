@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux'
+import { Card } from 'react-bootstrap'
 
 class ConsumptionsChart extends Component {
 
@@ -31,9 +32,9 @@ class ConsumptionsChart extends Component {
         let barDataSets = this.props.userConsumptions && 
         [
             {
-                label: "Calories Intaken",
+                label: "Calories Consumed",
                 backgroundColor: "rgba(255, 0, 0, 0.8)",
-                data: this.props.userConsumptions.map(consumption =>  consumption.calories_intaken)
+                data: this.props.userInfo.special.calories_consumed.map(consumption =>  consumption)
             },
             // {
             //     label: "Activity Distance",
@@ -43,14 +44,15 @@ class ConsumptionsChart extends Component {
         ]
 
         return ( 
-            <div style={{position: "relative", width: 600, height: 550}}>
-                { this.props.userConsumptions &&
+            <div style={{position: "absolute", top: '200px', left: '50px', width: 600, height: 550}}>
+                <h6>Weekly Calorie Consumption by Day</h6>
+                { this.props.userInfo &&
                 <Bar
                     options={{
                             responsive: true
                         }}
                     data={{
-                        labels: this.props.userConsumptions.map(consumption => consumption.category),
+                        labels: this.props.userInfo.special.last_weeks_days.map(day => day.slice(6)),
                         datasets: barDataSets
                     }}
                 />}
@@ -59,7 +61,7 @@ class ConsumptionsChart extends Component {
     }
 }
 let mapStateToProps = (state) => {
-    return { userConsumptions: state.user.userInfo.consumptions, user: state.user.userInfo}
+    return { userConsumptions: state.user.userInfo.consumptions, userInfo: state.user.userInfo}
 }
 
 export default connect(mapStateToProps)(ConsumptionsChart)

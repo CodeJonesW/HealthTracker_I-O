@@ -47,12 +47,6 @@ class Profile extends React.Component {
                             <Button onClick={this.toggle} className="mb-2">
                                 Show Friends
                             </Button>
-                        <Fade in={this.state.visible}>
-                            <ListGroup>
-                                <ListGroup.Item>Following Example</ListGroup.Item>
-                                {/* {this.props.userInfo.follows.map(follow => <ListGroup.Item>follow.id</ListGroup.Item>)} */}
-                            </ListGroup>
-                        </Fade>
                         </div>
                     </Card.Body>
                 </Card>
@@ -69,6 +63,19 @@ class Profile extends React.Component {
                             </Card.Text>
                     </Card.Body>
                 </Card>
+                <Fade in={this.state.visible}>
+                    <Card id="userFollowing" style={{position: 'absolute', left:'1040px', top: '100px', width: '200px'}}>
+                        <Card.Body>
+                            <Card.Title>Friends You Follow</Card.Title>
+                                <Card.Text>
+                                <ListGroup>
+                                    {this.props.userInfo.follows.map(follow => <ListGroup.Item>{follow.id}</ListGroup.Item>)}
+                                </ListGroup>
+                                </Card.Text>
+                        </Card.Body>
+                    </Card>   
+                </Fade>
+                
 
                 <NetCaloriesChart />
                 <ActivityTypeChart />

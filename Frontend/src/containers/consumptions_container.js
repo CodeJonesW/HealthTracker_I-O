@@ -24,11 +24,19 @@ class ConsumptionsContainer extends React.Component {
                     <Card.Body>
                         <Card.Title>Calories Consumed</Card.Title>
                             <Card.Text>
-                                {/* Daily: {dailyNetCaloriesBurned}<br/>
-                                Weekly: {weeklyNetCaloriesBurned}<br/>
-                                Monthly: {monthlyNetCaloriesBurned}<br/>
-                                Yearly: {yearlyNetCaloriesBurned}<br/> */}
+                                Today: {this.props.userInfo.calories_consumed.daily}<br/>
+                                This Week: {this.props.userInfo.calories_consumed.weekly}<br/>
+                                This Month: {this.props.userInfo.calories_consumed.monthly}<br/>
+                                This Year: {this.props.userInfo.calories_consumed.yearly}<br/>
+                            </Card.Text>
+                    </Card.Body>
+                </Card> 
 
+                <Card id="recentConsumptionsCard" style={{position: 'absolute', left:'850px', top: '300px', width: '300px'}}>
+                    <Card.Body>
+                        <Card.Title>Recent Consumptions</Card.Title>
+                            <Card.Text>
+                                {this.props.userInfo.special.consumptions_within_last_week.map(day => day.slice(0,3).map(consumption => <p>{consumption.category}</p>))}
                             </Card.Text>
                     </Card.Body>
                 </Card> 
@@ -39,7 +47,7 @@ class ConsumptionsContainer extends React.Component {
 
 
 let mapStateToProps = (state) => {
-    return { userConsumptions: state.user.userInfo.consumptions, user: state.user.userInfo}
+    return { userConsumptions: state.user.userInfo.consumptions, userInfo: state.user.userInfo}
 }
 
 export default connect(mapStateToProps)(ConsumptionsContainer)

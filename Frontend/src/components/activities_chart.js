@@ -33,7 +33,8 @@ class ActivitiesChart extends Component {
             {
                 label: "Calories Burned",
                 backgroundColor: "green",
-                data: this.props.userActivities.map(activity =>  activity.calories_burned)
+                // data: this.props.userActivities.map(activity =>  activity.calories_burned)
+                data: this.props.userInfo.special.calories_burned.map(burned => burned)
             },
             {
                 label: "Activity Distance in Miles",
@@ -43,14 +44,15 @@ class ActivitiesChart extends Component {
         ]
 
         return ( 
-            <div style={{position: "relative", width: 600, height: 550, margin: '20px'}}>
+            <div style={{position: "relative", width: 550, height: 500, margin: '20px'}}>
+                <h6>Weekly Burned Calories by Day</h6>
                 { this.props.userActivities &&
                 <Bar
                     options={{
                             responsive: true
                         }}
                     data={{
-                        labels: this.props.userActivities.map(activity => activity.category),
+                        labels: this.props.userInfo.special.last_weeks_days.map(day => day.slice(6)),
                         datasets: barDataSets
                     }}
                 />}
@@ -59,7 +61,7 @@ class ActivitiesChart extends Component {
     }
 }
 let mapStateToProps = (state) => {
-    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo}
+    return { userActivities: state.user.userInfo.activities, userInfo: state.user.userInfo}
 }
 
 export default connect(mapStateToProps)(ActivitiesChart)

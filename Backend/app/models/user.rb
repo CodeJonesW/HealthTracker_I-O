@@ -253,6 +253,34 @@ class User < ApplicationRecord
         return calories_consumed
     end
 
+    def day_of_choice_consumptions(day)
+        consumed = []
+        self.consumptions.each do |consumption|
+            if (consumption.created_at.strftime('%F') == day.strftime('%F'))
+                consumed << consumption
+                 
+            end
+        end
+        return consumed
+    end
+
+    def consumptions_within_last_week
+        days = []
+        consumed = []
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+
+        days.each do |day|
+            consumed << day_of_choice_consumptions(day)
+        end
+        return consumed
+    end
+
 
 
 
