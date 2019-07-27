@@ -282,6 +282,35 @@ class User < ApplicationRecord
     end
 
 
+    def day_of_choice_activity_miles(day)
+        miles = 0
+        self.activities.each do |activity|
+            if (activity.created_at.strftime('%F') == day.strftime('%F'))
+                miles += activity.distance.split(" ")[0].to_f
+                 
+            end
+        end
+        return miles
+    end
+
+    def activity_miles_this_week
+        days = []
+        miles = 0
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+
+        days.each do |day|
+            miles += day_of_choice_activity_miles(day)
+        end
+        return miles
+    end
+
+
 
 
 

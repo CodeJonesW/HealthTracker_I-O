@@ -51,7 +51,8 @@ class UserSerializer < ActiveModel::Serializer
       calories_consumed: self.object.calories_consumed_per_day_within_last_week,
       calories_burned: self.object.calories_burned_per_day_within_last_week,
       last_weeks_days: self.object.show_last_weeks_days,
-      consumptions_within_last_week: self.object.consumptions_within_last_week
+      consumptions_within_last_week: self.object.consumptions_within_last_week,
+      activity_miles_this_week: self.object.activity_miles_this_week
     }
    end
 end

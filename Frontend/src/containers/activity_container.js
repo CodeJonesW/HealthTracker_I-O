@@ -48,7 +48,16 @@ class ActivityContainer extends React.Component {
                                 This Year: {yearlyNetCaloriesBurned}<br/>
                             </Card.Text>
                     </Card.Body>
-                </Card> 
+              </Card>
+
+              <Card id="activityMilesCard" style={{position: 'absolute', left:'100px', top: '100px', width: '300px'}}>
+                    <Card.Body>
+                        <Card.Title>Activity Miles</Card.Title>
+                            <Card.Text>
+                              This week:{this.props.userInfo.special.activity_miles_this_week}
+                            </Card.Text>
+                    </Card.Body>
+              </Card>  
             </div>
          );
     }
@@ -57,7 +66,7 @@ class ActivityContainer extends React.Component {
 
 
 let mapStateToProps = (state) => {
-    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo, calories_burned: state.user.userInfo.calories_burned}
+    return { userActivities: state.user.userInfo.activities, userInfo: state.user.userInfo, calories_burned: state.user.userInfo.calories_burned}
 }
 
 export default connect(mapStateToProps)(ActivityContainer)
