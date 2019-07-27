@@ -72,8 +72,9 @@ class NutritionixForm extends Component {
                             <Card.Title>Search Results</Card.Title>
                                 <Card.Text>
                                     <ListGroup>
-                                        {/* {this.props.consumptions.map}<ListGroup.Item>info</ListGroup.Item> */}
-                                        <ListGroup.Item>{this.props.consumptions[0] ? this.props.consumptions[0]['food_name']:null}</ListGroup.Item> 
+                                        <ListGroup.Item>Type:{this.props.consumptions[0] ? this.props.consumptions[0]['food_name']:null}</ListGroup.Item>
+                                        <ListGroup.Item>Calories:{this.props.consumptions[0] ? this.props.consumptions[0]['nf_calories']:null}</ListGroup.Item> 
+ 
                                     </ListGroup>
                                 </Card.Text>
                                 <Button onClick={this.toggle} className="mb-2">
