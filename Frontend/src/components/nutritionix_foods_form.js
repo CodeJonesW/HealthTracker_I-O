@@ -71,9 +71,10 @@ class NutritionixForm extends Component {
                         <Card.Body>
                             <Card.Title>Search Results</Card.Title>
                                 <Card.Text>
-                                <ListGroup>
-                                    <ListGroup.Item>info</ListGroup.Item>
-                                </ListGroup>
+                                    <ListGroup>
+                                        {/* {this.props.consumptions.map}<ListGroup.Item>info</ListGroup.Item> */}
+                                        <ListGroup.Item>{this.props.consumptions[0] ? this.props.consumptions[0]['food_name']:null}</ListGroup.Item> 
+                                    </ListGroup>
                                 </Card.Text>
                                 <Button onClick={this.toggle} className="mb-2">
                                     Close
@@ -89,7 +90,7 @@ class NutritionixForm extends Component {
 }
  
 let mapStateToProps = (state) => {
-    return { userInfo: state.userInfo}
+    return { userInfo: state.userInfo, consumptions: state.consumption.consumptions}
   }
 
 
