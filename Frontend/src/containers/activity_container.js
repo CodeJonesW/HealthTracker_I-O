@@ -52,9 +52,9 @@ class ActivityContainer extends React.Component {
 
               <Card id="activityMilesCard" style={{position: 'absolute', left:'100px', top: '100px', width: '300px'}}>
                     <Card.Body>
-                        <Card.Title>Activity Miles</Card.Title>
+                        <Card.Title>Total Activity Miles</Card.Title>
                             <Card.Text>
-                              This week:{this.props.userInfo.special.activity_miles_this_week}
+                              This week: {this.props.userInfo.special.activity_miles_this_week}
                             </Card.Text>
                     </Card.Body>
               </Card>  
