@@ -43,13 +43,13 @@ class EditGoalForm extends Component {
     render() { 
         return ( 
         
-        <Form onSubmit={(e) => this.handleEditGoal(e)} style={{position: "relative", width: 300, height: 550, margin: '20px'}}>
+        <Form onSubmit={(e) => this.handleEditGoal(e)} style={{position: "relative", width: 550, height: 550, margin: '20px'}}>
             {this.state.redirect}
 
             <h3>Edit Goal</h3>
             <FormGroup >
                 <FormSelect name="goalId">
-                    {this.props.userInfo.goals.map(goal => <option value={goal.id}>Id: {goal.id} Status: {goal.completed ? "Complete": "Pending"}</option>)}
+                    {this.props.userInfo.goals.map(goal => <option value={goal.id}>Id: {goal.id}, Status: {goal.completed ? "Complete": "Pending"}, Type: {goal.category}, Calories to Burn: {goal.calories_to_burn ? goal.calories_to_burn :'Nil'} Distance: {goal.distance ? goal.distance : 'Nil'}</option>)}
                 </FormSelect>
             </FormGroup>
 
