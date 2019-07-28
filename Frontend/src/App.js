@@ -14,6 +14,7 @@ import ActivityForm from './components/activity_form'
 import ConsumptionForm from './components/consumption_form'
 import {fetchUser} from './actions/user_actions';
 import GoalForm from './components/goals_form'
+import EditGoalForm from './components/edit_goal_form'
 
 class App extends React.Component{
 
@@ -46,6 +47,7 @@ class App extends React.Component{
               <Route exact path='/createactivity' render={()=> <ActivityForm/> }/>
               <Route exact path='/createconsumption' render={()=> <ConsumptionForm/> }/>
               <Route exact path='/creategoal' render={()=> <GoalForm/> }/>
+              <Route exact path='/editgoal' render={()=> <EditGoalForm/> }/>
 
             </Switch>
         }

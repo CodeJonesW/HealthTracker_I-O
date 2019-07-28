@@ -39,7 +39,7 @@ class ConsumptionsContainer extends React.Component {
                     <Card.Body>
                         <Card.Title>Recent Consumptions</Card.Title>
                             <Card.Text>
-                                {this.props.userInfo.special.consumptions_within_last_week.map(day => day.map(consumption => <p>{consumption.category}</p>))}
+                                Add  todays consumptions?
                             </Card.Text>
                     </Card.Body>
                 </Card> 

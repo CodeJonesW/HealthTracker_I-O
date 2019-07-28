@@ -8,7 +8,6 @@ import { NavLink } from "react-router-dom"
 
 
 class GoalContainer extends React.Component {
-
     render() { 
         return ( 
             <div className="goalContainer">
@@ -27,7 +26,7 @@ class GoalContainer extends React.Component {
                 
                 <ButtonGroup vertical  className="goalsButtonGroup" style={{position: 'absolute', top: '200px', left: '650px'}}>
                             <NavLink className="btn btn-primary" to='/creategoal'> New Goal</NavLink>
-                            <NavLink className="btn btn-primary" to='/creategoal'> Edit Goal</NavLink>
+                            <NavLink className="btn btn-primary" to='/editgoal'> Edit Goal</NavLink>
                             <Button className="mb-2">Delete Goal</Button>
                 </ButtonGroup>
             </div>

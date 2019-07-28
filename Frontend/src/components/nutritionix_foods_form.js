@@ -96,13 +96,11 @@ class NutritionixForm extends Component {
             <Fade style={{position: 'absolute', left:'100px', top: '400px', width: '400px'}} in={this.state.visible}>
                     <Card id="nutritionixSearchInfoCard" style={{position: 'absolute', left:'280px', top: '0px', width: '400px'}}>
                         <Card.Body>
-                            <Card.Title>Search Results</Card.Title>
+                            <Card.Title>Consumption Search Results</Card.Title>
                                 <Card.Text>
 
                                 <Form onSubmit={(e) => this.handleCreateConsumption(e)}>
                                     {this.state.redirect}
-
-                                    <h3>New Consumption</h3>
                                     Serving Size: {this.props.consumptions[0] ? this.props.consumptions[0]['serving_qty']:null}
                                     <FormGroup >
                                         <label htmlFor="#category">Type</label>
