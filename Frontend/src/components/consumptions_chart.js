@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux'
-import { Card } from 'react-bootstrap'
 
 class ConsumptionsChart extends Component {
 
@@ -33,7 +32,7 @@ class ConsumptionsChart extends Component {
         [
             {
                 label: "Calories Consumed",
-                backgroundColor: "rgba(255, 0, 0, 0.8)",
+                backgroundColor: "rgba(140, 20, 252, 1)",
                 data: this.props.userInfo.special.calories_consumed.map(consumption =>  consumption)
             },
             // {
@@ -44,7 +43,7 @@ class ConsumptionsChart extends Component {
         ]
 
         return ( 
-            <div style={{position: "absolute", top: '200px', left: '50px', width: 600, height: 550}}>
+            <div style={{position: "absolute", top: '100px', left: '10px', width: 500, height: 450}}>
                 <h6>Weekly Calorie Consumption by Day</h6>
                 { this.props.userInfo &&
                 <Bar

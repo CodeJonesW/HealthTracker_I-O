@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 import { connect } from 'react-redux'
-import { ButtonGroup, Button } from "shards-react";
 
 class NetCaloriesChart extends Component {
 

@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../images/runner_2.png"
-import fruit from "../images/fruits_2.png"
 import { connect } from 'react-redux'
 import {
   Navbar,
@@ -9,10 +8,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   InputGroup,
   InputGroupAddon,
   InputGroupText,

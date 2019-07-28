@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Form, FormInput, FormGroup, FormSelect } from "shards-react";
+import { Form, FormInput, FormGroup } from "shards-react";
 import { Button, Fade } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
 import { fetchUser } from '../actions/user_actions'
-import { Card, ListGroup} from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 
 
 class NutritionixForm extends Component {
@@ -23,11 +23,6 @@ class NutritionixForm extends Component {
         });
       }
 
-    // fix the redirect none currently upon the search
-    // do i need to persist the information through refresh for consumptions?
-    // not if i plan to have the user to chose to save that to the backend when looking up the search information 
-    // and save as a consumption
-
 
     handleSearchNutrionixFoods = (e) => {
         e.preventDefault()
@@ -41,12 +36,13 @@ class NutritionixForm extends Component {
         })
         .then(res => res.json())
         .then(res => {
-		  	if (res.foods[0]) {
+		  	if (res.foods) {
                 this.props.dispatch({type: "UPDATE_CONSUMPTION", foodArr: res.foods})
-                
+                this.setState({ redirect: <Redirect to='/consumptions' /> })
+                this.toggle()
+              }else{
+                  alert("Invalid Search. Enter a type of food. For example - 3 veggie tacos")
               }
-        this.setState({ redirect: <Redirect to='/consumptions' /> })
-        this.toggle()
 
 		//   	else if(res.errors)
 		//   		this.setState({ errors: res.errors })
@@ -54,10 +50,41 @@ class NutritionixForm extends Component {
           e.target.reset()
     }
 
+
+
+    handleCreateConsumption = (e) => {
+        e.preventDefault()
+
+            fetch('http://localhost:3000/consumptions',{
+            method: 'POST',
+            headers: { Accept: 'application/json', 'Content-Type':'application/json', 'Authorization': `Bearer ${localStorage.jwt_token}` },
+            body: JSON.stringify({
+                consumption: {
+                    user_id: this.props.userInfo.id,
+                    category: e.target.category.value,
+                    calories_intaken: e.target.calories_intaken.value,
+                }
+            })
+        })
+        .then(res => res.json())
+        
+        fetchUser().then(res => {
+              this.props.dispatch({ type: 'UPDATE_USER', user: res.user })
+          })
+
+        this.setState({ redirect: <Redirect to='/consumptions' /> })
+        // }
+        //   	else if(res.errors)
+        //   		this.setState({ errors: res.errors })
+        //   })
+        // 	e.target.reset
+        // }
+    }
+
     render() { 
         return ( 
         <div>
-        <Form onSubmit={(e) => this.handleSearchNutrionixFoods(e)} style={{position: "absolute", top: '60px', width: 300, height: 550, margin: '20px'}}>
+        <Form onSubmit={(e) => this.handleSearchNutrionixFoods(e)} style={{position: "absolute", left: '20px', top: '400px', width: 300, height: 550, margin: '20px'}}>
             {this.state.redirect}
 
             <FormGroup>
@@ -66,21 +93,32 @@ class NutritionixForm extends Component {
                 <Button className="mb-2" type="submit">Submit</Button>
             </Form> 
 
-            <Fade in={this.state.visible}>
-                    <Card id="nutritionixSearchInfoCard" style={{position: 'relative', left:'100px', top: '100px', width: '200px'}}>
+            <Fade style={{position: 'absolute', left:'100px', top: '400px', width: '400px'}} in={this.state.visible}>
+                    <Card id="nutritionixSearchInfoCard" style={{position: 'absolute', left:'280px', top: '0px', width: '400px'}}>
                         <Card.Body>
                             <Card.Title>Search Results</Card.Title>
                                 <Card.Text>
-                                        {this.props.consumptions[0] ? this.props.consumptions[0]['food_name']:null} <br/>
-                                       Calories:{this.props.consumptions[0] ? this.props.consumptions[0]['nf_calories']:null} <br/>
-                                       Serving Size:{this.props.consumptions[0] ? this.props.consumptions[0]['serving_qty']:null} <br/>
-                                       <br/>
-                                        <Button>Add to your Consumptions</Button>
+
+                                <Form onSubmit={(e) => this.handleCreateConsumption(e)}>
+                                    {this.state.redirect}
+
+                                    <h3>New Consumption</h3>
+                                    Serving Size: {this.props.consumptions[0] ? this.props.consumptions[0]['serving_qty']:null}
+                                    <FormGroup >
+                                        <label htmlFor="#category">Type</label>
+                                        <FormInput name="category" id="#category" value={this.props.consumptions[0] ? this.props.consumptions[0]['food_name']:null} />
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <label htmlFor="#calories_intaken">Calories</label>
+                                        <FormInput name="calories_intaken" id="#calories_intaken" value={this.props.consumptions[0] ? this.props.consumptions[0]['nf_calories']:null} />
+                                    </FormGroup>
+                                        <Button className="mb-2" onClick={this.toggle} type="submit">Add to your Consumptions</Button> <br/>
+                                        <Button onClick={this.toggle} className="mb-2">Close</Button>
+                                </Form> 
+                                {/* <img src={this.props.consumptions[0] ? this.props.consumptions[0]['photo']['thumb']:null}/> */}
 
                                 </Card.Text>
-                                <Button onClick={this.toggle} className="mb-2">
-                                    Close
-                                </Button>
+                                
                         </Card.Body>
                     </Card>   
                 </Fade>
@@ -92,7 +130,7 @@ class NutritionixForm extends Component {
 }
  
 let mapStateToProps = (state) => {
-    return { userInfo: state.userInfo, consumptions: state.consumption.consumptions}
+    return { userInfo: state.user.userInfo, consumptions: state.consumption.consumptions}
   }
 
 
