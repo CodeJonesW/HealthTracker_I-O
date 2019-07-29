@@ -46,7 +46,7 @@ class ActivityContainer extends React.Component {
               </Col>
 
               <Col md={4}>
-                <h4 className="m-3">Your Activities</h4>
+                <h4 className="m-3">Activities</h4>
                       <ButtonGroup vertical  
                       // style={{position: 'relative'}}
                       >

@@ -26,7 +26,7 @@ class GoalContainer extends React.Component {
                     </Col>
 
                     <Col md={6} className="m-3">
-                        <h4>Your Goals</h4>
+                        <h4>Goals</h4>
                         <ButtonGroup vertical 
                         // style={{position: 'absolute', top: '200px', left: '650px'}}
                         >

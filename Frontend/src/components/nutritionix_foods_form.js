@@ -84,7 +84,9 @@ class NutritionixForm extends Component {
     render() { 
         return ( 
         <div>
-        <Form onSubmit={(e) => this.handleSearchNutrionixFoods(e)} style={{position: "absolute", left: '20px', top: '400px', width: 300, height: 550, margin: '20px'}}>
+        <Form onSubmit={(e) => this.handleSearchNutrionixFoods(e)} 
+        // style={{position: "absolute", left: '20px', top: '400px', width: 300, height: 550, margin: '20px'}}
+        >
             {this.state.redirect}
 
             <FormGroup>
@@ -93,8 +95,12 @@ class NutritionixForm extends Component {
                 <Button className="mb-2" type="submit">Submit</Button>
             </Form> 
 
-            <Fade style={{position: 'absolute', left:'100px', top: '400px', width: '400px'}} in={this.state.visible}>
-                    <Card id="nutritionixSearchInfoCard" style={{position: 'absolute', left:'280px', top: '0px', width: '400px'}}>
+            <Fade 
+            // style={{position: 'absolute', left:'100px', top: '400px', width: '400px'}} 
+            in={this.state.visible}>
+                    <Card className="m-3" id="nutritionixSearchInfoCard" 
+                    // style={{position: 'absolute', left:'280px', top: '0px', width: '400px'}}
+                    >
                         <Card.Body>
                             <Card.Title>Consumption Search Results</Card.Title>
                                 <Card.Text>

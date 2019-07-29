@@ -43,7 +43,9 @@ class ConsumptionsChart extends Component {
         ]
 
         return ( 
-            <div style={{position: "absolute", top: '100px', left: '10px', width: 500, height: 450}}>
+            <div 
+            // style={{position: "absolute", top: '100px', left: '10px', width: 500, height: 450}}
+            >
                 <h6>Weekly Calorie Consumption by Day</h6>
                 { this.props.userInfo &&
                 <Bar
