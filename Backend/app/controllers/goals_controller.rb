@@ -21,6 +21,15 @@ class GoalsController < ApplicationController
         @goal = Goal.destroy(params[:id])
     end
 
+    def update
+        @goal = Goal.find(params[:id])
+        if @goal.update(g_params)
+            render json: @goal
+        else
+            render json: @goal.errors, status: :unprocessable_entity
+        end
+    end
+
 
     private
 

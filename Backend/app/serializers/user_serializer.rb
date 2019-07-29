@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :name, :email, :height, :gender, :age, :weight, :activities, :activity_types, :goals, :follows, :consumptions, :calories_burned, :calories_consumed, :goal_stats, :net_calories, :special
+  attributes :id, :username, :name, :email, :height, :gender, :age, :weight, :activities, :activity_types, :goals, :follows, :consumptions, :calories_burned, :calories_consumed, :goal_stats, :net_calories, :special, :goal_types
 
 
   def activity_types
@@ -8,6 +8,15 @@ class UserSerializer < ActiveModel::Serializer
       walks: self.object.walk_activities,
       swims: self.object.swim_activities,
       bikes: self.object.bike_activities,
+    }
+  end
+
+  def goal_types
+    {
+      runs: self.object.run_goals,
+      walks: self.object.walk_goals,
+      swims: self.object.swim_goals,
+      bikes: self.object.bike_goals,
     }
   end
 
@@ -50,7 +59,9 @@ class UserSerializer < ActiveModel::Serializer
       basal_metabolic_rate: self.object.basal_metabolic_rate,
       calories_consumed: self.object.calories_consumed_per_day_within_last_week,
       calories_burned: self.object.calories_burned_per_day_within_last_week,
-      last_weeks_days: self.object.show_last_weeks_days
+      last_weeks_days: self.object.show_last_weeks_days,
+      consumptions_within_last_week: self.object.consumptions_within_last_week,
+      activity_miles_this_week: self.object.activity_miles_this_week
     }
    end
 end

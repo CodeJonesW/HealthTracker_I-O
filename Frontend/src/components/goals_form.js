@@ -4,23 +4,25 @@ import { Button } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
 import { fetchUser } from '../actions/user_actions'
-class ActivityForm extends Component {
+
+class GoalForm extends Component {
     
     state = {
         redirect: null
     }
 
-    handleCreateActivity = (e) => {
+    handleCreateGoal = (e) => {
         e.preventDefault()
 
-            fetch('http://localhost:3000/activities',{
+            fetch('http://localhost:3000/goals',{
             method: 'POST',
             headers: { Accept: 'application/json', 'Content-Type':'application/json', 'Authorization': `Bearer ${localStorage.jwt_token}` },
             body: JSON.stringify({
-                activity: {
+                goal: {
                     category: e.target.category.value.toLowerCase(),
-                    calories_burned: e.target.calories_burned.value,
+                    calories_to_burn: e.target.calories_to_burn.value,
                     distance: e.target.distance.value,
+                    completed: e.target.completed.value,
                     user_id: this.props.user.userInfo.id,
                 }
             })
@@ -29,9 +31,7 @@ class ActivityForm extends Component {
         fetchUser().then(res => {
             this.props.dispatch({ type: 'UPDATE_USER', user: res.user })
         })
-        this.setState({ redirect: <Redirect to='/activities' /> })
-
-
+        this.setState({ redirect: <Redirect to='/goals' /> })
         // }
         //   	else if(res.errors)
         //   		this.setState({ errors: res.errors })
@@ -43,10 +43,10 @@ class ActivityForm extends Component {
     render() { 
         return ( 
         
-        <Form onSubmit={(e) => this.handleCreateActivity(e)} style={{position: "relative", width: 300, height: 550, margin: '20px'}}>
+        <Form onSubmit={(e) => this.handleCreateGoal(e)} style={{position: "relative", width: 300, height: 550, margin: '20px'}}>
             {this.state.redirect}
 
-            <h3>New Activity</h3>
+            <h3>New Goal</h3>
             <FormGroup >
                 <FormSelect name="category">
                     <option value="run">Run</option>
@@ -57,13 +57,22 @@ class ActivityForm extends Component {
             </FormGroup>
 
             <FormGroup>
-                <label htmlFor="#calories_burned">Calories Burned</label>
-                <FormInput type="number" name="calories_burned" id="#calories_burned" placeholder="# Calories Burned" />
+                <label htmlFor="#calories_burned">Calories To Burned</label>
+                <FormInput type="number" name="calories_to_burn" id="#calories_to_burn" placeholder="# Calories to Burn" />
             </FormGroup>
+
             <FormGroup>
                 <label htmlFor="#distance">Distance</label>
-                <FormInput name="distance" type="number" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
+                <FormInput name="distance" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
+
+            <FormGroup>
+                <FormSelect name="completed">
+                    <option value="false">Pending</option>
+                    <option value="true">Complete</option>
+                </FormSelect>
+            </FormGroup>
+            
                 <Button className="mb-2" type="submit">Submit</Button>
             </Form> );
     }
@@ -74,4 +83,4 @@ let mapStateToProps = (state) => {
   }
 
 
-export default connect(mapStateToProps)(ActivityForm)
+export default connect(mapStateToProps)(GoalForm)

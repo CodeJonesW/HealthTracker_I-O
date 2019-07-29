@@ -58,6 +58,25 @@ class User < ApplicationRecord
         self.activities.select { |activity| activity.category == "bike" }
     end
 
+
+    # goal types
+
+    def run_goals
+        self.goals.select { |goal| goal.category == "run" }
+    end
+
+    def walk_goals
+        self.goals.select { |goal| goal.category == "walk" }
+    end
+
+    def swim_goals
+        self.goals.select { |goal| goal.category == "swim" }
+    end
+
+    def bike_goals
+        self.goals.select { |goal| goal.category == "bike" }
+    end
+
     # calories burned
 
     def daily_calories_burned
@@ -251,6 +270,63 @@ class User < ApplicationRecord
             calories_consumed << day_of_choice_calories_consumed(day)
         end
         return calories_consumed
+    end
+
+    def day_of_choice_consumptions(day)
+        consumed = []
+        self.consumptions.each do |consumption|
+            if (consumption.created_at.strftime('%F') == day.strftime('%F'))
+                consumed << consumption
+                 
+            end
+        end
+        return consumed
+    end
+
+    def consumptions_within_last_week
+        days = []
+        consumed = []
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+
+        days.each do |day|
+            consumed << day_of_choice_consumptions(day)
+        end
+        return consumed
+    end
+
+
+    def day_of_choice_activity_miles(day)
+        miles = 0
+        self.activities.each do |activity|
+            if (activity.created_at.strftime('%F') == day.strftime('%F'))
+                miles += activity.distance.split(" ")[0].to_f
+                 
+            end
+        end
+        return miles
+    end
+
+    def activity_miles_this_week
+        days = []
+        miles = 0
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+
+        days.each do |day|
+            miles += day_of_choice_activity_miles(day)
+        end
+        return miles
     end
 
 

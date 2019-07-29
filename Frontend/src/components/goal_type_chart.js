@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux'
 
-class ActivityTypeChart extends Component {
+class GoalTypeChart extends Component {
 
     render() { 
-        let activity_amounts = this.props.activity_types && [this.props.activity_types.runs.length, this.props.activity_types.walks.length, this.props.activity_types.swims.length, this.props.activity_types.bikes.length ]
+        let goal_amounts = this.props.userInfo.goal_types && [this.props.userInfo.goal_types.runs.length, this.props.userInfo.goal_types.walks.length, this.props.userInfo.goal_types.swims.length, this.props.userInfo.goal_types.bikes.length ]
         return ( 
             <div>
-                <h6>Activity Types</h6>
+                <h6>Goal Types</h6>
                 <Doughnut
                     options={{
                             responsive: true,
@@ -21,7 +21,7 @@ class ActivityTypeChart extends Component {
                             {
                                 label: "Activity Type",
                                 backgroundColor: ["rgba(248, 148, 6, 1)","green", "rgba(207, 0, 15, 1)", "blue"],
-                                data: activity_amounts,
+                                data: goal_amounts,
                                 drawBorder: true
                             }
                         ]
@@ -32,7 +32,7 @@ class ActivityTypeChart extends Component {
     }
 }
 let mapStateToProps = (state) => {
-    return { userActivities: state.user.userInfo.activities, user: state.user.userInfo, activity_types: state.user.userInfo.activity_types}
+    return { userInfo: state.user.userInfo}
 }
 
-export default connect(mapStateToProps)(ActivityTypeChart)
+export default connect(mapStateToProps)(GoalTypeChart)

@@ -4,7 +4,7 @@ import { Button } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
 import { fetchUser } from '../actions/user_actions';
-import { createConsumption } from '../actions/consumption_actions'
+// import { createConsumption } from '../actions/consumption_actions'
 class ConsumptionForm extends Component {
     
     state = {

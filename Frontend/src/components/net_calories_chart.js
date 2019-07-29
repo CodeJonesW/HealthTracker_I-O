@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
 import { connect } from 'react-redux'
-import { ButtonGroup, Button } from "shards-react";
 
 class NetCaloriesChart extends Component {
 
@@ -13,7 +12,7 @@ class NetCaloriesChart extends Component {
         [
             {
                 label: "Calorie Consumption",
-                backgroundColor: 'rgba(77, 19, 209, 0.6)',
+                backgroundColor: 'rgba(77, 19, 209, 0.4)',
                 data: this.props.userInfo.special.calories_consumed
             },
             {
@@ -27,7 +26,9 @@ class NetCaloriesChart extends Component {
         return (
             <div>  
                 
-                <div style={{position: "absolute", top: '90px', left: '500px', width: 500, height: 550}}>
+                <div 
+                // style={{position: "absolute", top: '90px', left: '500px', width: 500, height: 550}}
+                >
                     { this.props.consumptions &&
                     <Line
                         options={{

@@ -23,6 +23,15 @@ class ActivitiesController < ApplicationController
         @activity = Activity.destroy(params[:id])
     end
 
+    def update
+        @activity = Activity.find(params[:id])
+        if @activity.update(a_params)
+            render json: @activity
+        else
+            render json: @activity.errors, status: :unprocessable_entity
+        end
+    end
+
 
     private
 

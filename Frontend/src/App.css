@@ -1,22 +1,3 @@
 .App {
   text-align: center;
 }
-
-#profileCard {
-  margin: '2em'; 
-  width: 18rem;
-  position: absolute;
-  left: '200px'
-}
-
-/* #netCaloriesChart {
-  position: "relative"; 
-  width: 500;
-  height: 550;
-} */
-
-/* #netCaloriesChartdiv{
-  position: "relative"; 
-  width: 500;
-  height: 550;
-} */
