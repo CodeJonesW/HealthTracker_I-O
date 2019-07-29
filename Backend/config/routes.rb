@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :goals
   resources :consumptions
   resources :activities
-  resources :users
+  resources :users, except: [:destroy]
 
   post '/login' => 'auth#create'
   post '/signup' => 'users#create'

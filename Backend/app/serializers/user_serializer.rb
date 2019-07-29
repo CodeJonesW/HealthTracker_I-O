@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :name, :email, :height, :gender, :age, :weight, :activities, :activity_types, :goals, :follows, :consumptions, :calories_burned, :calories_consumed, :goal_stats, :net_calories, :special
+  attributes :id, :username, :name, :email, :height, :gender, :age, :weight, :activities, :activity_types, :goals, :follows, :consumptions, :calories_burned, :calories_consumed, :goal_stats, :net_calories, :special, :goal_types
 
 
   def activity_types
@@ -8,6 +8,15 @@ class UserSerializer < ActiveModel::Serializer
       walks: self.object.walk_activities,
       swims: self.object.swim_activities,
       bikes: self.object.bike_activities,
+    }
+  end
+
+  def goal_types
+    {
+      runs: self.object.run_goals,
+      walks: self.object.walk_goals,
+      swims: self.object.swim_goals,
+      bikes: self.object.bike_goals,
     }
   end
 

@@ -58,6 +58,25 @@ class User < ApplicationRecord
         self.activities.select { |activity| activity.category == "bike" }
     end
 
+
+    # goal types
+
+    def run_goals
+        self.goals.select { |goal| goal.category == "run" }
+    end
+
+    def walk_goals
+        self.goals.select { |goal| goal.category == "walk" }
+    end
+
+    def swim_goals
+        self.goals.select { |goal| goal.category == "swim" }
+    end
+
+    def bike_goals
+        self.goals.select { |goal| goal.category == "bike" }
+    end
+
     # calories burned
 
     def daily_calories_burned
