@@ -60,7 +60,7 @@ class Profile extends React.Component {
 
                     <Col md={2}>
                         <Fade in={this.state.visible}>
-                            <Card className="m-3" id="userFollowing" 
+                            <Card className="m-2" id="userFollowing" 
                             // style={{position: 'absolute', left:'1040px', top: '100px', width: '200px'}}
                             >
                                 <Card.Body>
@@ -92,7 +92,7 @@ class Profile extends React.Component {
                         </Card>
                     </Col>
 
-                    <Col md={4}>
+                    <Col md={6}>
                         <ActivityTypeChart />
                     </Col>
                 </Row> 
