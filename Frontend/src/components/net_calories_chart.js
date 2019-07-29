@@ -26,7 +26,9 @@ class NetCaloriesChart extends Component {
         return (
             <div>  
                 
-                <div style={{position: "absolute", top: '90px', left: '500px', width: 500, height: 550}}>
+                <div 
+                // style={{position: "absolute", top: '90px', left: '500px', width: 500, height: 550}}
+                >
                     { this.props.consumptions &&
                     <Line
                         options={{

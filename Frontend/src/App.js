@@ -48,7 +48,6 @@ class App extends React.Component{
               <Route exact path='/createconsumption' render={()=> <ConsumptionForm/> }/>
               <Route exact path='/creategoal' render={()=> <GoalForm/> }/>
               <Route exact path='/editgoal' render={()=> <EditGoalForm/> }/>
-
             </Switch>
         }
       </div>

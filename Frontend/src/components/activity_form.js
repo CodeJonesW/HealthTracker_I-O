@@ -30,6 +30,8 @@ class ActivityForm extends Component {
             this.props.dispatch({ type: 'UPDATE_USER', user: res.user })
         })
         this.setState({ redirect: <Redirect to='/activities' /> })
+
+
         // }
         //   	else if(res.errors)
         //   		this.setState({ errors: res.errors })
@@ -46,19 +48,14 @@ class ActivityForm extends Component {
 
             <h3>New Activity</h3>
             <FormGroup >
-                {/* <label htmlFor="#category">Category</label> */}
-                {/* <FormInput type="select" name="category" id="#category" placeholder="Category" /> */}
                 <FormSelect name="category">
                     <option value="run">Run</option>
                     <option value="walk">Walk</option>
                     <option value="bike">Bike</option>
                     <option value="swim">Swim</option>
                 </FormSelect>
-                
-
-
-
             </FormGroup>
+
             <FormGroup>
                 <label htmlFor="#calories_burned">Calories Burned</label>
                 <FormInput type="number" name="calories_burned" id="#calories_burned" placeholder="# Calories Burned" />

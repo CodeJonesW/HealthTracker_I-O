@@ -9,13 +9,13 @@ class GoalsChart extends Component {
         [
             {
                 label: "Calories To Burn",
-                backgroundColor: "rgba(255, 0, 0, 0.8)",
+                backgroundColor: "rgba(102, 51, 153, 0.9)",
                 data: this.props.user.goal_stats.successful_goals.map(goal => goal.calories_to_burn)
 
             },
             {
                 label: "Goal Distance",
-                backgroundColor: "rgba(0,128,0, 0.8)",
+                backgroundColor: "rgba(25, 181, 254, 0.9)",
                 data: this.props.user.goal_stats.successful_goals.map(goal => parseFloat(goal.distance.split(' ')[0]))
             }
         ]
