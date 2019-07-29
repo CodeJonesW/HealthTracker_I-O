@@ -225,6 +225,7 @@ class User < ApplicationRecord
         return daily_calories_consumed
     end
 
+    # Could be refactored 
     def show_last_weeks_days
         days = []
         calories_burned = []
@@ -238,6 +239,13 @@ class User < ApplicationRecord
         return days
     end
 
+    def show_this_months_past_days
+        days = []
+        days_passed_in_month = Date.today.strftime('%F').split('-')[2].to_i
+        (0..days_passed_in_month-1).each { |i| days << Date.today-i}
+        return days
+    end
+    # Could be refactored 
     def calories_burned_per_day_within_last_week
         days = []
         calories_burned = []
@@ -255,6 +263,18 @@ class User < ApplicationRecord
         return calories_burned
     end
 
+    def calories_burned_per_day_within_last_month
+        calories_burned = []
+        days = []
+        days_passed_in_month = Date.today.strftime('%F').split('-')[2].to_i
+        (0..days_passed_in_month-1).each { |i| days << Date.today-i}
+        days.each do |day|
+            calories_burned << day_of_choice_calories_burned(day)
+        end
+        return calories_burned
+    end
+
+    # Could be refactored 
     def calories_consumed_per_day_within_last_week
         days = []
         calories_consumed = []
@@ -283,6 +303,7 @@ class User < ApplicationRecord
         return consumed
     end
 
+    # Could be refactored 
     def consumptions_within_last_week
         days = []
         consumed = []
@@ -312,6 +333,7 @@ class User < ApplicationRecord
         return miles
     end
 
+    # Could be refactored 
     def activity_miles_this_week
         days = []
         miles = 0
@@ -323,6 +345,20 @@ class User < ApplicationRecord
         days << Date.today-1
         days << Date.today
 
+        days.each do |day|
+            miles += day_of_choice_activity_miles(day)
+        end
+        return miles
+    end
+
+    # days_in_month = Time.days_in_month(Date.today.strftime('%F').split('-')[1].to_i, Date.today.strftime('%F').split('-')[0].to_i)
+    # gives me the days in the month of particular year no longer need but cool...maybe need this later^^
+
+    def activity_miles_this_month
+        miles = 0
+        days = []
+        days_passed_in_month = Date.today.strftime('%F').split('-')[2].to_i
+        (0..days_passed_in_month-1).each { |i| days << Date.today-i}
         days.each do |day|
             miles += day_of_choice_activity_miles(day)
         end

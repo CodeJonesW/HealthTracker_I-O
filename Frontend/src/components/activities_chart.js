@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux'
+import { Button } from "shards-react";
 
 class ActivitiesChart extends Component {
+        // state = {
+        //     show_weekly_calories_burned: true
+        // }
+            // state shows weekly vs monthly calories burned per day ^^
+
+            // switchState = () => {
+            //     this.setState({calories_burned: !this.state.calories_burned})
+            //     console.log(this.state.calories_burned)
+            // }
+
 
     render() { 
         let barDataSets = this.props.userActivities && 
@@ -19,11 +30,9 @@ class ActivitiesChart extends Component {
                 data: this.props.userActivities.map(activity =>  parseFloat(activity.distance.split(' ')[0]))
             }
         ]
-        // fix the distance to be for each day
+        // fix the distance to be for each day ^^^
         return ( 
-            <div 
-            // style={{position: "relative", width: 550, height: 500, margin: '20px'}}
-            >
+            <div>
                 <h6>Weekly Burned Calories by Day</h6>
                 { this.props.userActivities &&
                 <Bar
@@ -35,6 +44,7 @@ class ActivitiesChart extends Component {
                         datasets: barDataSets
                     }}
                 />}
+                {/* <Button onClick={this.switchState}>Monthly/Weekly</Button> */}
             </div>
         );
     }

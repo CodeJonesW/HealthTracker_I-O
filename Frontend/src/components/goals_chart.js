@@ -21,9 +21,7 @@ class GoalsChart extends Component {
         ]
 
         return ( 
-            <div 
-            // style={{position: "absolute", width: 600, height: 550, top: '150px', left: '30px'}}
-            >
+            <div>
                 <h4>Completed Goals</h4>
                 <Bar
                     options={{

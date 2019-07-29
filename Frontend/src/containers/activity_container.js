@@ -37,7 +37,8 @@ class ActivityContainer extends React.Component {
                         <Card.Body>
                             <Card.Title>Total Activity Miles</Card.Title>
                                 <Card.Text>
-                                  This week: {this.props.userInfo.special.activity_miles_this_week}
+                                  This week: {this.props.userInfo.special.activity_miles_this_week}<br/>
+                                  This month: {this.props.userInfo.special.activity_miles_this_month}
                                 </Card.Text>
                         </Card.Body>
                   </Card>  
