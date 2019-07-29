@@ -92,7 +92,7 @@ class Profile extends React.Component {
                         </Card>
                     </Col>
 
-                    <Col md={6}>
+                    <Col md={5}>
                         <ActivityTypeChart />
                     </Col>
                 </Row> 
