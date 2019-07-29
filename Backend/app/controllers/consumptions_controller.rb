@@ -22,6 +22,15 @@ class ConsumptionsController < ApplicationController
         @consumption = Consumption.destroy(params[:id])
     end
 
+    def update
+        @consumption = Consumption.find(params[:id])
+        if @consumption.update(c_params)
+            render json: @consumption
+        else
+            render json: @consumption.errors, status: :unprocessable_entity
+        end
+    end
+
 
 
     private

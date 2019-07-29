@@ -16,7 +16,7 @@ class ConsumptionsContainer extends React.Component {
             <div className="consumptionContainer">
                 <Row className="d-flex justify-content-center m-3">
                     <Col md={4}>
-                        <Card className="m-3" id="consumptionsCard">
+                        <Card className="m-4" id="consumptionsCard">
                             <Card.Body>
                                 <Card.Title>Calories Consumed</Card.Title>
                                     <Card.Text>
@@ -33,7 +33,7 @@ class ConsumptionsContainer extends React.Component {
                         <h4>Consumptions</h4>
                             <ButtonGroup vertical  className="m-1">
                                     <NavLink className="btn btn-primary" to='/createconsumption'> New Consumption</NavLink>
-                                    <NavLink className="btn btn-primary" to='/createconsumption'> Edit Consumption</NavLink>
+                                    <NavLink className="btn btn-primary" to='/editconsumption'> Edit Consumption</NavLink>
                                     <Button className="mb-2">Delete Consumption</Button>
                             </ButtonGroup>        
                     </Col>

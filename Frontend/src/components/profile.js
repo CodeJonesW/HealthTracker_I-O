@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 // import { ButtonGroup } from "shards-react";
-// import { NavLink } from "react-router-dom"
-import { Fade, Button } from "shards-react";
+import { NavLink } from "react-router-dom"
+import { Fade, Button, ButtonGroup } from "shards-react";
 import { Card, ListGroup, Row, Col, Container} from 'react-bootstrap'
 import NetCaloriesChart from './net_calories_chart';
 import ActivityTypeChart from './activities_type_chart'
@@ -46,9 +46,12 @@ class Profile extends React.Component {
                                         Weight: {this.props.userInfo.weight}<br/>
                                     </Card.Text>
                                 <div>
-                                    <Button onClick={this.toggle} className="mb-2">
-                                        Show Friends
-                                    </Button>
+                                    <ButtonGroup horizontal>
+                                        <Button onClick={this.toggle}>
+                                            Show Friends
+                                        </Button>
+                                        <NavLink className="btn btn-primary" to='/editprofile'> Edit Profile</NavLink>
+                                    </ButtonGroup>
                                 </div>
                             </Card.Body>
                         </Card>
@@ -60,9 +63,7 @@ class Profile extends React.Component {
 
                     <Col md={2}>
                         <Fade in={this.state.visible}>
-                            <Card className="m-2" id="userFollowing" 
-                            // style={{position: 'absolute', left:'1040px', top: '100px', width: '200px'}}
-                            >
+                            <Card className="m-2" id="userFollowing">
                                 <Card.Body>
                                     <Card.Title>Friends You Follow</Card.Title>
                                         <Card.Text>
@@ -76,9 +77,9 @@ class Profile extends React.Component {
                     </Col>
                 </Row>
 
-                <Row className="d-flex justify-content-left m-3">
+                <Row className="d-flex justify-content-left m-1">
                     <Col md={4}>
-                        <Card className="m-3" id="userCalorieInfo">
+                        <Card className="m-2" id="userCalorieInfo">
                             <Card.Body>
                                 <Card.Title>Your BMR: {this.props.userInfo.special.basal_metabolic_rate ? this.props.userInfo.special.basal_metabolic_rate :"Enter your age, weight, and height to calculate your BMR!"}</Card.Title>
                                     <Card.Text>

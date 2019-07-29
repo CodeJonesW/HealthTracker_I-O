@@ -25,7 +25,7 @@ class GoalContainer extends React.Component {
                         </Card>
                     </Col>
 
-                    <Col md={6} className="m-3">
+                    <Col md={6} className="m-2">
                         <h4>Goals</h4>
                         <ButtonGroup vertical 
                         // style={{position: 'absolute', top: '200px', left: '650px'}}
@@ -49,8 +49,8 @@ class GoalContainer extends React.Component {
                         </Card>
                     </Col>
 
-                    <Col md={6} className="m-3">
-                        <GoalsChart className="m-3"/>
+                    <Col md={6} className="m-2">
+                        <GoalsChart />
                     </Col>
                 </Row>
             </div>

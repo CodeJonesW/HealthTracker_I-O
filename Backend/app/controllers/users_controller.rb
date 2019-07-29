@@ -31,6 +31,15 @@ class UsersController < ApplicationController
     #     render json: {status: "error", code: 404, message: "follow does not exist"}
     end
 
+    def update
+      @user = User.find(params[:id])
+      if @user.update(new_user_params)
+          render json: @user
+      else
+          render json: @user.errors, status: :unprocessable_entity
+      end
+  end
+
     def profile
       render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end

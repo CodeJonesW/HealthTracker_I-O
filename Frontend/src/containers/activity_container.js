@@ -33,9 +33,7 @@ class ActivityContainer extends React.Component {
             <Row className="d-flex justify-content-center m-3">
             
               <Col md={4}>
-                  <Card id="activityMilesCard" 
-                  // style={{position: 'absolute', left:'100px', top: '100px', width: '300px'}}
-                  >
+                  <Card className="m-3" id="activityMilesCard">
                         <Card.Body>
                             <Card.Title>Total Activity Miles</Card.Title>
                                 <Card.Text>
@@ -51,7 +49,7 @@ class ActivityContainer extends React.Component {
                       // style={{position: 'relative'}}
                       >
                               <NavLink className="btn btn-primary" to='/createactivity'> New Activity</NavLink>
-                              <NavLink className="btn btn-primary" to='/createactivity'> Edit Activity</NavLink>
+                              <NavLink className="btn btn-primary" to='/editactivity'> Edit Activity</NavLink>
                               <Button className="btn btn-primary">Delete Activity</Button>
                       </ButtonGroup>
               </Col>

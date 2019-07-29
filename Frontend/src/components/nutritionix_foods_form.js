@@ -84,48 +84,40 @@ class NutritionixForm extends Component {
     render() { 
         return ( 
         <div>
-        <Form onSubmit={(e) => this.handleSearchNutrionixFoods(e)} 
-        // style={{position: "absolute", left: '20px', top: '400px', width: 300, height: 550, margin: '20px'}}
-        >
-            {this.state.redirect}
+            <Form onSubmit={(e) => this.handleSearchNutrionixFoods(e)}>
+                {this.state.redirect}
 
-            <FormGroup>
-                <FormInput name="nutritionixSearch" id="#nutritionixSearch" placeholder="Search Nutrionix Foods!" />
-            </FormGroup>
-                <Button className="mb-2" type="submit">Submit</Button>
-            </Form> 
+                <FormGroup>
+                    <FormInput name="nutritionixSearch" id="#nutritionixSearch" placeholder="Search Nutrionix Foods!" />
+                </FormGroup>
+                    <Button className="mb-2" type="submit">Submit</Button>
+                </Form> 
 
-            <Fade 
-            // style={{position: 'absolute', left:'100px', top: '400px', width: '400px'}} 
-            in={this.state.visible}>
-                    <Card className="m-3" id="nutritionixSearchInfoCard" 
-                    // style={{position: 'absolute', left:'280px', top: '0px', width: '400px'}}
-                    >
-                        <Card.Body>
-                            <Card.Title>Consumption Search Results</Card.Title>
-                                <Card.Text>
-
-                                <Form onSubmit={(e) => this.handleCreateConsumption(e)}>
-                                    {this.state.redirect}
-                                    Serving Size: {this.props.consumptions[0] ? this.props.consumptions[0]['serving_qty']:null}
-                                    <FormGroup >
-                                        <label htmlFor="#category">Type</label>
-                                        <FormInput name="category" id="#category" value={this.props.consumptions[0] ? this.props.consumptions[0]['food_name']:null} />
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <label htmlFor="#calories_intaken">Calories</label>
-                                        <FormInput name="calories_intaken" id="#calories_intaken" value={this.props.consumptions[0] ? this.props.consumptions[0]['nf_calories']:null} />
-                                    </FormGroup>
-                                        <Button className="mb-2" onClick={this.toggle} type="submit">Add to your Consumptions</Button> <br/>
-                                        <Button onClick={this.toggle} className="mb-2">Close</Button>
-                                </Form> 
-                                {/* <img src={this.props.consumptions[0] ? this.props.consumptions[0]['photo']['thumb']:null}/> */}
-
-                                </Card.Text>
+                <Fade in={this.state.visible}>
+                        <Card className="m-3" id="nutritionixSearchInfoCard">
+                            <Card.Body>
+                                <Card.Title>Consumption Search Results</Card.Title>
                                 
-                        </Card.Body>
-                    </Card>   
-                </Fade>
+                                    <Form  onSubmit={(e) => this.handleCreateConsumption(e)}>
+                                        {this.state.redirect}
+                                        Serving Size: {this.props.consumptions[0] ? this.props.consumptions[0]['serving_qty']:''}
+                                        <FormGroup >
+                                            <label htmlFor="#category">Type</label>
+                                            <FormInput name="category" id="#category" defaultValue={this.props.consumptions[0] ? this.props.consumptions[0]['food_name']:''} />
+                                        </FormGroup>
+                                        <FormGroup>
+                                            <label htmlFor="#calories_intaken">Calories</label>
+                                            <FormInput name="calories_intaken" id="#calories_intaken" defaultValue={this.props.consumptions[0] ? this.props.consumptions[0]['nf_calories']:''} />
+                                        </FormGroup>
+                                            <Button className="mb-2" onClick={this.toggle} type="submit">Add to your Consumptions</Button> <br/>
+                                            <Button onClick={this.toggle} className="mb-2">Close</Button>
+                                    </Form> 
+                                    {/* <img src={this.props.consumptions[0] ? this.props.consumptions[0]['photo']['thumb']:null}/> */}
+
+                                    
+                            </Card.Body>
+                        </Card>   
+                    </Fade>
         </div>
             );
 

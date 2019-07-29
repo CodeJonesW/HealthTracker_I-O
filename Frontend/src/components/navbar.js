@@ -53,70 +53,61 @@ class MyNavBar extends React.Component {
 
   render() {
     return (
-      <Navbar type="dark" theme="primary" expand="md">
-        <NavbarBrand ><img src={logo} alt="logo"/></NavbarBrand>
-        
-        <NavbarBrand href="/">Health Tracker I/O</NavbarBrand>
-        <NavbarToggler onClick={this.toggleNavbar} />
-        
-        <Collapse open={this.state.collapseOpen} navbar>
-          <Nav className="mr-auto"navbar>
-            <NavItem>
-              <NavLink active href="/profile">
-                Profile
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/activities">
-                Activities
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/goals">
-                Goals
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/consumptions">
-                Consumptions
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/" onClick={this.clearLocal}>
-                Signout
-              </NavLink>
-            </NavItem>
-            {/* <Dropdown
-              open={this.state.dropdownOpen}
-              toggle={this.toggleDropdown}
-            >
-              <DropdownToggle nav caret>
-                Dropdown
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem>Action</DropdownItem>
-                <DropdownItem>Another action</DropdownItem>
-                <DropdownItem>Something else here</DropdownItem>
-              </DropdownMenu>
-            </Dropdown> */}
-          </Nav>
+      <div>
+        {!localStorage['jwt_token'] && !this.props.userInfo.id ?
+         <Navbar type="dark" theme="primary" expand="md">
+         <NavbarBrand ><img src={logo} alt="logo"/></NavbarBrand>
+         
+         <NavbarBrand href="/">Health Tracker I/O</NavbarBrand>
+         <NavbarToggler />
+       </Navbar> 
+         :
+        <Navbar type="dark" theme="primary" expand="md">
+          <NavbarBrand ><img src={logo} alt="logo"/></NavbarBrand>
           
-          <Nav navbar className="ml-auto">
-            <InputGroup size="sm" seamless>
-              <InputGroupAddon type="prepend">
-                <InputGroupText>
-                </InputGroupText>
-              </InputGroupAddon>
-              <FormInput className="border-0" placeholder="Search..." />
-            </InputGroup>
-          </Nav>
-        </Collapse>
-      </Navbar>
+          <NavbarBrand href="/">Health Tracker I/O</NavbarBrand>
+          <NavbarToggler onClick={this.toggleNavbar} />
+          
+          <Collapse open={this.state.collapseOpen} navbar>
+            <Nav className="mr-auto"navbar>
+              <NavItem>
+                <NavLink active href="/profile">
+                  Profile
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/activities">
+                  Activities
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/goals">
+                  Goals
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/consumptions">
+                  Consumptions
+                </NavLink>
+              </NavItem>
+            </Nav>
+            
+            <Nav navbar className="ml-auto">
+              <NavItem>
+                <NavLink href="/" onClick={this.clearLocal}>
+                  Signout
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+        }
+      </div>
     );
   }
 }
 let mapStateToProps = (state) => {
-  return { user: state.user.userInfo}
+  return { userInfo: state.user.userInfo}
 }
 
 export default connect(mapStateToProps)(MyNavBar)
