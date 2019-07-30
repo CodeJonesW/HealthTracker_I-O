@@ -29,7 +29,7 @@ class GoalContainer extends React.Component {
                         <ButtonGroup vertical>
                                     <NavLink className="btn btn-primary" to='/creategoal'> New Goal</NavLink>
                                     <NavLink className="btn btn-primary" to='/editgoal'> Edit Goal</NavLink>
-                                    <Button className="mb-2">Delete Goal</Button>
+                                    <NavLink className="btn btn-primary" to='/deletegoal'> Delete Goal</NavLink>
                         </ButtonGroup>
                     </Col>
                    

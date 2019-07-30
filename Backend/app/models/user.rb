@@ -199,7 +199,7 @@ class User < ApplicationRecord
     #655.1 + (4.35 x weight) + (4.7 x height) - (4.7 x age) = BMR for women
 
     def basal_metabolic_rate
-        return self.gender == "male" ? 66 + ( 6.2 * self.weight ) + ( 12.7 * (self.height).to_f ) - ( 6.76 * self.age) : 655.1 + ( 6.2 * self.weight ) + ( 12.7 * (self.height).to_f ) - ( 6.76 * self.age)
+        return self.gender == "male" ? 66 + ( 6.2 * self.weight ) + ( 12.7 * (self.height).to_f ) - ( 6.76 * self.age) : 655.1 + ( 4.35 * self.weight ) + ( 4.7 * (self.height).to_f ) - ( 4.7 * self.age)
     end
 
 
@@ -321,6 +321,7 @@ class User < ApplicationRecord
         return consumed
     end
 
+    # Could be refactored 
     def consumptions_within_last_3_days_per_day
         days = []
         consumed = []
@@ -361,6 +362,24 @@ class User < ApplicationRecord
             miles += day_of_choice_activity_miles(day)
         end
         return miles
+    end
+
+    # Could be refactored 
+    def activity_miles_per_day_this_week
+        days = []
+        day_miles = []
+        days << Date.today-6
+        days << Date.today-5
+        days << Date.today-4
+        days << Date.today-3
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+
+        days.each do |day|
+            day_miles << day_of_choice_activity_miles(day)
+        end
+        return day_miles
     end
 
     def find_number_of_days_in_current_month

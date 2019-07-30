@@ -63,7 +63,7 @@ class EditConsumptionForm extends Component {
                     {/* <label htmlFor="#calories_intaken">Calories Consumed</label> */}
                     <FormInput type="number" name="calories_intaken" id="#calories_intaken" placeholder="# Calories Consumed" />
                 </FormGroup>
-                    <Button className="mb-2" type="submit">Submit</Button>
+                    <Button className="mb-2" type="submit">Submit Edit</Button>
             </Form>
         </SplashConsumptionDiv>
              );

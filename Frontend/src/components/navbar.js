@@ -8,10 +8,10 @@ import {
   Nav,
   NavItem,
   NavLink,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  FormInput,
+  // InputGroup,
+  // InputGroupAddon,
+  // InputGroupText,
+  // FormInput,
   Collapse
 } from "shards-react";
 

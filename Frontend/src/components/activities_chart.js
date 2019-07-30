@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { connect } from 'react-redux'
-import { Button } from "shards-react";
 
 class ActivitiesChart extends Component {
 
@@ -17,7 +16,7 @@ class ActivitiesChart extends Component {
             {
                 label: "Activity Distance in Miles",
                 backgroundColor: "purple",
-                data: this.props.userActivities.map(activity =>  parseFloat(activity.distance.split(' ')[0]))
+                data: this.props.userInfo.special.activity_miles_per_day_this_week.map(distance =>  distance)
             }
         ]
         // fix the distance to be for each day ^^^

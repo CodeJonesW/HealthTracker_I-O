@@ -80,7 +80,7 @@ class EditGoalForm extends Component {
                 </FormSelect>
             </FormGroup>
             
-                <Button className="mb-2" type="submit">Submit</Button>
+                <Button className="mb-2" type="submit">Submit Edit</Button>
             </Form>
             </SplashGoalDiv> );
     }

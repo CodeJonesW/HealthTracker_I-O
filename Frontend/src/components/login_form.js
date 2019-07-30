@@ -103,7 +103,7 @@ render() {
                                     <label htmlFor="#password">Password</label>
                                     <FormInput name="password" type="password" id="#password" placeholder="Password" />
                                 </FormGroup>
-                                    <ButtonGroup horizontal  className="loginButtonGroup">
+                                    <ButtonGroup horizontal="true"  className="loginButtonGroup">
                                         <Button className="mb-2" type="submit">Login</Button>
                                         <Button onClick={this.toggle} className="mb-2">Sign up!</Button>
                                     </ButtonGroup>
@@ -113,34 +113,34 @@ render() {
                         <Col>
                             <Fade in={this.state.visible}>
                                 <Form onSubmit={(e) => this.handleSignUp(e)} style={{position: "relative", width: 300, height: 550, margin: '20px'}}>
-                                <h7>Create New User</h7>
+                                <h6>Create New User</h6>
                                     <FormGroup >
                                         {/* <label htmlFor="#username">Username</label> */}
-                                        <FormInput name="username" id="#username" placeholder="Username" />
+                                        <FormInput name="username" id="#signupusername" placeholder="Username" />
                                     </FormGroup>
                                     <FormGroup>
                                         {/* <label htmlFor="#password">Password</label> */}
-                                        <FormInput name="password" type="password" id="#password" placeholder="Password" />
+                                        <FormInput name="password"  id="#signuppassword" placeholder="Password" />
                                     </FormGroup>
                                     <FormGroup>
                                         {/* <label htmlFor="#name">Name</label> */}
-                                        <FormInput name="name" type="name" id="#name" placeholder="Name" />
+                                        <FormInput name="name" id="#signupname" placeholder="Name" />
                                     </FormGroup>
                                     <FormGroup>
                                         {/* <label htmlFor="#email">Email</label> */}
-                                        <FormInput name="email" id="#email" placeholder="Email" />
+                                        <FormInput name="email" id="#signupemail" placeholder="Email" />
                                     </FormGroup>
                                     <FormGroup>
                                         {/* <label htmlFor="#age">Age</label> */}
-                                        <FormInput name="age" id="#age" placeholder="Age" />
+                                        <FormInput name="age" id="#signupage" placeholder="Age" />
                                     </FormGroup>
                                     <FormGroup>
                                         {/* <label htmlFor="#gender">Gender</label> */}
-                                        <FormInput name="gender" id="#gender" placeholder="Gender" />
+                                        <FormInput name="gender" id="#signupgender" placeholder="Gender" />
                                     </FormGroup>
                                     <FormGroup>
                                         {/* <label htmlFor="#height">Height</label> */}
-                                        <FormInput name="height" id="#height" placeholder="Height" />
+                                        <FormInput name="height" id="#signupheight" placeholder="Height" />
                                     </FormGroup>
                                     <FormGroup>
                                         {/* <label htmlFor="#weight">Weight</label> */}

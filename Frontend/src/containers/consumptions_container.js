@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import ConsumptionsChart from '../components/consumptions_chart'
-import { Button, ButtonGroup } from "shards-react";
+import { ButtonGroup } from "shards-react";
 import { NavLink } from "react-router-dom"
 import { Card, Row, Col } from 'react-bootstrap'
 import NutritionixForm from "../components/nutritionix_foods_form"
@@ -34,7 +34,7 @@ class ConsumptionsContainer extends React.Component {
                             <ButtonGroup vertical  className="m-1">
                                     <NavLink className="btn btn-primary" to='/createconsumption'> New Consumption</NavLink>
                                     <NavLink className="btn btn-primary" to='/editconsumption'> Edit Consumption</NavLink>
-                                    <Button className="mb-2">Delete Consumption</Button>
+                                    <NavLink className="btn btn-primary" to="/deleteconsumption">Delete Consumption</NavLink>
                             </ButtonGroup>        
                     </Col>
 

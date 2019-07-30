@@ -42,19 +42,17 @@ class Profile extends React.Component {
                                         Age: {this.props.userInfo.age}, Gender: {this.props.userInfo.gender}<br/>
                                         Height: {this.props.userInfo.height}, Weight: {this.props.userInfo.weight}<br/>
                                     </Card.Text>
-                                <div>
-                                    <ButtonGroup horizontal>
+                                    <ButtonGroup horizontal="true">
                                         <Button onClick={this.toggle}>
                                             Show Friends
                                         </Button>
                                         <NavLink className="btn btn-primary" to='/editprofile'> Edit Profile</NavLink>
                                     </ButtonGroup>
-                                </div>
                             </Card.Body>
                         </Card>
                     </Col>
 
-                    <Col md={6} classname="m-3">
+                    <Col md={6}>
                         <NetCaloriesChart/>
                     </Col>
 
@@ -81,6 +79,18 @@ class Profile extends React.Component {
                                     </Card.Text>
                             </Card.Body>
                         </Card>
+                        <Card className="m-3" id="userCalorieInfo">
+                            <Card.Body>
+                                <Card.Title>Calculator Information</Card.Title>
+                                    <Card.Text>
+                                    Basal metabolic rate (BMR) is a minimum number of calories required for basic functions at rest.<br/>
+                                    BMR for Women: BMR = 655.1 + ( 4.35 × weight in pounds ) + ( 4.7 × height in inches ) - ( 4.7 × age in years )<br/>
+                                    BMR for Men = 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )<br/>
+                                    These formulas are based on the Harris-Benedict formula.<br/>
+                                    Net Calories = Calories Consumed - Calories Burned
+                                    </Card.Text>
+                            </Card.Body>
+                        </Card>
                     </Col>
 
                     <Col md={4}>
@@ -92,9 +102,7 @@ class Profile extends React.Component {
                                 <Card.Body>
                                     <Card.Title>Friends You Follow</Card.Title>
                                         <Card.Text>
-                                            <ListGroup>
-                                                {this.props.userInfo.follows.map(follow => <ListGroup.Item>{follow.id}</ListGroup.Item>)}
-                                            </ListGroup>
+                                                {/* {this.props.userInfo.follows.map(follow =><p> follow.id </p>)} */}  
                                         </Card.Text>
                                 </Card.Body>
                             </Card>   
