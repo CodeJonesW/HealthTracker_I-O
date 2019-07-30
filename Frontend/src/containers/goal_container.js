@@ -13,16 +13,16 @@ class GoalContainer extends React.Component {
         return ( 
             <div>
                 <Row className="d-flex justify-content-center m-3">
-                    <Col>
-                        <Card className="m-3">
+
+                <Col md={3}>
+                        <Card className="m-1" id="activeGoalsCard">
                             <Card.Body>
-                                <Card.Title>Goal Comments</Card.Title>
-                                    <Card.Text>
-                                    
-                                    </Card.Text>
+                                <Card.Title>Last 3 Pending Goals</Card.Title>
+                                    {this.props.goalStats.pending_goals.slice(-3).map(pendingGoal => <p>Distance: {pendingGoal.distance}, Type: {pendingGoal.category}</p> )}
                             </Card.Body>
                         </Card>
                     </Col>
+                    
                     
                     <Col md={5} className="m-2">
                         <h4>Goals</h4>
@@ -33,23 +33,26 @@ class GoalContainer extends React.Component {
                         </ButtonGroup>
                     </Col>
                    
-
-                    <Col md={3}>
-                        <Card className="m-1" id="activeGoalsCard">
+                    <Col>
+                        <Card className="m-3">
                             <Card.Body>
-                                <Card.Title>Last 3 Pending Goals</Card.Title>
-                                    {this.props.goalStats.pending_goals.slice(-4).map(pendingGoal => <p>Distance: {pendingGoal.distance}, Type: {pendingGoal.category}</p> )}
+                                <Card.Title>Goal Info</Card.Title>
+                                    <Card.Text>
+                                    Creat a goal for yourself! Come back when you are ready to check the goal off your list.
+                                    </Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
+                    
 
                   
                 </Row>
-                <Row className="d-flex justify-content-left m-1">
-                    <Col md={5}>
+                <Row className="d-flex justify-content-center m-3">
+                    
+                    <Col md={6}>
                         <GoalsChart />
                     </Col>
-                    <Col md={5}>
+                    <Col md={6}>
                         <GoalTypeChart/>
                     </Col>
                 </Row>

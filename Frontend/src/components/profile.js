@@ -54,14 +54,14 @@ class Profile extends React.Component {
                         </Card>
                     </Col>
 
-                    <Col md={6} classname="m-2">
+                    <Col md={6} classname="m-3">
                         <NetCaloriesChart/>
                     </Col>
 
                     <Col md={2}>
                         <Card className="m-2" id="userCalorieInfo">
                             <Card.Body>
-                                <Card.Title> {this.props.userInfo.special.find_number_of_days_left_in_current_month} Days left to do better this month!</Card.Title>
+                                <Card.Title> {this.props.userInfo.special.find_number_of_days_left_in_current_month} {this.props.userInfo.special.find_number_of_days_left_in_current_month === 1 ? "Day":"Days"} left to do better this month!</Card.Title>
                             </Card.Body>
                         </Card>
                         

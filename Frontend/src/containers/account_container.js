@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import LoginForm from '../components/login_form'
 import SignupForm from '../components/signup_form'
 import store from '../store'
+import SplashDiv from '../components/splash_div'
+
 
 class AccountContainer extends React.Component {
     state = {
@@ -24,9 +26,11 @@ class AccountContainer extends React.Component {
 
     render() { 
         return ( 
-        <div className="AccountContainer">
-                {this.state.showSignup ? <SignupForm onSubmit={this.handleSubmit} toggleSignup={this.toggleSignup} /> : <LoginForm onSubmit={this.handleSubmit} toggleLogin={this.toggleSignup}/> }
-         </div>
+            <SplashDiv>
+                <div className="AccountContainer">
+                    {this.state.showSignup ? <SignupForm onSubmit={this.handleSubmit} toggleSignup={this.toggleSignup} /> : <LoginForm onSubmit={this.handleSubmit} toggleLogin={this.toggleSignup}/> }
+                </div>
+            </SplashDiv>
          );
     }
 }

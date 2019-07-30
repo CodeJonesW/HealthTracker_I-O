@@ -15,7 +15,7 @@ class ConsumptionsContainer extends React.Component {
 
             <div className="consumptionContainer">
                 <Row className="d-flex justify-content-center m-3">
-                    <Col md={4}>
+                    <Col md={3}>
                         <Card className="m-4" id="consumptionsCard">
                             <Card.Body>
                                 <Card.Title>Calories Consumed</Card.Title>
@@ -29,7 +29,7 @@ class ConsumptionsContainer extends React.Component {
                         </Card> 
                     </Col>
 
-                    <Col md={4}>
+                    <Col md={3}>
                         <h4>Consumptions</h4>
                             <ButtonGroup vertical  className="m-1">
                                     <NavLink className="btn btn-primary" to='/createconsumption'> New Consumption</NavLink>
@@ -38,11 +38,19 @@ class ConsumptionsContainer extends React.Component {
                             </ButtonGroup>        
                     </Col>
 
-                    <Col md={4}>
+                    <Col md={3}>
                         <Card className="m-1" id="recentConsumptionsCard">
                             <Card.Body>
                                 <Card.Title>Recent Consumptions</Card.Title >
                                     <Card.Text> {this.props.userInfo.consumptions.slice(-4).map(consumption => consumption.category + ", " )}</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md={3}>
+                        <Card className="m-1" id="recentConsumptionsCard">
+                            <Card.Body>
+                                <Card.Title>Consumption Info</Card.Title >
+                                    <Card.Text>Here you can log all the food and drink you consume and keep track of them over time! Use the search bar below to search for food and beverage types and find their calorie count! </Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>

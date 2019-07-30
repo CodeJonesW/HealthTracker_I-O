@@ -32,7 +32,7 @@ class ActivityContainer extends React.Component {
           <div>
             <Row className="d-flex justify-content-center m-3">
             
-              <Col md={4}>
+              <Col md={3}>
                   <Card className="m-3" id="activityMilesCard">
                         <Card.Body>
                             <Card.Title>Total Activity Miles</Card.Title>
@@ -44,7 +44,7 @@ class ActivityContainer extends React.Component {
                   </Card>  
               </Col>
 
-              <Col md={4}>
+              <Col md={3}>
                 <h4 className="m-3">Activities</h4>
                       <ButtonGroup vertical  
                       // style={{position: 'relative'}}
@@ -55,7 +55,7 @@ class ActivityContainer extends React.Component {
                       </ButtonGroup>
               </Col>
 
-              <Col md={4}>
+              <Col md={3}>
               <Card className="m-3"
               // style={{position: 'absolute', left:'850px', top: '100px', width: '300px'}}
               >
@@ -69,6 +69,16 @@ class ActivityContainer extends React.Component {
                               </Card.Text>
                       </Card.Body>
                 </Card>
+              </Col>
+              <Col md={3}>
+                  <Card className="m-3" id="activityMilesCard">
+                        <Card.Body>
+                            <Card.Title>Activity Info</Card.Title>
+                                <Card.Text>
+                                  Here you can log all your excersizes and track the activity type, calories burned, and distance traveled over time! Input the distance, calories burned, and activity type upon creation to recieve the best results! 
+                                </Card.Text>
+                        </Card.Body>
+                  </Card>  
               </Col>
             </Row>
 

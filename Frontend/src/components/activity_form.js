@@ -4,6 +4,8 @@ import { Button } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
 import { fetchUser } from '../actions/user_actions'
+import SplashEditActivityDiv from '../components/splash_edit_activity'
+
 class ActivityForm extends Component {
     
     state = {
@@ -42,11 +44,9 @@ class ActivityForm extends Component {
 
     render() { 
         return ( 
-        
+        <SplashEditActivityDiv>
         <Form onSubmit={(e) => this.handleCreateActivity(e)} style={{position: "relative", width: 300, height: 550, margin: '20px'}}>
             {this.state.redirect}
-
-            <h3>New Activity</h3>
             <FormGroup >
                 <FormSelect name="category">
                     <option value="run">Run</option>
@@ -57,15 +57,16 @@ class ActivityForm extends Component {
             </FormGroup>
 
             <FormGroup>
-                <label htmlFor="#calories_burned">Calories Burned</label>
+                {/* <label htmlFor="#calories_burned">Calories Burned</label> */}
                 <FormInput type="number" name="calories_burned" id="#calories_burned" placeholder="# Calories Burned" />
             </FormGroup>
             <FormGroup>
-                <label htmlFor="#distance">Distance</label>
+                {/* <label htmlFor="#distance">Distance</label> */}
                 <FormInput name="distance" type="number" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
                 <Button className="mb-2" type="submit">Submit</Button>
-            </Form> );
+            </Form>
+            </SplashEditActivityDiv> );
     }
 }
  

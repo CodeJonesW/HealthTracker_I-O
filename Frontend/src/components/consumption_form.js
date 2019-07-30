@@ -5,6 +5,8 @@ import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
 import { fetchUser } from '../actions/user_actions';
 // import { createConsumption } from '../actions/consumption_actions'
+import SplashConsumptionDiv from './splash_consumption_form'
+
 class ConsumptionForm extends Component {
     
     state = {
@@ -42,21 +44,22 @@ class ConsumptionForm extends Component {
 
     render() { 
         return ( 
-        
+        <SplashConsumptionDiv>
         <Form onSubmit={(e) => this.handleCreateConsumption(e)} style={{position: "relative", width: 300, height: 550, margin: '20px'}}>
             {this.state.redirect}
 
-            <h3>New Consumption</h3>
+            {/* <h3>New Consumption</h3> */}
             <FormGroup >
-                <label htmlFor="#category">Type</label>
+                {/* <label htmlFor="#category">Type</label> */}
                 <FormInput name="category" id="#category" placeholder="Food/Beverage" />
             </FormGroup>
             <FormGroup>
-                <label htmlFor="#calories_intaken">Calories Consumed</label>
+                {/* <label htmlFor="#calories_intaken">Calories Consumed</label> */}
                 <FormInput name="calories_intaken" id="#calories_intaken" placeholder="Calories Consumed" />
             </FormGroup>
                 <Button className="mb-2" type="submit">Submit</Button>
-        </Form> );
+        </Form>
+        </SplashConsumptionDiv> );
     }
 }
  

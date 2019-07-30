@@ -4,6 +4,7 @@ import { Button } from "shards-react";
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom";
 import { fetchUser } from '../actions/user_actions'
+import SplashGoalDiv from './splash_goal_form'
 
 class GoalForm extends Component {
     
@@ -42,11 +43,11 @@ class GoalForm extends Component {
 
     render() { 
         return ( 
-        
+        <SplashGoalDiv>
         <Form onSubmit={(e) => this.handleCreateGoal(e)} style={{position: "relative", width: 300, height: 550, margin: '20px'}}>
             {this.state.redirect}
 
-            <h3>New Goal</h3>
+            {/* <h3>New Goal</h3> */}
             <FormGroup >
                 <FormSelect name="category">
                     <option value="run">Run</option>
@@ -57,12 +58,12 @@ class GoalForm extends Component {
             </FormGroup>
 
             <FormGroup>
-                <label htmlFor="#calories_burned">Calories To Burned</label>
+                {/* <label htmlFor="#calories_burned">Calories To Burned</label> */}
                 <FormInput type="number" name="calories_to_burn" id="#calories_to_burn" placeholder="# Calories to Burn" />
             </FormGroup>
 
             <FormGroup>
-                <label htmlFor="#distance">Distance</label>
+                {/* <label htmlFor="#distance">Distance</label> */}
                 <FormInput name="distance" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
 
@@ -74,7 +75,9 @@ class GoalForm extends Component {
             </FormGroup>
             
                 <Button className="mb-2" type="submit">Submit</Button>
-            </Form> );
+            </Form> 
+            </SplashGoalDiv>
+            );
     }
 }
  

@@ -4,16 +4,6 @@ import { connect } from 'react-redux'
 import { Button } from "shards-react";
 
 class ActivitiesChart extends Component {
-        // state = {
-        //     show_weekly_calories_burned: true
-        // }
-            // state shows weekly vs monthly calories burned per day ^^
-
-            // switchState = () => {
-            //     this.setState({calories_burned: !this.state.calories_burned})
-            //     console.log(this.state.calories_burned)
-            // }
-
 
     render() { 
         let barDataSets = this.props.userActivities && 
