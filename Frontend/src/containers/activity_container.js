@@ -33,15 +33,15 @@ class ActivityContainer extends React.Component {
             <Row className="d-flex justify-content-center m-3">
             
               <Col md={3}>
-                  <Card className="m-3" id="activityMilesCard">
+              <Card className="m-3" id="activityMilesCard">
                         <Card.Body>
-                            <Card.Title>Total Activity Miles</Card.Title>
+                            <Card.Title>Activity Info</Card.Title>
                                 <Card.Text>
-                                  This week: {this.props.userInfo.special.activity_miles_this_week}<br/>
-                                  This month: {this.props.userInfo.special.activity_miles_this_month}
+                                  Here you can log all your excersizes and track the activity type, calories burned, and distance traveled over time! Input the distance, calories burned, and activity type upon creation to recieve the best results! 
                                 </Card.Text>
                         </Card.Body>
-                  </Card>  
+                  </Card> 
+                    
               </Col>
 
               <Col md={3}>
@@ -54,9 +54,7 @@ class ActivityContainer extends React.Component {
               </Col>
 
               <Col md={3}>
-              <Card className="m-3"
-              // style={{position: 'absolute', left:'850px', top: '100px', width: '300px'}}
-              >
+              <Card className="m-3">
                       <Card.Body>
                           <Card.Title>Calories Burned</Card.Title>
                               <Card.Text>
@@ -69,14 +67,15 @@ class ActivityContainer extends React.Component {
                 </Card>
               </Col>
               <Col md={3}>
-                  <Card className="m-3" id="activityMilesCard">
-                        <Card.Body>
-                            <Card.Title>Activity Info</Card.Title>
-                                <Card.Text>
-                                  Here you can log all your excersizes and track the activity type, calories burned, and distance traveled over time! Input the distance, calories burned, and activity type upon creation to recieve the best results! 
-                                </Card.Text>
-                        </Card.Body>
-                  </Card>  
+                <Card className="m-3" id="activityMilesCard">
+                    <Card.Body>
+                        <Card.Title>Total Activity Miles</Card.Title>
+                            <Card.Text>
+                              This week: {this.props.userInfo.special.activity_miles_this_week}<br/>
+                              This month: {this.props.userInfo.special.activity_miles_this_month}
+                            </Card.Text>
+                    </Card.Body>
+                </Card>
               </Col>
             </Row>
 

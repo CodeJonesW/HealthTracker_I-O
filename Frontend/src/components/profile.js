@@ -52,7 +52,7 @@ class Profile extends React.Component {
                         </Card>
                     </Col>
 
-                    <Col md={6}>
+                    <Col md={5}>
                         <NetCaloriesChart/>
                     </Col>
 
@@ -79,24 +79,6 @@ class Profile extends React.Component {
                                     </Card.Text>
                             </Card.Body>
                         </Card>
-                        <Card className="m-3" id="userCalorieInfo">
-                            <Card.Body>
-                                <Card.Title>Calculator Information</Card.Title>
-                                    <Card.Text>
-                                    Basal metabolic rate (BMR) is a minimum number of calories required for basic functions at rest.<br/>
-                                    BMR for Women: BMR = 655.1 + ( 4.35 × weight in pounds ) + ( 4.7 × height in inches ) - ( 4.7 × age in years )<br/>
-                                    BMR for Men = 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )<br/>
-                                    These formulas are based on the Harris-Benedict formula.<br/>
-                                    Net Calories = Calories Consumed - Calories Burned
-                                    </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-                    <Col md={4}>
-                        <ActivityTypeChart/>
-                    </Col>
-                    <Col md={4}>
                         <Fade in={this.state.visible}>
                             <Card className="m-2" id="userFollowing">
                                 <Card.Body>
@@ -107,6 +89,25 @@ class Profile extends React.Component {
                                 </Card.Body>
                             </Card>   
                         </Fade>
+                    </Col>
+
+                    <Col md={4}>
+                        <ActivityTypeChart/>
+                    </Col>
+                    <Col md={4}>
+                    <Card className="m-3" id="userCalorieInfo">
+                            <Card.Body>
+                                <Card.Title>Calculator Information</Card.Title>
+                                    <Card.Text>
+                                    Basal metabolic rate (BMR) is a minimum number of calories required for basic resting functions.<br/>
+                                    Women's BMR: 655.1 + ( 4.35 × weight in pounds ) + ( 4.7 × height in inches ) - ( 4.7 × age in years )<br/>
+                                    Men's BMR: 66 + ( 6.2 × weight in pounds ) + ( 12.7 × height in inches ) – ( 6.76 × age in years )<br/>
+                                    These formulas are based on the Harris-Benedict formula.<br/>
+                                    Net Calories = Calories Consumed - Calories Burned
+                                    </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        
                     </Col>
                 </Row> 
             </div>

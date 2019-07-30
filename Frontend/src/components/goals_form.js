@@ -49,7 +49,7 @@ class GoalForm extends Component {
 
             {/* <h3>New Goal</h3> */}
             <FormGroup >
-                <FormSelect name="category">
+                <FormSelect required="true" name="category">
                     <option value="run">Run</option>
                     <option value="walk">Walk</option>
                     <option value="bike">Bike</option>
@@ -58,13 +58,11 @@ class GoalForm extends Component {
             </FormGroup>
 
             <FormGroup>
-                {/* <label htmlFor="#calories_burned">Calories To Burned</label> */}
-                <FormInput type="number" name="calories_to_burn" id="#calories_to_burn" placeholder="# Calories to Burn" />
+                <FormInput required="true" type="number" min="1" max="5000" name="calories_to_burn" id="#calories_to_burn" placeholder="# Calories to Burn" />
             </FormGroup>
 
             <FormGroup>
-                {/* <label htmlFor="#distance">Distance</label> */}
-                <FormInput name="distance" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
+                <FormInput required="true" type="number" name="distance" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
 
             <FormGroup>

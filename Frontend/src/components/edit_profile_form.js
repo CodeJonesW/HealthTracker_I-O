@@ -64,10 +64,10 @@ class EditProfileForm extends Component {
                     <FormInput name="name" id="#name" placeholder="Name" defaultValue={this.props.userInfo.name} />
                 </FormGroup>
                 <FormGroup>
-                    <FormInput name="email" id="#email" placeholder="Email" defaultValue={this.props.userInfo.email} />
+                    <FormInput type="email" name="email" id="#email" placeholder="Email" defaultValue={this.props.userInfo.email} />
                 </FormGroup>
                 <FormGroup>
-                    <FormInput name="age" id="#age" placeholder="Age" defaultValue={this.props.userInfo.age} />
+                    <FormInput type="number" name="age" id="#age" placeholder="Age" defaultValue={this.props.userInfo.age} />
                 </FormGroup>
                 <FormGroup>
                     <FormSelect name="gender" id="#gender" placeholder="Gender" defaultValue={this.props.userInfo.gender}>
@@ -77,10 +77,10 @@ class EditProfileForm extends Component {
                 </FormGroup>
                 
                 <FormGroup>
-                    <FormInput name="height" id="#height" placeholder="Height" defaultValue={this.props.userInfo.height}/>
+                    <FormInput type="number" step="0.1" name="height" id="#height" placeholder="Height" defaultValue={this.props.userInfo.height}/>
                 </FormGroup>
                 <FormGroup>
-                    <FormInput name="weight" id="#weight" placeholder="Weight" defaultValue={this.props.userInfo.weight}/>
+                    <FormInput type="number" name="weight" id="#weight" placeholder="Weight" defaultValue={this.props.userInfo.weight}/>
                 </FormGroup>
                     <Button className="mb-2" type="submit">Submit</Button>
                 </Form>

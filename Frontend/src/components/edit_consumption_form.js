@@ -48,7 +48,6 @@ class EditConsumptionForm extends Component {
             >
                 {this.state.redirect}
 
-                {/* <h3>Edit Consumption</h3> */}
                 <FormGroup >
                     <FormSelect name="consumptionId">
                         {this.props.userInfo.consumptions.map(consumption => <option value={consumption.id}>Id: {consumption.id}, Type: {consumption.category}, Calories Consumed: {consumption.calories_intaken ? consumption.calories_intaken :'Nil'} </option>)}
@@ -56,12 +55,11 @@ class EditConsumptionForm extends Component {
                 </FormGroup>
 
                 <FormGroup >
-                    <FormInput  name="category" id="#category" placeholder="Consumption Type" />
+                    <FormInput  required="true" type="text" name="category" id="#category" placeholder="Consumption Type" />
                 </FormGroup>
 
                 <FormGroup>
-                    {/* <label htmlFor="#calories_intaken">Calories Consumed</label> */}
-                    <FormInput type="number" name="calories_intaken" id="#calories_intaken" placeholder="# Calories Consumed" />
+                    <FormInput required="true" type="number" name="calories_intaken" id="#calories_intaken" placeholder="# Calories Consumed" />
                 </FormGroup>
                     <Button className="mb-2" type="submit">Submit Edit</Button>
             </Form>

@@ -44,44 +44,41 @@ class EditGoalForm extends Component {
     render() { 
         return ( 
         <SplashGoalDiv>
-        <Form onSubmit={(e) => this.handleEditGoal(e)} style={{position: "relative", width: 550, height: 550, margin: '20px'}}>
-            {this.state.redirect}
+            <Form onSubmit={(e) => this.handleEditGoal(e)} style={{position: "relative", width: 550, height: 550, margin: '20px'}}>
+                {this.state.redirect}
 
-            {/* <h3>Edit Goal</h3> */}
-            <FormGroup >
-                <FormSelect name="goalId">
-                    {this.props.userInfo.goals.map(goal => <option value={goal.id}>Id: {goal.id}, Status: {goal.completed ? "Complete": "Pending"}, Type: {goal.category}, Calories to Burn: {goal.calories_to_burn ? goal.calories_to_burn :'Nil'} Distance: {goal.distance ? goal.distance : 'Nil'}</option>)}
-                </FormSelect>
-            </FormGroup>
+                <FormGroup >
+                    <FormSelect name="goalId">
+                        {this.props.userInfo.goals.map(goal => <option value={goal.id}>Id: {goal.id}, Status: {goal.completed ? "Complete": "Pending"}, Type: {goal.category}, Calories to Burn: {goal.calories_to_burn ? goal.calories_to_burn :'Nil'} Distance: {goal.distance ? goal.distance : 'Nil'}</option>)}
+                    </FormSelect>
+                </FormGroup>
 
-            <FormGroup >
-                <FormSelect name="category">
-                    <option value="run">Run</option>
-                    <option value="walk">Walk</option>
-                    <option value="bike">Bike</option>
-                    <option value="swim">Swim</option>
-                </FormSelect>
-            </FormGroup>
+                <FormGroup >
+                    <FormSelect name="category">
+                        <option value="run">Run</option>
+                        <option value="walk">Walk</option>
+                        <option value="bike">Bike</option>
+                        <option value="swim">Swim</option>
+                    </FormSelect>
+                </FormGroup>
 
-            <FormGroup>
-                {/* <label htmlFor="#calories_burned">Calories To Burned</label> */}
-                <FormInput type="number" name="calories_to_burn" id="#calories_to_burn" placeholder="# Calories to Burn" />
-            </FormGroup>
+                <FormGroup>
+                    <FormInput type="number" min="0" max="5000" name="calories_to_burn" id="#calories_to_burn" placeholder="# Calories to Burn" />
+                </FormGroup>
 
-            <FormGroup>
-                {/* <label htmlFor="#distance">Distance</label> */}
-                <FormInput name="distance" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
-            </FormGroup>
+                <FormGroup>
+                    <FormInput required="true" type="number" step="0.1"  name="distance" min="0" max="500"  id="#distance" placeholder="# of Miles"   />
+                </FormGroup>
 
-            <FormGroup>
-                <FormSelect name="completed">
-                    <option value="false">Pending</option>
-                    <option value="true">Complete</option>
-                </FormSelect>
-            </FormGroup>
-            
-                <Button className="mb-2" type="submit">Submit Edit</Button>
-            </Form>
+                <FormGroup>
+                    <FormSelect name="completed">
+                        <option value="false">Pending</option>
+                        <option value="true">Complete</option>
+                    </FormSelect>
+                </FormGroup>
+                
+                    <Button className="mb-2" type="submit">Submit Edit</Button>
+                </Form>
             </SplashGoalDiv> );
     }
 }

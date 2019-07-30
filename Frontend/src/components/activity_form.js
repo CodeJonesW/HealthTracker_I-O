@@ -57,12 +57,10 @@ class ActivityForm extends Component {
             </FormGroup>
 
             <FormGroup>
-                {/* <label htmlFor="#calories_burned">Calories Burned</label> */}
-                <FormInput type="number" name="calories_burned" id="#calories_burned" placeholder="# Calories Burned" />
+                <FormInput type="number" min='1' max='5000' name="calories_burned" id="#calories_burned" placeholder="# Calories Burned" />
             </FormGroup>
             <FormGroup>
-                {/* <label htmlFor="#distance">Distance</label> */}
-                <FormInput name="distance" type="number" min="1" max="500"  id="#distance" placeholder="# of Miles"   />
+                <FormInput name="distance" type="number" min="1" max="200"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
                 <Button className="mb-2" type="submit">Submit</Button>
             </Form>
