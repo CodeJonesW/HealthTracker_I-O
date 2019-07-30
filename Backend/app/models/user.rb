@@ -351,8 +351,16 @@ class User < ApplicationRecord
         return miles
     end
 
-    # days_in_month = Time.days_in_month(Date.today.strftime('%F').split('-')[1].to_i, Date.today.strftime('%F').split('-')[0].to_i)
-    # gives me the days in the month of particular year no longer need but cool...maybe need this later^^
+    def find_number_of_days_in_current_month
+        days_in_month = Time.days_in_month(Date.today.strftime('%F').split('-')[1].to_i, Date.today.strftime('%F').split('-')[0].to_i)
+        return days_in_month
+    # gives me the days in the current month of current year
+    end
+
+    def find_number_of_days_left_in_current_month
+        days_left = find_number_of_days_in_current_month() - Date.today.strftime('%F').split('-')[2].to_i
+        return days_left
+    end
 
     def activity_miles_this_month
         miles = 0

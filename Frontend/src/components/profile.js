@@ -93,8 +93,18 @@ class Profile extends React.Component {
                         </Card>
                     </Col>
 
-                    <Col md={5}>
+                    <Col md={4}>
                         <ActivityTypeChart />
+                    </Col>
+                    <Col md={4}>
+                    <Card className="m-2" id="userCalorieInfo">
+                            <Card.Body>
+                                <Card.Title>Days left to do better this month!</Card.Title>
+                                    <Card.Text>
+                                      {this.props.userInfo.special.find_number_of_days_left_in_current_month}
+                                    </Card.Text>
+                            </Card.Body>
+                        </Card>
                     </Col>
                 </Row> 
             </div>
