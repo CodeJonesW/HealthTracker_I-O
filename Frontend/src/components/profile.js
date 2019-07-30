@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux'
-// import { ButtonGroup } from "shards-react";
 import { NavLink } from "react-router-dom"
 import { Fade, Button, ButtonGroup } from "shards-react";
 import { Card, ListGroup, Row, Col, Container} from 'react-bootstrap'
@@ -31,8 +30,8 @@ class Profile extends React.Component {
         let yearlyNetCalories = this.props.userInfo.net_calories ? this.props.userInfo.net_calories.yearly : null
 
         return ( 
-            <div>
-                <Row className="d-flex justify-content-center m-3">
+            <div id="profilePage">
+                <Row className="d-flex justify-content-left m-1">
                     <Col md={4}>
                         <Card className="m-3">
                             <Card.Body>
@@ -40,10 +39,8 @@ class Profile extends React.Component {
                                     <Card.Text>
                                         Username: {this.props.userInfo.username}<br/>
                                         Email: {this.props.userInfo.email}<br/>
-                                        Age: {this.props.userInfo.age}<br/>
-                                        Gender: {this.props.userInfo.gender}<br/>
-                                        Height: {this.props.userInfo.height}<br/>
-                                        Weight: {this.props.userInfo.weight}<br/>
+                                        Age: {this.props.userInfo.age}, Gender: {this.props.userInfo.gender}<br/>
+                                        Height: {this.props.userInfo.height}, Weight: {this.props.userInfo.weight}<br/>
                                     </Card.Text>
                                 <div>
                                     <ButtonGroup horizontal>
@@ -57,11 +54,39 @@ class Profile extends React.Component {
                         </Card>
                     </Col>
 
-                    <Col md={6}>
+                    <Col md={6} classname="m-2">
                         <NetCaloriesChart/>
                     </Col>
 
                     <Col md={2}>
+                        <Card className="m-2" id="userCalorieInfo">
+                            <Card.Body>
+                                <Card.Title> {this.props.userInfo.special.find_number_of_days_left_in_current_month} Days left to do better this month!</Card.Title>
+                            </Card.Body>
+                        </Card>
+                        
+                    </Col>
+                </Row>
+
+                <Row className="d-flex justify-content-left m-1">
+                    <Col md={4}>
+                        <Card className="m-3" id="userCalorieInfo">
+                            <Card.Body>
+                                <Card.Title>Your BMR: {this.props.userInfo.special.basal_metabolic_rate ? this.props.userInfo.special.basal_metabolic_rate :"Enter your age, weight, and height to calculate your BMR!"}</Card.Title>
+                                    <Card.Text>
+                                        Daily Net Calories: {dailyNetCalories}<br/>
+                                        Weekly Net Calories: {weeklyNetCalories}<br/>
+                                        Monthly Net Calories: {monthlyNetCalories}<br/>
+                                        Yearly Net Calories: {yearlyNetCalories}<br/>
+                                    </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+
+                    <Col md={4}>
+                        <ActivityTypeChart/>
+                    </Col>
+                    <Col md={4}>
                         <Fade in={this.state.visible}>
                             <Card className="m-2" id="userFollowing">
                                 <Card.Body>
@@ -74,37 +99,6 @@ class Profile extends React.Component {
                                 </Card.Body>
                             </Card>   
                         </Fade>
-                    </Col>
-                </Row>
-
-                <Row className="d-flex justify-content-left m-1">
-                    <Col md={4}>
-                        <Card className="m-2" id="userCalorieInfo">
-                            <Card.Body>
-                                <Card.Title>Your BMR: {this.props.userInfo.special.basal_metabolic_rate ? this.props.userInfo.special.basal_metabolic_rate :"Enter your age, weight, and height to calculate your BMR!"}</Card.Title>
-                                    <Card.Text>
-                                        Daily Net Calories: {dailyNetCalories}<br/>
-                                        Weekly Net Calories: {weeklyNetCalories}<br/>
-                                        Monthly Net Calories: {monthlyNetCalories}<br/>
-                                        Yearly Net Calories: {yearlyNetCalories}<br/>
-
-                                    </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-                    <Col md={4}>
-                        <ActivityTypeChart />
-                    </Col>
-                    <Col md={4}>
-                    <Card className="m-2" id="userCalorieInfo">
-                            <Card.Body>
-                                <Card.Title>Days left to do better this month!</Card.Title>
-                                    <Card.Text>
-                                      {this.props.userInfo.special.find_number_of_days_left_in_current_month}
-                                    </Card.Text>
-                            </Card.Body>
-                        </Card>
                     </Col>
                 </Row> 
             </div>

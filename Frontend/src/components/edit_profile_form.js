@@ -45,6 +45,7 @@ class EditProfileForm extends Component {
 
     render() { 
         return ( 
+            <div id="editProfile">
             <Form onSubmit={(e) => this.handleEditProfile(e)} 
             style={{position: "relative", width: 300, height: 550, margin: '20px'}}
             >
@@ -83,7 +84,8 @@ class EditProfileForm extends Component {
                     <FormInput name="weight" id="#weight" placeholder="Weight" defaultValue={this.props.userInfo.weight}/>
                 </FormGroup>
                     <Button className="mb-2" type="submit">Submit</Button>
-                </Form>);
+                </Form>
+                </div>);
     }
 }
  

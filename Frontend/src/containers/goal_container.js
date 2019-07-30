@@ -24,7 +24,7 @@ class GoalContainer extends React.Component {
                         </Card>
                     </Col>
                     
-                    <Col md={4} className="m-2">
+                    <Col md={5} className="m-2">
                         <h4>Goals</h4>
                         <ButtonGroup vertical>
                                     <NavLink className="btn btn-primary" to='/creategoal'> New Goal</NavLink>
@@ -34,24 +34,22 @@ class GoalContainer extends React.Component {
                     </Col>
                    
 
-                    <Col md={4}>
-                        <Card className="m-3" id="activeGoalsCard">
+                    <Col md={3}>
+                        <Card className="m-1" id="activeGoalsCard">
                             <Card.Body>
-                                <Card.Title>Active Goals</Card.Title>
-                                    <Card.Text>
-                                    {this.props.goalStats.pending_goals.map(pendingGoal => <p>Distance: {pendingGoal.distance}, Type: {pendingGoal.category}</p> )}
-                                    </Card.Text>
+                                <Card.Title>Last 3 Pending Goals</Card.Title>
+                                    {this.props.goalStats.pending_goals.slice(-4).map(pendingGoal => <p>Distance: {pendingGoal.distance}, Type: {pendingGoal.category}</p> )}
                             </Card.Body>
                         </Card>
                     </Col>
 
                   
                 </Row>
-                <Row className="d-flex justify-content-center m-1">
-                    <Col md={5} className="m-2">
+                <Row className="d-flex justify-content-left m-1">
+                    <Col md={5}>
                         <GoalsChart />
                     </Col>
-                    <Col md={6}>
+                    <Col md={5}>
                         <GoalTypeChart/>
                     </Col>
                 </Row>

@@ -90,7 +90,7 @@ class NutritionixForm extends Component {
                 <FormGroup>
                     <FormInput name="nutritionixSearch" id="#nutritionixSearch" placeholder="Search Nutrionix Foods!" />
                 </FormGroup>
-                    <Button className="mb-2" type="submit">Submit</Button>
+                    <Button className="mb-2" type="submit">Search</Button>
                 </Form> 
 
                 <Fade in={this.state.visible}>

@@ -90,8 +90,8 @@ class LoginForm extends React.Component {
     
 render() {
         return (
-            <div>
-                <Container>
+            <div id="signInpage">
+                <Container >
                     <Row className="d-flex justify-content-center m-3">
                         <Col>
                             <Form onSubmit={(e) => this.handleSignIn(e)} style={{position: "relative", width: 300, height: 550}}>
@@ -113,37 +113,37 @@ render() {
                         <Col>
                             <Fade in={this.state.visible}>
                                 <Form onSubmit={(e) => this.handleSignUp(e)} style={{position: "relative", width: 300, height: 550, margin: '20px'}}>
-                                <h3>New User</h3>
+                                <h7>Create New User</h7>
                                     <FormGroup >
-                                        <label htmlFor="#username">Username</label>
+                                        {/* <label htmlFor="#username">Username</label> */}
                                         <FormInput name="username" id="#username" placeholder="Username" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <label htmlFor="#password">Password</label>
+                                        {/* <label htmlFor="#password">Password</label> */}
                                         <FormInput name="password" type="password" id="#password" placeholder="Password" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <label htmlFor="#name">Name</label>
+                                        {/* <label htmlFor="#name">Name</label> */}
                                         <FormInput name="name" type="name" id="#name" placeholder="Name" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <label htmlFor="#email">Email</label>
+                                        {/* <label htmlFor="#email">Email</label> */}
                                         <FormInput name="email" id="#email" placeholder="Email" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <label htmlFor="#age">Age</label>
+                                        {/* <label htmlFor="#age">Age</label> */}
                                         <FormInput name="age" id="#age" placeholder="Age" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <label htmlFor="#gender">Gender</label>
+                                        {/* <label htmlFor="#gender">Gender</label> */}
                                         <FormInput name="gender" id="#gender" placeholder="Gender" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <label htmlFor="#height">Height</label>
+                                        {/* <label htmlFor="#height">Height</label> */}
                                         <FormInput name="height" id="#height" placeholder="Height" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <label htmlFor="#weight">Weight</label>
+                                        {/* <label htmlFor="#weight">Weight</label> */}
                                         <FormInput name="weight" id="#weight" placeholder="Weight" />
                                     </FormGroup>
                                         <Button className="mb-2" type="submit">Submit</Button>

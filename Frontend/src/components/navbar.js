@@ -58,14 +58,14 @@ class MyNavBar extends React.Component {
          <Navbar type="dark" theme="primary" expand="md">
          <NavbarBrand ><img src={logo} alt="logo"/></NavbarBrand>
          
-         <NavbarBrand href="/">Health Tracker I/O</NavbarBrand>
+         <NavbarBrand href="/">Calorie Tracker I/O</NavbarBrand>
          <NavbarToggler />
        </Navbar> 
          :
         <Navbar type="dark" theme="primary" expand="md">
           <NavbarBrand ><img src={logo} alt="logo"/></NavbarBrand>
           
-          <NavbarBrand href="/">Health Tracker I/O</NavbarBrand>
+          <NavbarBrand href="/">Calorie Tracker I/O</NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} />
           
           <Collapse open={this.state.collapseOpen} navbar>

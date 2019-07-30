@@ -41,10 +41,8 @@ class ConsumptionsContainer extends React.Component {
                     <Col md={4}>
                         <Card className="m-1" id="recentConsumptionsCard">
                             <Card.Body>
-                                <Card.Title>Recent Consumptions</Card.Title>
-                                    <Card.Text>
-                                        Add  todays consumptions?
-                                    </Card.Text>
+                                <Card.Title>Recent Consumptions</Card.Title >
+                                    <Card.Text> {this.props.userInfo.consumptions.slice(-4).map(consumption => consumption.category + ", " )}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
