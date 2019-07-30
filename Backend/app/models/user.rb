@@ -321,6 +321,18 @@ class User < ApplicationRecord
         return consumed
     end
 
+    def consumptions_within_last_3_days_per_day
+        days = []
+        consumed = []
+        days << Date.today-2
+        days << Date.today-1
+        days << Date.today
+        days.each do |day|
+            consumed << day_of_choice_consumptions(day)
+        end
+        return consumed
+    end
+
 
     def day_of_choice_activity_miles(day)
         miles = 0

@@ -63,11 +63,12 @@ class UserSerializer < ActiveModel::Serializer
       last_weeks_days: self.object.show_last_weeks_days,
       show_this_months_past_days: self.object.show_this_months_past_days,
       consumptions_within_last_week: self.object.consumptions_within_last_week,
+      consumptions_within_last_3_days_per_day: self.object.consumptions_within_last_3_days_per_day,
       activity_miles_this_week: self.object.activity_miles_this_week,
       activity_miles_this_month: self.object.activity_miles_this_month,
       find_number_of_days_in_current_month: self.object.find_number_of_days_in_current_month,
       find_number_of_days_left_in_current_month: self.object.find_number_of_days_left_in_current_month
-      
-    }
+      }
    end
+
 end
