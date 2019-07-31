@@ -7,7 +7,7 @@ class GoalsChart extends Component {
     let barDataSets = this.props.userGoals && [
       {
         label: "Calories To Burn",
-        borderColor: "rgba(1, 50, 67, 1)",
+        borderColor: "rgba(1, 50, 67, 0.5)",
         borderWidth: "1",
         backgroundColor: "rgba(102, 51, 153, 0.9)",
         data: this.props.user.goal_stats.successful_goals.map(
@@ -34,7 +34,7 @@ class GoalsChart extends Component {
           }}
           data={{
             labels: this.props.user.goal_stats.successful_goals.map(goal =>
-              goal.updated_at.slice(3, 10)
+              goal.created_at.slice(3, 10)
             ),
             datasets: barDataSets
           }}

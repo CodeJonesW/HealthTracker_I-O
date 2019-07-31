@@ -7,13 +7,13 @@ class ActivitiesChart extends Component {
     let barDataSets = this.props.userActivities && [
       {
         label: "Calories Burned",
-        backgroundColor: "rgba(207, 0, 15, 0.8)",
+        backgroundColor: "rgba(207, 0, 15, 0.75)",
         borderColor: "rgba(232, 126, 4, 0.4)",
         data: this.props.userInfo.special.calories_burned.map(burned => burned)
       },
       {
         label: "Activity Distance in Miles",
-        backgroundColor: "rgba(232, 126, 4, 0.8)",
+        backgroundColor: "rgba(232, 126, 4, 0.75)",
         borderColor: "rgba(207, 0, 15, 0.4)",
         data: this.props.userInfo.special.activity_miles_per_day_this_week.map(
           distance => distance

@@ -65,6 +65,9 @@ class EditProfileForm extends Component {
             <FormGroup>
               <FormInput
                 name="username"
+                type="text"
+                required="true"
+                maxlength="16"
                 id="#username"
                 placeholder="Username"
                 defaultValue={this.props.userInfo.username}
@@ -135,11 +138,11 @@ class EditProfileForm extends Component {
                 defaultValue={this.props.userInfo.weight}
               />
             </FormGroup>
-            <ButtonGroup horizontal="true">
-              <Button className="btn btn-primary" type="submit">
+            <ButtonGroup id="myBtnGroup" horizontal="true">
+              <Button id="myButton" className="btn btn-primary" type="submit">
                 Submit Edit
               </Button>
-              <NavLink className="btn btn-primary" to="/profile">
+              <NavLink id="myButton" className="btn btn-primary" to="/profile">
                 Back
               </NavLink>
             </ButtonGroup>

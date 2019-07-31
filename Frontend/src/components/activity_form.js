@@ -88,10 +88,10 @@ class ActivityForm extends Component {
             />
           </FormGroup>
           <ButtonGroup horizontal="true">
-            <Button className="btn btn-primary" type="submit">
+            <Button id="myButton" className="btn btn-primary" type="submit">
               Submit
             </Button>
-            <NavLink className="btn btn-primary" to="/activities">
+            <NavLink id="myButton" className="btn btn-primary" to="/activities">
               Back
             </NavLink>
           </ButtonGroup>

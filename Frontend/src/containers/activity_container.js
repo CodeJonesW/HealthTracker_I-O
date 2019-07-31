@@ -55,15 +55,27 @@ class ActivityContainer extends React.Component {
           <Col md={3}>
             <h4 className="m-3">Activities</h4>
             <ButtonGroup vertical>
-              <NavLink className="btn btn-primary" to="/createactivity">
+              <NavLink
+                id="myButton"
+                className="btn btn-primary"
+                to="/createactivity"
+              >
                 {" "}
                 New Activity
               </NavLink>
-              <NavLink className="btn btn-primary" to="/editactivity">
+              <NavLink
+                id="myButton"
+                className="btn btn-primary"
+                to="/editactivity"
+              >
                 {" "}
                 Edit Activity
               </NavLink>
-              <NavLink className="btn btn-primary" to="/deleteactivity">
+              <NavLink
+                id="myButton"
+                className="btn btn-primary"
+                to="/deleteactivity"
+              >
                 Delete Activity
               </NavLink>
             </ButtonGroup>

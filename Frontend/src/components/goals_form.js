@@ -100,10 +100,10 @@ class GoalForm extends Component {
             </FormSelect>
           </FormGroup>
           <ButtonGroup horizontal="true">
-            <Button className="btn btn-primary" type="submit">
+            <Button id="myButton" className="btn btn-primary" type="submit">
               Submit
             </Button>
-            <NavLink className="btn btn-primary" to="/goals">
+            <NavLink id="myButton" className="btn btn-primary" to="/goals">
               Back
             </NavLink>
           </ButtonGroup>

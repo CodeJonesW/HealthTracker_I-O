@@ -97,7 +97,12 @@ class LoginForm extends React.Component {
             <Col>
               <Form
                 onSubmit={e => this.handleSignIn(e)}
-                style={{ position: "relative", width: 300, height: 550 }}
+                style={{
+                  opacity: "0.9",
+                  position: "relative",
+                  width: 300,
+                  height: 550
+                }}
               >
                 <FormGroup>
                   <label htmlFor="#email">Email</label>
@@ -120,10 +125,10 @@ class LoginForm extends React.Component {
                   />
                 </FormGroup>
                 <ButtonGroup horizontal="true" className="loginButtonGroup">
-                  <Button className="mb-2" type="submit">
+                  <Button id="myButton" className="mb-2" type="submit">
                     Login
                   </Button>
-                  <Button onClick={this.toggle} className="mb-2">
+                  <Button id="myButton" onClick={this.toggle} className="mb-2">
                     Sign up!
                   </Button>
                 </ButtonGroup>
@@ -137,6 +142,7 @@ class LoginForm extends React.Component {
                   style={{
                     position: "relative",
                     width: 300,
+                    opacity: "0.9",
                     height: 550,
                     margin: "20px"
                   }}
@@ -216,10 +222,18 @@ class LoginForm extends React.Component {
                     />
                   </FormGroup>
                   <ButtonGroup horizontal="true">
-                    <Button className="btn btn-primary" type="submit">
+                    <Button
+                      id="myButton"
+                      className="btn btn-primary"
+                      type="submit"
+                    >
                       Submit
                     </Button>
-                    <Button className="btn btn-primary" onClick={this.toggle}>
+                    <Button
+                      id="myButton"
+                      className="btn btn-primary"
+                      onClick={this.toggle}
+                    >
                       Back
                     </Button>
                   </ButtonGroup>

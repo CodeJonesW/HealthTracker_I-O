@@ -26,15 +26,23 @@ class GoalContainer extends React.Component {
           <Col md={5} className="m-2">
             <h4>Goals</h4>
             <ButtonGroup vertical>
-              <NavLink className="btn btn-primary" to="/creategoal">
+              <NavLink
+                id="myButton"
+                className="btn btn-primary"
+                to="/creategoal"
+              >
                 {" "}
                 New Goal
               </NavLink>
-              <NavLink className="btn btn-primary" to="/editgoal">
+              <NavLink id="myButton" className="btn btn-primary" to="/editgoal">
                 {" "}
                 Edit Goal
               </NavLink>
-              <NavLink className="btn btn-primary" to="/deletegoal">
+              <NavLink
+                id="myButton"
+                className="btn btn-primary"
+                to="/deletegoal"
+              >
                 {" "}
                 Delete Goal
               </NavLink>
@@ -58,10 +66,10 @@ class GoalContainer extends React.Component {
           </Col>
         </Row>
         <Row className="d-flex justify-content-center m-3">
-          <Col md={6}>
+          <Col md={5}>
             <GoalsChart />
           </Col>
-          <Col md={6}>
+          <Col md={5}>
             <GoalTypeChart />
           </Col>
         </Row>

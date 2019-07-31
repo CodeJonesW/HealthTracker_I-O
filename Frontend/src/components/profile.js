@@ -59,7 +59,11 @@ class Profile extends React.Component {
                   {/* <Button onClick={this.toggle}>
                                             Show Friends
                                         </Button> */}
-                  <NavLink className="btn btn-primary" to="/editprofile">
+                  <NavLink
+                    id="myButton"
+                    className="btn btn-primary"
+                    to="/editprofile"
+                  >
                     {" "}
                     Edit Profile
                   </NavLink>

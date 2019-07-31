@@ -104,7 +104,7 @@ class NutritionixForm extends Component {
                   placeholder="Search Nutrionix Foods and Create a Consumption!"
                 />
               </FormGroup>
-              <Button className="mb-2" type="submit">
+              <Button id="myButton" className="mb-2" type="submit">
                 Search
               </Button>
             </Fragment>
@@ -148,11 +148,16 @@ class NutritionixForm extends Component {
                     }
                   />
                 </FormGroup>
-                <Button className="mb-2" onClick={this.toggle} type="submit">
+                <Button
+                  id="myButton"
+                  className="mb-2"
+                  onClick={this.toggle}
+                  type="submit"
+                >
                   Add to your Consumptions
                 </Button>{" "}
                 <br />
-                <Button onClick={this.toggle} className="mb-2">
+                <Button id="myButton" onClick={this.toggle} className="mb-2">
                   Close
                 </Button>
               </Form>
