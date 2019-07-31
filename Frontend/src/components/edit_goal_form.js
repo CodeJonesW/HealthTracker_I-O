@@ -67,7 +67,7 @@ class EditGoalForm extends Component {
                 </FormGroup>
 
                 <FormGroup>
-                    <FormInput required="true" type="number" step="0.1"  name="distance" min="0" max="500"  id="#distance" placeholder="# of Miles"   />
+                    <FormInput required="true" type="number" step="0.1" min="0" max="200"  name="distance" min="0" max="500"  id="#distance" placeholder="# of Miles"   />
                 </FormGroup>
 
                 <FormGroup>

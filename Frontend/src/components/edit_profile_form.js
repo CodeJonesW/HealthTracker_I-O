@@ -14,7 +14,7 @@ class EditProfileForm extends Component {
 
     handleEditProfile = (e) => {
         e.preventDefault()
-
+        let height = e.target.height.value
             fetch(`http://localhost:3000/users/${this.props.userInfo.id}`,{
             method: 'PATCH',
             headers: { Accept: 'application/json', 'Content-Type':'application/json', 'Authorization': `Bearer ${localStorage.jwt_token}` },
@@ -27,12 +27,11 @@ class EditProfileForm extends Component {
                     age: e.target.age.value,
                     weight: e.target.weight.value,
                     gender: e.target.gender.value,
-                    height: e.target.height.value
+                    height: height.toString()
                 }
             })
         })
         .then(res => res.json())
-        .then(console.log)
         fetchUser().then(res => {
             this.props.dispatch({ type: 'UPDATE_USER', user: res.user })
         })
@@ -58,7 +57,7 @@ class EditProfileForm extends Component {
                     <FormInput name="username" id="#username" placeholder="Username" defaultValue={this.props.userInfo.username} />
                 </FormGroup>
                 <FormGroup>
-                    <FormInput name="password" id="#password" placeholder="Password"/>
+                    <FormInput required="true" name="password" id="#password" placeholder="Password"/>
                 </FormGroup>
                 <FormGroup>
                     <FormInput name="name" id="#name" placeholder="Name" defaultValue={this.props.userInfo.name} />

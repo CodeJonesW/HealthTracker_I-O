@@ -60,6 +60,7 @@ class LoginForm extends React.Component {
     handleSignUp = (e) => {
         e.preventDefault()
 		if(e.target.email.value && e.target.password.value) {
+            let height = e.target.height.value
 			fetch('http://localhost:3000/signup',{
 		    method: 'POST',
 		    headers: { Accept: 'application/json', 'Content-Type':'application/json' },
@@ -72,7 +73,7 @@ class LoginForm extends React.Component {
                     age: e.target.age.value,
                     weight: e.target.weight.value,
                     gender: e.target.gender.value,
-                    height: e.target.height.value
+                    height: height.toString()
                 }
 		    })
 		  })
@@ -97,11 +98,11 @@ render() {
                             <Form onSubmit={(e) => this.handleSignIn(e)} style={{position: "relative", width: 300, height: 550}}>
                                 <FormGroup >
                                     <label htmlFor="#email">Email</label>
-                                    <FormInput type="email" name="email" id="#email" placeholder="Email" />
+                                    <FormInput required="true" type="email" name="email" id="#email" placeholder="Email" />
                                 </FormGroup>
                                 <FormGroup>
                                     <label htmlFor="#password">Password</label>
-                                    <FormInput name="password" type="password" id="#password" placeholder="Password" />
+                                    <FormInput required="true" name="password" type="password" id="#password" placeholder="Password" />
                                 </FormGroup>
                                     <ButtonGroup horizontal="true"  className="loginButtonGroup">
                                         <Button className="mb-2" type="submit">Login</Button>
@@ -136,10 +137,10 @@ render() {
                                         </FormSelect>
                                     </FormGroup>
                                     <FormGroup>
-                                        <FormInput type="number" step="0.1" name="height" id="#signupheight" placeholder="Height: Example 5'8" />
+                                        <FormInput type="number" step="0.1" name="height" id="#signupheight" placeholder="Height" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <FormInput type="number" min="1" max="800" name="weight" id="#weight" placeholder="Weight in Lbs" />
+                                        <FormInput type="number" min="1" max="800" name="weight" id="#weight" placeholder="Weight" />
                                     </FormGroup>
                                         <Button className="mb-2" type="submit">Submit</Button>
                                     </Form>

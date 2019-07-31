@@ -65,7 +65,7 @@ class EditActivityForm extends Component {
             </FormGroup>
 
             <FormGroup>
-                <FormInput name="distance" min="1" max="300"  id="#distance" placeholder="# of Miles"   />
+                <FormInput name="distance" type="number" step="0.1" min="0" max="200"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
             
                 <Button className="mb-2" type="submit">Submit Edit</Button>

@@ -55,11 +55,11 @@ class EditConsumptionForm extends Component {
                 </FormGroup>
 
                 <FormGroup >
-                    <FormInput  required="true" type="text" name="category" id="#category" placeholder="Consumption Type" />
+                    <FormInput required="true" type="text" name="category" id="#category" placeholder="Consumption Type" />
                 </FormGroup>
 
                 <FormGroup>
-                    <FormInput required="true" type="number" name="calories_intaken" id="#calories_intaken" placeholder="# Calories Consumed" />
+                    <FormInput required="true" type="number" min="1" max="4000" name="calories_intaken" id="#calories_intaken" placeholder="# Calories Consumed" />
                 </FormGroup>
                     <Button className="mb-2" type="submit">Submit Edit</Button>
             </Form>

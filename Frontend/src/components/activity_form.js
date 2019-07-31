@@ -60,7 +60,7 @@ class ActivityForm extends Component {
                 <FormInput type="number" min='1' max='5000' name="calories_burned" id="#calories_burned" placeholder="# Calories Burned" />
             </FormGroup>
             <FormGroup>
-                <FormInput name="distance" type="number" min="1" max="200"  id="#distance" placeholder="# of Miles"   />
+                <FormInput name="distance" type="number" step="0.1" min="0" max="200"  id="#distance" placeholder="# of Miles"   />
             </FormGroup>
                 <Button className="mb-2" type="submit">Submit</Button>
             </Form>

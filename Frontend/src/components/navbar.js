@@ -62,7 +62,7 @@ class MyNavBar extends React.Component {
          <NavbarToggler />
        </Navbar> 
          :
-        <Navbar type="dark" theme="primary" expand="md">
+        <Navbar id="navBar" type="dark" theme="primary" expand="md">
           <NavbarBrand ><img src={logo} alt="logo"/></NavbarBrand>
           
           <NavbarBrand href="/">Calorie Tracker I/O</NavbarBrand>
@@ -71,7 +71,7 @@ class MyNavBar extends React.Component {
           <Collapse open={this.state.collapseOpen} navbar>
             <Nav className="mr-auto"navbar>
               <NavItem>
-                <NavLink active href="/profile">
+                <NavLink href="/profile">
                   Profile
                 </NavLink>
               </NavItem>

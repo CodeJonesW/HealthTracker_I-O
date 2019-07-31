@@ -195,11 +195,9 @@ class User < ApplicationRecord
     #base metabolic rate
     # what user needs to have for basic function
     # Harris–Benedict equation
-    #66 + (6.2 x weight) + (12.7 x height) - (6.76 x age) = BMR for men
-    #655.1 + (4.35 x weight) + (4.7 x height) - (4.7 x age) = BMR for women
 
     def basal_metabolic_rate
-        return self.gender == "male" ? 66 + ( 6.2 * self.weight ) + ( 12.7 * (self.height).to_f ) - ( 6.76 * self.age) : 655.1 + ( 4.35 * self.weight ) + ( 4.7 * (self.height).to_f ) - ( 4.7 * self.age)
+        return self.gender == "male" ? ( 10 * (self.weight * 0.453592) ) + ( 6.25 * (self.height * 30.48).to_f ) - ( 5 * self.age) + 5 : ( 10 * (self.weight * 0.453592) ) + ( 6.25 * (self.height * 30.48).to_f ) - ( 5 * self.age) - 161
     end
 
 

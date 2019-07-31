@@ -86,8 +86,6 @@ class NutritionixForm extends Component {
         <div>
             <Form onSubmit={(e) => this.handleSearchNutrionixFoods(e)} >
                 {this.state.redirect}
-
-                
                     {this.state.visible ? null :
                     <Fragment>
                     <FormGroup>
