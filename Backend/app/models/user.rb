@@ -197,7 +197,27 @@ class User < ApplicationRecord
     # Harris–Benedict equation
 
     def basal_metabolic_rate
-        return self.gender == "male" ? ( 10 * (self.weight * 0.453592) ) + ( 6.25 * (self.height * 30.48).to_f ) - ( 5 * self.age) + 5 : ( 10 * (self.weight * 0.453592) ) + ( 6.25 * (self.height * 30.48).to_f ) - ( 5 * self.age) - 161
+        self.gender == "male" ? 66.7 + ( 6.24 * (self.weight) ) + ( 12.7 * (self.height).to_f ) - ( 6.755 * self.age) : 655.1 + ( 4.35 * (self.weight) ) + ( 4.7 * (self.height).to_f ) - ( 4.7 * self.age)
+    end
+
+    def bmr_at_sedentary_activity_lvl
+        self.basal_metabolic_rate * 1.2
+    end
+
+    def bmr_at_light_activity_lvl
+        self.basal_metabolic_rate * 1.375
+    end
+
+    def bmr_at_moderate_activity_lvl
+        self.basal_metabolic_rate * 1.55
+    end
+
+    def bmr_at_high_activity_lvl
+        self.basal_metabolic_rate * 1.725
+    end
+
+    def bmr_at_very_high_activity_lvl
+        self.basal_metabolic_rate * 1.9
     end
 
 
