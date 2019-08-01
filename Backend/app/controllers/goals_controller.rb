@@ -20,7 +20,10 @@ class GoalsController < ApplicationController
     end
 
     def destroy
-        @goal = Goal.destroy(params[:id])
+        if @goal = Goal.destroy(params[:id])
+            user = UserSerializer.new(@user)
+            render json: {user: user}
+        end 
     end
 
     def update

@@ -23,7 +23,10 @@ class ActivitiesController < ApplicationController
 
 
     def destroy
-        @activity = Activity.destroy(params[:id])
+       if  @activity = Activity.destroy(params[:id])
+            user = UserSerializer.new(@user)
+            render json: {user: user}
+       end
     end
 
     def update

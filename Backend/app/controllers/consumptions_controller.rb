@@ -21,7 +21,10 @@ class ConsumptionsController < ApplicationController
     end
 
     def destroy
-        @consumption = Consumption.destroy(params[:id])
+        if @consumption = Consumption.destroy(params[:id])
+            user = UserSerializer.new(@user)
+            render json: {user: user}
+        end
     end
 
     def update

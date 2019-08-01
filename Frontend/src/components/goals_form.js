@@ -80,8 +80,9 @@ class GoalForm extends Component {
             <FormInput
               required="true"
               type="number"
-              min="1"
+              min="0"
               max="5000"
+              step="10"
               name="calories_to_burn"
               id="#calories_to_burn"
               placeholder="# Calories to Burn"

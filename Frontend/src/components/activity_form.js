@@ -76,8 +76,9 @@ class ActivityForm extends Component {
           <FormGroup>
             <FormInput
               type="number"
-              min="1"
+              min="0"
               max="5000"
+              step="10"
               name="calories_burned"
               id="#calories_burned"
               placeholder="# Calories Burned"

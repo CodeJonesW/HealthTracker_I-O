@@ -94,6 +94,7 @@ class EditGoalForm extends Component {
               type="number"
               min="0"
               max="5000"
+              step="10"
               name="calories_to_burn"
               placeholder="# Calories to Burn"
             />
