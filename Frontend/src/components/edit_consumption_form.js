@@ -32,11 +32,18 @@ class EditConsumptionForm extends Component {
           }
         })
       }
-    ).then(res => res.json())
-    fetchUser().then(res => {
-      this.props.dispatch({ type: "UPDATE_USER", user: res.user })
-    })
-    this.setState({ redirect: <Redirect to="/consumptions" /> })
+    )
+      .then(res => res.json())
+      .then(res => {
+        if (res.user) {
+          this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+          this.setState({ redirect: <Redirect to="/consumptions" /> })
+        }
+      })
+    // fetchUser().then(res => {
+    //   this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+    // })
+    // this.setState({ redirect: <Redirect to="/consumptions" /> })
     // }
     //   	else if(res.errors)
     //   		this.setState({ errors: res.errors })

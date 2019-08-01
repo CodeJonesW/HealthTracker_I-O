@@ -94,7 +94,7 @@ class LoginForm extends React.Component {
       <div>
         <Container>
           <Row className="d-flex justify-content-left m-1">
-            <Col md={4}>
+            <Col md={3}>
               <Form
                 className="m-3"
                 onSubmit={e => this.handleSignIn(e)}
@@ -107,7 +107,7 @@ class LoginForm extends React.Component {
               >
                 <FormGroup>
                   <FormInput
-                    required="true"
+                    required={true}
                     type="email"
                     name="email"
                     id="#email"
@@ -116,7 +116,7 @@ class LoginForm extends React.Component {
                 </FormGroup>
                 <FormGroup>
                   <FormInput
-                    required="true"
+                    required={true}
                     name="password"
                     type="password"
                     id="#password"
@@ -133,7 +133,7 @@ class LoginForm extends React.Component {
                 </ButtonGroup>
               </Form>
             </Col>
-            <Col md={2} />
+            <Col md={2} className="m-1" />
             <Col md={4}>
               <p id="quote" className="m-2">
                 “The future depends on what you do today.”
@@ -152,8 +152,8 @@ class LoginForm extends React.Component {
                 >
                   <FormGroup>
                     <FormInput
-                      required="true"
-                      maxlength="16"
+                      required={true}
+                      maxLength="16"
                       type="text"
                       name="username"
                       id="#signupusername"
@@ -162,7 +162,7 @@ class LoginForm extends React.Component {
                   </FormGroup>
                   <FormGroup>
                     <FormInput
-                      required="true"
+                      required={true}
                       name="password"
                       id="#signuppassword"
                       placeholder="Password"
@@ -170,20 +170,20 @@ class LoginForm extends React.Component {
                   </FormGroup>
                   <FormGroup>
                     <FormInput
-                      required="true"
+                      required={true}
                       type="text"
                       name="name"
-                      maxlength="20"
+                      maxLength="20"
                       id="#signupname"
                       placeholder="Name"
                     />
                   </FormGroup>
                   <FormGroup>
                     <FormInput
-                      required="true"
+                      required={true}
                       type="email"
                       name="email"
-                      maxlength="25"
+                      maxLength="25"
                       id="#signupemail"
                       placeholder="Email"
                     />

@@ -6,7 +6,9 @@ class GoalsController < ApplicationController
 
     def create
         @goal = Goal.create(g_params)
-        render json: @goal
+        user = UserSerializer.new(@user)
+        render json: {user: user}
+        # render json: @goal
     end
 
     def show
@@ -24,7 +26,9 @@ class GoalsController < ApplicationController
     def update
         @goal = Goal.find(params[:id])
         if @goal.update(g_params)
-            render json: @goal
+            user = UserSerializer.new(@user)
+            render json: {user: user}
+            # render json: @goal
         else
             render json: @goal.errors, status: :unprocessable_entity
         end

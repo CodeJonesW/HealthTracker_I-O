@@ -6,7 +6,10 @@ class ActivitiesController < ApplicationController
 
     def create
         @activity = Activity.create(a_params)
-        render json: @activity
+
+        user = UserSerializer.new(@user)
+        render json: {user: user}
+        # render json: @activity
     end
 
     
@@ -26,7 +29,9 @@ class ActivitiesController < ApplicationController
     def update
         @activity = Activity.find(params[:id])
         if @activity.update(a_params)
-            render json: @activity
+            user = UserSerializer.new(@user)
+            render json: {user: user}
+            # render json: @activity
         else
             render json: @activity.errors, status: :unprocessable_entity
         end

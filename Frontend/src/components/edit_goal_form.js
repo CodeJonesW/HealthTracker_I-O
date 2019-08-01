@@ -31,11 +31,19 @@ class EditGoalForm extends Component {
           user_id: this.props.userInfo.id
         }
       })
-    }).then(res => res.json())
-    fetchUser().then(res => {
-      this.props.dispatch({ type: "UPDATE_USER", user: res.user })
     })
-    this.setState({ redirect: <Redirect to="/goals" /> })
+      .then(res => res.json())
+      .then(res => {
+        if (res.user) {
+          this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+          this.setState({ redirect: <Redirect to="/goals" /> })
+        }
+      })
+
+    // fetchUser().then(res => {
+    //   this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+    // })
+    // this.setState({ redirect: <Redirect to="/goals" /> })
     // }
     //   	else if(res.errors)
     //   		this.setState({ errors: res.errors })
