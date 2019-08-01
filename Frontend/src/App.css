@@ -19,7 +19,12 @@
   /* border-radius: 5px; */
 }
 
-/* #myBtnGroup {
-  background-color: rgba(31, 58, 147, 1);
-  border-color: rgba(31, 58, 147, 1);
-} */
+#quote {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 12pt;
+}
+
+#quoteAuthor {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 9pt;
+}
