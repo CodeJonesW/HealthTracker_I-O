@@ -122,7 +122,7 @@ class Profile extends React.Component {
                     : "Enter your age, weight, and height to calculate your BMR!"}
                 </Card.Title>
                 <Card.Text>
-                  Suggested Intake for Activity Levels:
+                  Suggested Calorie Intake by Activity Level:
                   <br />
                   Sedentary:
                   {this.props.userInfo.special.bmr_at_sedentary_activity_lvl.toFixed(
