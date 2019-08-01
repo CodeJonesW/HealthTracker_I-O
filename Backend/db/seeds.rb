@@ -1,3 +1,4 @@
+require 'faker'
 
 User.destroy_all
 Activity.destroy_all
@@ -6,42 +7,103 @@ Goal.destroy_all
 Consumption.destroy_all
 ConsumptionComment.destroy_all
 
+    # Run in rails console to alter the created at dates to see full function of graphs
+    # Activity.all.each {|activity| activity.created_at = (rand*7).days.ago; activity.save}
+
+
+    # Consumption.all.each {|consumption| consumption.created_at = (rand*7).days.ago; consumption.save}
+    
+    
+    # Goal.all.each {|goal| goal.created_at = (rand*7).days.ago; goal.save}
+    
+    4.times do 
+        User.create(:username => Faker::Internet.username, 
+        :name => Faker::Name.name,
+        :age => Faker::Number.within(range: 1..100),
+        :weight => Faker::Number.within(range: 100..300),
+        :height => Random.new.rand(5.0...6.9).to_s[0..2],
+        :email => Faker::Internet.email,
+        :password => '123',
+        :gender => Faker::Gender.binary_type)
+    end
+
+    User.create(:username => "CodeJonesW", :name => "Will Jones", :age => 27, :weight => 180, :height => "6.4", :email => "willjones@blah.com", password: '123', :gender => 'male')
 
 
 
-User.create(:username => "SeeRoseCode", :name => "RoseLake", :age => 31, :weight => 120, :height => "5'5", :email => "seerosecode@blah.com", password: '123', :gender => 'female')
-User.create(:username => "dekadekadeka", :name => "Deka", :age => 31, :weight => 120, :height => "5'5", :email => "dekadekadeka@blah.com", password: '123', :gender => 'female')
-User.create(:username => "evansallgucci", :name => "Evan Kim", :age => 24, :weight => 150, :height => "5'4", :email => "evankim@blah.com", password: '123', :gender => 'male')
-User.create(:username => "Jaedaboss", :name => "Jae Park", :age => 30, :weight => 187, :height => "5'8", :email => "jaepark@blah.com", password: '123', :gender => 'male')
-User.create(:username => "Dhara!", :name => "dhara", :age => 27, :weight => 120, :height => "5'4", :email => "dhara@blah.com", password: '123', :gender => 'female')
-User.create(:username => "RomBombDotCom", :name => "Romy Magsoudhi", :age => 21, :weight => 180, :height => "5'10", :email => "rombomb@blah.com", password: '123', :gender => 'male')
-User.create(:username => "MasterHan", :name => "Han Xu", :age => 31, :weight => 150, :height => "5'7", :email => "masterxu@blah.com", password: '123', :gender => 'male')
-User.create(:username => "BatCat", :name => "scott", :age => 34, :weight => 160, :height => 5.9, :email => "scott@blah.com", password: '123', :gender => 'male')
-User.create(:username => "Adub", :name => "AndrewAllen", :age => 24, :weight => 160, :height => "5'11", :email => "andrew@blah.com", password: '123', :gender => 'male')
-User.create(:username => "paulatulis", :name => "Paula Tulis", :age => 26, :weight => 110, :height => "5'7", :email => "paula@blah.com", password: '123', :gender => 'female')
-User.create(:username => "Pmoney", :name => "Preston Elliott", :age => 27, :weight => 250, :height => "6'7", :email => "pmoney@blah.com", password: '123', :gender => 'male')
-User.create(:username => "TunDawg", :name => "Tun Khine", :age => 38, :weight => 165, :height => "5'7", :email => "tunkhine@blah.com", password: '123', :gender => 'male')
-User.create(:username => "CodeJonesW", :name => "Will Jones", :age => 27, :weight => 180, :height => "6'4", :email => "willjones@blah.com", password: '123', :gender => 'male')
+    50.times do 
+        Activity.create(:user_id => Faker::Number.within(range: 1..11),
+        :category => "run",
+        :calories_burned => Faker::Number.within(range: 100..3000),
+        :distance => Random.new.rand(1.0...30.0).to_s[0..3])
+    end
 
+    50.times do 
+        Activity.create(:user_id => Faker::Number.within(range: 1..11),
+        :category => "bike",
+        :calories_burned => Faker::Number.within(range: 100..3000),
+        :distance => Random.new.rand(1.0...30.0).to_s[0..3])
+    end
 
-Activity.create(:user_id => User.last.id, :category => "run", :calories_burned => 500, :distance => "3 miles")
-Activity.create(:user_id => User.first.id, :category => "run", :calories_burned => 500, :distance => "5 miles")
-Activity.create(:user_id => User.second.id, :category => "run", :calories_burned => 500, :distance => "2 miles")
-Activity.create(:user_id => User.last.id, :category => "run", :calories_burned => 500, :distance => "6 miles")
-Activity.create(:user_id => User.last.id, :category => "run", :calories_burned => 500, :distance => "1 miles")
+    50.times do 
+        Activity.create(:user_id => Faker::Number.within(range: 1..11),
+        :category => "swim",
+        :calories_burned => Faker::Number.within(range: 100..3000),
+        :distance => Random.new.rand(1.0...30.0).to_s[0..3])
+    end
 
+    50.times do 
+        Activity.create(:user_id => Faker::Number.within(range: 1..11),
+        :category => "walk",
+        :calories_burned => Faker::Number.within(range: 100..3000),
+        :distance => Random.new.rand(1.0...30.0).to_s[0..3])
+    end
 
-ActivityComment.create(:content => "yay its going to work", :user_id => User.last.id, :activity_id => Activity.last.id)
+    30.times do 
+        Goal.create(:user_id => Faker::Number.within(range: 1..11),
+        :completed => Faker::Boolean.boolean,
+        :calories_to_burn => Faker::Number.within(range: 100..3000),
+        :distance => Random.new.rand(1.0...30.0).to_s[0..3],
+        :category => "walk")
+    end
 
+    30.times do 
+        Goal.create(:user_id => Faker::Number.within(range: 1..10),
+        :completed => Faker::Boolean.boolean,
+        :calories_to_burn => Faker::Number.within(range: 100..3000),
+        :distance => Random.new.rand(1.0...30.0).to_s[0..3],
+        :category => "run")
+    end
 
-Goal.create(:user_id => User.last.id, :completed => false, :calories_to_burn => 600, :distance => "5 miles", :category => "walk")
-Goal.create(:user_id => User.last.id, :completed => true, :distance => "5 miles", :category => "run")
+    30.times do 
+        Goal.create(:user_id => Faker::Number.within(range: 1..11),
+        :completed => Faker::Boolean.boolean,
+        :calories_to_burn => Faker::Number.within(range: 100..3000),
+        :distance => Random.new.rand(1.0...30.0).to_s[0..3],
+        :category => "swim")
+    end
 
+    50.times do 
+        Consumption.create(:user_id => Faker::Number.within(range: 1..11),
+        :category => Faker::Food.vegetables,
+        :calories_intaken => Faker::Number.within(range: 100..3000))
+    end
 
-Consumption.create(:user_id => User.last.id, :category => "1 slice of pizza", :calories_intaken => 700)
+    50.times do 
+        Consumption.create(:user_id => Faker::Number.within(range: 1..11),
+        :category => Faker::Food.fruits,
+        :calories_intaken => Faker::Number.within(range: 100..3000))
+    end
 
-ConsumptionComment.create(:user_id => User.last.id, :consumption_id => Consumption.last.id, :content => "Woah fat boy thats some pizza")
+    50.times do 
+        Consumption.create(:user_id => Faker::Number.within(range: 1..11),
+        :category => Faker::Food.dish,
+        :calories_intaken => Faker::Number.within(range: 100..3000))
+    end
 
+    50.times do 
+        Consumption.create(:user_id => Faker::Number.within(range: 1..11),
+        :category => Faker::Food.sushi,
+        :calories_intaken => Faker::Number.within(range: 100..3000))
+    end
 
-Follow.create(user: User.first, followed_user: User.second)
-Follow.create(user: User.second, followed_user: User.first)

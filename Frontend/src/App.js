@@ -18,6 +18,11 @@ import EditGoalForm from './components/edit_goal_form'
 import EditActivityForm from './components/edit_activity_form'
 import EditConsumptionForm from './components/edit_consumption_form'
 import EditProfileForm from './components/edit_profile_form'
+import DeleteActivity from './components/delete_activity'
+import DeleteConsumption from './components/delete_consumption'
+import DeleteGoal from './components/delete_goal'
+
+
 
 
 class App extends React.Component{
@@ -55,6 +60,10 @@ class App extends React.Component{
               <Route exact path='/creategoal' render={()=> <GoalForm/> }/>
               <Route exact path='/editgoal' render={()=> <EditGoalForm/> }/>
               <Route exact path='/editprofile' render={()=> <EditProfileForm/> }/>
+              <Route exact path='/deleteactivity' render={()=> <DeleteActivity/> }/>
+              <Route exact path='/deleteconsumption' render={()=> <DeleteConsumption/> }/>
+              <Route exact path='/deletegoal' render={()=> <DeleteGoal/> }/>
+
             </Switch>
         }
       </div>

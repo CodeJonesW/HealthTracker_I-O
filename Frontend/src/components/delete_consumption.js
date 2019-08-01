@@ -1,38 +1,32 @@
 import React, { Component } from "react"
-import { Form, FormInput, FormGroup, FormSelect } from "shards-react"
+import { Form, FormGroup, FormSelect } from "shards-react"
 import { Button, ButtonGroup } from "shards-react"
 import { NavLink } from "react-router-dom"
 import { connect } from "react-redux"
 import { Redirect } from "react-router-dom"
 import { fetchUser } from "../actions/user_actions"
-import SplashConsumptionDiv from "./splash_consumption_form"
+import SplashEditConsumptionDiv from "../components/splash_consumption_form"
 
-class EditConsumptionForm extends Component {
+class DeleteConsumptionForm extends Component {
   state = {
     redirect: null
   }
 
-  handleEditConsumption = e => {
+  handleDeleteConsumption = e => {
     e.preventDefault()
 
     fetch(
       `http://localhost:3000/consumptions/${e.target.consumptionId.value}`,
       {
-        method: "PATCH",
+        method: "DELETE",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.jwt_token}`
         },
-        body: JSON.stringify({
-          consumption: {
-            category: e.target.category.value.toLowerCase(),
-            calories_intaken: e.target.calories_intaken.value,
-            user_id: this.props.userInfo.id
-          }
-        })
+        body: JSON.stringify({})
       }
-    ).then(res => res.json())
+    )
     fetchUser().then(res => {
       this.props.dispatch({ type: "UPDATE_USER", user: res.user })
     })
@@ -47,9 +41,9 @@ class EditConsumptionForm extends Component {
 
   render() {
     return (
-      <SplashConsumptionDiv>
+      <SplashEditConsumptionDiv>
         <Form
-          onSubmit={e => this.handleEditConsumption(e)}
+          onSubmit={e => this.handleDeleteConsumption(e)}
           style={{
             position: "relative",
             width: 550,
@@ -58,12 +52,12 @@ class EditConsumptionForm extends Component {
           }}
         >
           {this.state.redirect}
-
           <FormGroup>
             <FormSelect name="consumptionId">
               {this.props.userInfo.consumptions.map(consumption => (
                 <option value={consumption.id}>
-                  Type: {consumption.category}, Calories Consumed:{" "}
+                  Id: {consumption.id}, Type: {consumption.category}, Calories
+                  Intaken:{" "}
                   {consumption.calories_intaken
                     ? consumption.calories_intaken
                     : "Nil"}{" "}
@@ -71,31 +65,9 @@ class EditConsumptionForm extends Component {
               ))}
             </FormSelect>
           </FormGroup>
-
-          <FormGroup>
-            <FormInput
-              required="true"
-              type="text"
-              name="category"
-              id="#category"
-              placeholder="Consumption Type"
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <FormInput
-              required="true"
-              type="number"
-              min="1"
-              max="4000"
-              name="calories_intaken"
-              id="#calories_intaken"
-              placeholder="# Calories Consumed"
-            />
-          </FormGroup>
           <ButtonGroup horizontal="true">
             <Button id="myButton" className="btn btn-primary" type="submit">
-              Submit
+              Delete
             </Button>
             <NavLink
               id="myButton"
@@ -106,7 +78,7 @@ class EditConsumptionForm extends Component {
             </NavLink>
           </ButtonGroup>
         </Form>
-      </SplashConsumptionDiv>
+      </SplashEditConsumptionDiv>
     )
   }
 }
@@ -115,4 +87,4 @@ let mapStateToProps = state => {
   return { userInfo: state.user.userInfo }
 }
 
-export default connect(mapStateToProps)(EditConsumptionForm)
+export default connect(mapStateToProps)(DeleteConsumptionForm)

@@ -59,9 +59,22 @@ class UserSerializer < ActiveModel::Serializer
       basal_metabolic_rate: self.object.basal_metabolic_rate,
       calories_consumed: self.object.calories_consumed_per_day_within_last_week,
       calories_burned: self.object.calories_burned_per_day_within_last_week,
+      calories_burned_per_day_within_last_month: self.object.calories_burned_per_day_within_last_month,
       last_weeks_days: self.object.show_last_weeks_days,
+      show_this_months_past_days: self.object.show_this_months_past_days,
       consumptions_within_last_week: self.object.consumptions_within_last_week,
-      activity_miles_this_week: self.object.activity_miles_this_week
-    }
+      consumptions_within_last_3_days_per_day: self.object.consumptions_within_last_3_days_per_day,
+      activity_miles_this_week: self.object.activity_miles_this_week,
+      activity_miles_per_day_this_week: self.object.activity_miles_per_day_this_week,
+      activity_miles_this_month: self.object.activity_miles_this_month,
+      find_number_of_days_in_current_month: self.object.find_number_of_days_in_current_month,
+      find_number_of_days_left_in_current_month: self.object.find_number_of_days_left_in_current_month,
+      bmr_at_sedentary_activity_lvl: self.object.bmr_at_sedentary_activity_lvl,
+      bmr_at_light_activity_lvl: self.object.bmr_at_light_activity_lvl,
+      bmr_at_moderate_activity_lvl: self.object.bmr_at_moderate_activity_lvl,
+      bmr_at_high_activity_lvl: self.object.bmr_at_high_activity_lvl,
+      bmr_at_very_high_activity_lvl: self.object.bmr_at_very_high_activity_lvl
+      }
    end
+
 end
