@@ -93,21 +93,21 @@ class LoginForm extends React.Component {
     return (
       <div>
         <Container>
-          <Row className="d-flex justify-content-center m-3">
-            <Col>
+          <Row className="d-flex justify-content-left m-1">
+            <Col md={3}>
               <Form
+                className="m-3"
                 onSubmit={e => this.handleSignIn(e)}
                 style={{
                   opacity: "0.9",
                   position: "relative",
-                  width: 300,
-                  height: 550
+                  width: 250,
+                  height: 450
                 }}
               >
                 <FormGroup>
-                  <label htmlFor="#email">Email</label>
                   <FormInput
-                    required="true"
+                    required={true}
                     type="email"
                     name="email"
                     id="#email"
@@ -115,9 +115,8 @@ class LoginForm extends React.Component {
                   />
                 </FormGroup>
                 <FormGroup>
-                  <label htmlFor="#password">Password</label>
                   <FormInput
-                    required="true"
+                    required={true}
                     name="password"
                     type="password"
                     id="#password"
@@ -134,8 +133,12 @@ class LoginForm extends React.Component {
                 </ButtonGroup>
               </Form>
             </Col>
-
-            <Col>
+            <Col md={2} className="m-1" />
+            <Col md={4}>
+              <p id="quote" className="m-2">
+                “The future depends on what you do today.”
+              </p>
+              <p id="quoteAuthor">-Mahatma Gandhi</p>
               <Fade in={this.state.visible}>
                 <Form
                   onSubmit={e => this.handleSignUp(e)}
@@ -147,11 +150,10 @@ class LoginForm extends React.Component {
                     margin: "20px"
                   }}
                 >
-                  <h6>Create New User</h6>
                   <FormGroup>
                     <FormInput
-                      required="true"
-                      maxlength="16"
+                      required={true}
+                      maxLength="16"
                       type="text"
                       name="username"
                       id="#signupusername"
@@ -160,7 +162,7 @@ class LoginForm extends React.Component {
                   </FormGroup>
                   <FormGroup>
                     <FormInput
-                      required="true"
+                      required={true}
                       name="password"
                       id="#signuppassword"
                       placeholder="Password"
@@ -168,20 +170,20 @@ class LoginForm extends React.Component {
                   </FormGroup>
                   <FormGroup>
                     <FormInput
-                      required="true"
+                      required={true}
                       type="text"
                       name="name"
-                      maxlength="20"
+                      maxLength="20"
                       id="#signupname"
                       placeholder="Name"
                     />
                   </FormGroup>
                   <FormGroup>
                     <FormInput
-                      required="true"
+                      required={true}
                       type="email"
                       name="email"
-                      maxlength="25"
+                      maxLength="25"
                       id="#signupemail"
                       placeholder="Email"
                     />
@@ -227,7 +229,7 @@ class LoginForm extends React.Component {
                       className="btn btn-primary"
                       type="submit"
                     >
-                      Submit
+                      Create User
                     </Button>
                     <Button
                       id="myButton"

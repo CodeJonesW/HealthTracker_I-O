@@ -422,6 +422,16 @@ class User < ApplicationRecord
         return miles
     end
 
+    def activity_miles_this_year
+        yearsActivityMiles = 0
+        Activity.all.each do |activity| 
+            if (activity.created_at.year == Time.now.year)
+                yearsActivityMiles += activity.distance.to_i
+            end
+        end
+        return yearsActivityMiles
+    end
+
 
 
 

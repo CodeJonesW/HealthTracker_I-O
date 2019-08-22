@@ -73,7 +73,8 @@ class UserSerializer < ActiveModel::Serializer
       bmr_at_light_activity_lvl: self.object.bmr_at_light_activity_lvl,
       bmr_at_moderate_activity_lvl: self.object.bmr_at_moderate_activity_lvl,
       bmr_at_high_activity_lvl: self.object.bmr_at_high_activity_lvl,
-      bmr_at_very_high_activity_lvl: self.object.bmr_at_very_high_activity_lvl
+      bmr_at_very_high_activity_lvl: self.object.bmr_at_very_high_activity_lvl,
+      activity_miles_this_year: self.object.activity_miles_this_year
       }
    end
 

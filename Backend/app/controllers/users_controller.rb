@@ -34,7 +34,8 @@ class UsersController < ApplicationController
     def update
       @user = User.find(params[:id])
       if @user.update(new_user_params)
-          render json: @user
+        user = UserSerializer.new(@user)
+        render json: {user: user}
       else
           render json: @user.errors, status: :unprocessable_entity
       end

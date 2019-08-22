@@ -30,10 +30,18 @@ class EditActivityForm extends Component {
           user_id: this.props.userInfo.id
         }
       })
-    }).then(res => res.json())
-    fetchUser().then(res => {
-      this.props.dispatch({ type: "UPDATE_USER", user: res.user })
     })
+      .then(res => res.json())
+      .then(res => {
+        if (res.user) {
+          this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+          this.setState({ redirect: <Redirect to="/activities" /> })
+        }
+      })
+
+    // fetchUser().then(res => {
+    //   this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+    // })
 
     this.setState({ redirect: <Redirect to="/activities" /> })
     // }
@@ -81,8 +89,9 @@ class EditActivityForm extends Component {
           <FormGroup>
             <FormInput
               type="number"
-              min="1"
+              min="0"
               max="5000"
+              step="10"
               name="calories_burned"
               id="#calories_burned"
               placeholder="# Calories Burned"

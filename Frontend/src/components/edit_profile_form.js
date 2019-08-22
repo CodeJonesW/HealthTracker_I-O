@@ -34,11 +34,19 @@ class EditProfileForm extends Component {
           height: height.toString()
         }
       })
-    }).then(res => res.json())
-    fetchUser().then(res => {
-      this.props.dispatch({ type: "UPDATE_USER", user: res.user })
     })
-    this.setState({ redirect: <Redirect to="/profile" /> })
+      .then(res => res.json())
+      .then(res => {
+        if (res.user) {
+          this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+          this.setState({ redirect: <Redirect to="/profile" /> })
+        }
+      })
+
+    // fetchUser().then(res => {
+    //   this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+    // })
+    // this.setState({ redirect: <Redirect to="/profile" /> })
     // }
     //   	else if(res.errors)
     //   		this.setState({ errors: res.errors })

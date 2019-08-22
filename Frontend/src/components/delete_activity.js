@@ -24,10 +24,17 @@ class DeleteActivityForm extends Component {
       },
       body: JSON.stringify({})
     })
-    fetchUser().then(res => {
-      this.props.dispatch({ type: "UPDATE_USER", user: res.user })
-    })
-    this.setState({ redirect: <Redirect to="/activities" /> })
+      .then(res => res.json())
+      .then(res => {
+        if (res.user) {
+          this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+          this.setState({ redirect: <Redirect to="/activities" /> })
+        }
+      })
+    // fetchUser().then(res => {
+    //   this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+    // })
+    // this.setState({ redirect: <Redirect to="/activities" /> })
     // }
     //   	else if(res.errors)
     //   		this.setState({ errors: res.errors })

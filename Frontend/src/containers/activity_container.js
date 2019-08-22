@@ -105,12 +105,17 @@ class ActivityContainer extends React.Component {
                 <Card.Text>
                   This week:{" "}
                   {this.props.userInfo.special.activity_miles_this_week.toFixed(
-                    1
+                    0
                   )}
                   <br />
                   This month:{" "}
                   {this.props.userInfo.special.activity_miles_this_month.toFixed(
-                    1
+                    0
+                  )}
+                  <br />
+                  This year:{" "}
+                  {this.props.userInfo.special.activity_miles_this_year.toFixed(
+                    0
                   )}
                 </Card.Text>
               </Card.Body>

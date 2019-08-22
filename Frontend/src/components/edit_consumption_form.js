@@ -32,11 +32,18 @@ class EditConsumptionForm extends Component {
           }
         })
       }
-    ).then(res => res.json())
-    fetchUser().then(res => {
-      this.props.dispatch({ type: "UPDATE_USER", user: res.user })
-    })
-    this.setState({ redirect: <Redirect to="/consumptions" /> })
+    )
+      .then(res => res.json())
+      .then(res => {
+        if (res.user) {
+          this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+          this.setState({ redirect: <Redirect to="/consumptions" /> })
+        }
+      })
+    // fetchUser().then(res => {
+    //   this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+    // })
+    // this.setState({ redirect: <Redirect to="/consumptions" /> })
     // }
     //   	else if(res.errors)
     //   		this.setState({ errors: res.errors })
@@ -86,8 +93,9 @@ class EditConsumptionForm extends Component {
             <FormInput
               required="true"
               type="number"
-              min="1"
+              min="0"
               max="4000"
+              step="10"
               name="calories_intaken"
               id="#calories_intaken"
               placeholder="# Calories Consumed"

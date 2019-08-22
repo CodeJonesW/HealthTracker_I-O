@@ -7,7 +7,9 @@ class ConsumptionsController < ApplicationController
 
     def create
         @consumption = Consumption.create(c_params)
-        render json: @consumption_comment
+        user = UserSerializer.new(@user)
+        render json: {user: user}
+        # render json: @consumption
     end
 
     def show
@@ -19,13 +21,18 @@ class ConsumptionsController < ApplicationController
     end
 
     def destroy
-        @consumption = Consumption.destroy(params[:id])
+        if @consumption = Consumption.destroy(params[:id])
+            user = UserSerializer.new(@user)
+            render json: {user: user}
+        end
     end
 
     def update
         @consumption = Consumption.find(params[:id])
         if @consumption.update(c_params)
-            render json: @consumption
+            user = UserSerializer.new(@user)
+            render json: {user: user}
+            # render json: @consumption
         else
             render json: @consumption.errors, status: :unprocessable_entity
         end

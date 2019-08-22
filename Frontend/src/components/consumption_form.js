@@ -29,13 +29,20 @@ class ConsumptionForm extends Component {
           calories_intaken: e.target.calories_intaken.value
         }
       })
-    }).then(res => res.json())
-
-    fetchUser().then(res => {
-      this.props.dispatch({ type: "UPDATE_USER", user: res.user })
     })
+      .then(res => res.json())
+      .then(res => {
+        if (res.user) {
+          this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+          this.setState({ redirect: <Redirect to="/consumptions" /> })
+        }
+      })
 
-    this.setState({ redirect: <Redirect to="/consumptions" /> })
+    // fetchUser().then(res => {
+    //   this.props.dispatch({ type: "UPDATE_USER", user: res.user })
+    // })
+
+    // this.setState({ redirect: <Redirect to="/consumptions" /> })
     // }
     //   	else if(res.errors)
     //   		this.setState({ errors: res.errors })
@@ -72,6 +79,7 @@ class ConsumptionForm extends Component {
               type="number"
               min="1"
               max="4000"
+              step="10"
               name="calories_intaken"
               id="#calories_intaken"
               placeholder="Calories Consumed"
